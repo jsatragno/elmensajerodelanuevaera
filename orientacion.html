@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientación y Educación Personal | Roberto Ángel Satragno</title>
+    <style>
+        /* Estilos Generales */
+        :root {
+            --primary-color: #2c3e50; /* Azul oscuro elegante */
+            --accent-color: #d4af37; /* Dorado suave para detalles espirituales */
+            --bg-color: #fcfcfc;
+            --text-color: #333;
+            --light-bg: #f0f2f5;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif; /* Tipografía serif para lectura cómoda */
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--primary-color);
+            font-weight: 300;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contenedor Principal */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Introducción */
+        .intro-box {
+            background: white;
+            border-left: 5px solid var(--accent-color);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+        }
+
+        /* Índice de Navegación */
+        .toc {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            background: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: block;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+            font-family: sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .toc a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Secciones de Preguntas */
+        article {
+            margin-bottom: 4rem;
+            padding-top: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 3rem;
+        }
+
+        article h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Sección Diario / Cronología */
+        .diary-section {
+            background-color: #fffaf0; /* Un tono crema muy suave */
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 4rem;
+            border: 1px solid #eec;
+        }
+
+        .diary-entry {
+            margin-bottom: 2rem;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Sección Final (1979) */
+        .legacy-section {
+            background-color: var(--light-bg);
+            padding: 2rem;
+            margin-top: 4rem;
+            border-radius: 8px;
+        }
+
+        .qa-list dt {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 1.2rem;
+            font-family: sans-serif;
+        }
+
+        .qa-list dd {
+            margin-left: 0;
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid #ccc;
+        }
+
+        /* Botón Amanecer y Volver */
+        .btn-amanecer {
+            display: block;
+            width: 200px;
+            margin: 2rem auto;
+            padding: 15px;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 94, 98, 0.4);
+            transition: transform 0.2s;
+            font-family: sans-serif;
+        }
+
+        .btn-amanecer:hover {
+            transform: scale(1.05);
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #888;
+            text-decoration: none;
+            font-family: sans-serif;
+        }
+        
+        .back-to-top:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: #222;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .toc ul { grid-template-columns: 1fr; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Orientación y Educación Personal</h1>
+        <p>Un compendio de comunicación con algo más allá.</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="intro-box">
+        <p>Durante la elaboración de esta página, de este compendio de años de comunicación con algo más allá, hubo alguien que me ayudó cuando lo pasé mal, alguien que se alegró cuando me fue bien, alguien que se apenó cuando hacía algún mal, alguien que me dictó lo que ahora juzgará.</p>
+        <p>Hubo alguien que me educó como ahora lo verá. Lo verá y juzgará si ese alguien tiene razón. Si es así se educará como me eduqué yo.</p>
+        <a href="#toc" class="btn-amanecer">Si desea una respuesta en especial, oprima el amanecer</a>
+    </div>
+
+    <nav class="toc" id="toc">
+        <h3>Índice de Temas</h3>
+        <ul>
+            <li><a href="#bienes">¿Puedo tener bienes materiales?</a></li>
+            <li><a href="#exito">¿Qué es el éxito?</a></li>
+            <li><a href="#tentacion">¿Qué pasa si caigo en una tentación?</a></li>
+            <li><a href="#elegido">¿Cómo puede ser que me hayan elegido?</a></li>
+            <li><a href="#dudas">¿Por qué tengo tantas dudas?</a></li>
+            <li><a href="#imagen">¿Qué imagen tendré que dar?</a></li>
+            <li><a href="#pruebas">¿Necesito pruebas?</a></li>
+            <li><a href="#mision">¿Cuál es mi Misión?</a></li>
+            <li><a href="#consultar">¿Puedo consultar por todo lo que hago?</a></li>
+            <li><a href="#problemas">¿Por qué tengo tantos problemas?</a></li>
+            <li><a href="#respeto">¿Cómo puedo hacer para que me respeten?</a></li>
+            <li><a href="#bienomal">¿Cómo sé si hago un bien o un mal?</a></li>
+            <li><a href="#mascosas">¿Por qué no me dan más cosas?</a></li>
+            <li><a href="#aprender">¿Qué tengo que aprender?</a></li>
+            <li><a href="#certeza">¿Temo por mi certeza?</a></li>
+            <li><a href="#hombre">¿Cómo reacciono como hombre normal?</a></li>
+            <li><a href="#esperar">¿Por qué tengo que esperar?</a></li>
+            <li><a href="#lentamente">¿Por qué avanzo tan lentamente?</a></li>
+            <li><a href="#promesa">¿Qué quieren que les prometa?</a></li>
+            <li><a href="#elegir">¿Ya elegí?</a></li>
+            <li><a href="#diario">Los últimos años... (Diario)</a></li>
+            <li><a href="#origen">El Origen (1979)</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article id="bienes">
+            <h2>¿Puedo tener bienes materiales?</h2>
+            <p>¿Qué quieres para tu vida? ¿Quieres bienes materiales, o quieres que todos tus males se reduzcan hasta estar en su verdadero lugar?</p>
+            <p>¿Cuál es ese lugar? Para los bienes que cuentan: El pan para tu alimento, para tu diario sustento, lo deberás ganar cada día, paso a paso, poniéndote a trabajar. Ese es el pan que ganado con el debido sudor, se santifica en tu mesa, porque tiene su valor.</p>
+            <p>Para los bienes que traen a tu vida comodidad. ¿Qué importa si tienes menos, qué importa si tienes más? Al final de tu camino, cuando mires hacia atrás, esos bienes materiales que tanto costó ganar, son sólo cosas sin vida, cosas solas nada más.</p>
+            <p>Si los tienes en tu vida: tienes comodidad y los ganaste en tu vida sin causar daño a alguien más. Disfruta de ese bien en vida, dale valor a ese bien, porque ese bien que tienes lo ganaste con tus méritos, así es que lo mereces.</p>
+            <p>Pero tu vida, la vida que ambicionas, debe tener otras metas: no solo lo material. Debes ser cada día, cada día más y más, un ser humano normal en el que no anida el mal.</p>
+            <p>Si obtienes por tu trabajo algún bien material, disfrútalo, si eso te ayuda a lograr felicidad. Pero no debes dudar en desechar ese bien, si en algún paso que das puede causar daño a otro mortal. Ese bien malhabido, ese bien que no has ganado, se volverá en contra tuyo y no podrás disfrutarlo.</p>
+            <p>Esa es la explicación del interés por lo material: si lo ganas con las armas de amor a la humanidad, si lo ganas limpiamente sin hacer daño a alguien más, a esos bienes que obtuviste, los bienes que obtendrás, dales el destino que quieras. El destino que tendrán alimentará a tu espíritu, si con ellos logras paz.</p>
+            <p>Pero si a esos bienes los usas para dominar, los usas para que te sirvan, para a otros doblegar, si lo haces con maldad, irremediablemente traerán a tu ser adversidad.</p>
+            <p>La verdad en la vida es el bien prodigar. Cuanto mas bien prodigas, más bien recibirás.</p>
+            <a href="#toc" class="back-to-top">↑ Volver al índice</a>
+        </article>
+
+        <article id="exito">
+            <h2>¿Qué es el éxito?</h2>
+            <p>¿Qué se puede comprar, con éxito nada más? Claro, si tienes un éxito y lo puedes valorar en dinero u otra forma, ese éxito valdrá. ¿Cómo has de darle valor, si no se puede pesar? ¿Pero si es un éxito en algo que no se puede comprar?</p>
+            <p>Con acciones... vamos bien. ¿Cómo será que ese éxito que has tenido te sirva para avanzar? Avanzar en qué... dirás. Será en algo que ansías, si no no te podría ayudar.</p>
+            <p>Piensa en algo... algo que ansías... ¿Qué necesitas para ese algo alcanzar? ¿Es un éxito?... ¿Viste qué es? ¿Cómo lo alcanzarás? ¿Con acciones? ¿Y qué más? ¿En esto... entra el azar? ¡Ah! La suerte... ¿Qué es? ¿Si le cambias el nombre y le pones destino?</p>
+            <p>Entonces debe estar escrito... Si está en tu destino y el destino está fijado, la suerte que necesitas para el éxito tan deseado, debe estar en tu camino, ya escrito y prefijado.</p>
+            <p>¿Qué debes hacer para lograr el éxito? Nada, ponerte a dormir, si eso te hace feliz. ¿No crees que habrá algo más para lograr el éxito?</p>
+            <p>Si está escrito me dirás escrito está. Para qué molestarse si el éxito llega igual. ¿Qué ganaré al final? Si lo tengo prefijado viviré una vida cómoda; esperando y esperando.</p>
+            <p>Tienes que tratar de hacer progresos una y otra vez: no importa que tu destino tenga mojones, momentos prefijados. Lo que hagas en los momentos que aún no están señalados, son parte de tu albedrío y así podrás ayudarlo: Trabajando y estudiando.</p>
+            <p>Los éxitos grandes, muy grandes, que a tu destino alteran, están todos señalados antes de que te mueras. A los éxitos pequeñitos que hacen a tu vida plena, a esos puedes cultivarlos, puedes alcanzarlos, con trabajo y dedicación: Son parte de tu albedrío, son parte de tu función.</p>
+            <a href="#toc" class="back-to-top">↑ Volver al índice</a>
+        </article>
+
+        <article id="tentacion">
+            <h2>¿Qué pasa si caigo en una tentación?</h2>
+            <p>Si dejas que la tentación te arrastre por el camino de la maldad, la traición, el rencor, el desvarío. Esa tentación será quien deje en tu destino, un ser bajo, ruin, que merecerá el abismo en el que su alma caerá como castigo divino.</p>
+            <p>Si dejas que el rencor anide en tu pecho, ese rencor llevará a tu ser a cosechar, en el jardín de las flores, las flores de la maldad.</p>
+            <p>Todo lo bueno que hiciste, todo el bien que puedes hacer, hazlo sin pedir nada a cambio: que el premio será recibido al morir, pues habrás cumplido con la ley fundamental: El que obra con bondad, con acciones buenas y justas, es un ser que ha llegado a dominar su razón de tal forma y de tal modo, que no deja que ella albergue la maldad, la vanidad y todas esas acciones que al ser humano disponen para cosas mucho peores.</p>
+            <p>En cambio, la bondad es premiada con más luz. En el espacio infinito se traduce en poder, se transforma en elevación.</p>
+            <a href="#toc" class="back-to-top">↑ Volver al índice</a>
+        </article>
+
+        <article id="elegido">
+            <h2>¿Cómo puede ser que me hayan elegido?</h2>
+            <p>¿Cómo puede ser que yo, que no tengo nada, pueda ser quien ha de dar el mensaje de cuál es la verdad? La verdadera verdad... ¿Cómo puede ser que yo, que tengo poca instrucción, tenga la tarea de darle difusión a mensajes tan profundos, como los que tengo yo?</p>
+            <p>¿Cómo puede ser? Y es... ¿Cómo podrá ser? Y será... ¿Cómo será que será? Y es seguro que será. No le encuentro explicación, no le encuentro el motivo: ¡¿Cómo puede ser que yo sea el ser elegido?!</p>
+            <p>Si hay tantos más preparados, si hay tantos mejor ubicados, si hay tantos que podrían ser. ¿Cómo puede ser? Sin embargo... lo es.</p>
+            <p>Quienes dominan sus acciones, son dueños de sus reacciones. Quienes son dueños de sus reacciones, dan cabida a sus emociones; y no dejan que sus emociones los desvíen de sus acciones.</p>
+            <a href="#toc" class="back-to-top">↑ Volver al índice</a>
+        </article>
+
+        <article id="dudas">
+            <h2>¿Por qué tengo tantas dudas?</h2>
+            <p>¿Si la verdad de la vida es la bondad de la gente, por qué ésta más y más se aparta de ese camino y sufre cada vez más porque se apartó del mismo?</p>
+            <p>Si yo que ya comprendo, que sé con seguridad que el camino verdadero es brindarse a los demás, tengo dudas y temores y vacilo en mi obrar. ¡Cómo puedo pretender que el mal sea dominado, si en mí el mal no está, cerrado y amordazado!</p>
+            <blockquote>"Si tu deseo de herir hace daño a otra persona, no olvides que ese dolor volverá a ti, en otra forma."</blockquote>
+            <a href="#toc" class="back-to-top">↑ Volver al índice</a>
+        </article>
+
+        <article id="imagen">
+            <h2>¿Qué imagen tendré que dar?</h2>
+            <p>Si aunque bien lo meditas, la solución que buscada, se pierde como si nada, se pierde en tu razón: No encuentras la solución, no sabes cómo has de hacer. Tienes que pensar también que nada es lo que pasa, que es nada lo que tienes, que es nada, que no lo tienes, que por nada lo has escrito, que por azar se escribió.</p>
+            <p>Todo lo que necesitas es un poco de paciencia, que te diga tu experiencia qué es lo mejor: Difundir con la base de mentir, sin una imagen formada; o esperar que esa imagen que se forma en tu conciencia, sea la base futura para que crean en tus cosas, sea la imagen futura de alguien que está mas allá del hombre y su vanidad.</p>
+            <p>¿De qué vale que prediques, que digas: esto es así, si no se hace carne en ti? ¿Vos creerías a alguien que te dice que es así, pero en sus acciones, en su forma de actuar, contradice lo que dice, actúa con la maldad?</p>
+            <p>¿Cómo puedes convencer de la verdad de la vida, si la verdad de la vida no forma parte de tu vida?</p>
+            <p>Cuando esa imagen sea parte de ti mismo, no la necesitarás: Porque esa imagen darás.</p>
+            <a href="#toc" class="back-to-top">↑ Volver al índice</a>
+        </article>
+
+        <article id="mision">
+            <h2>¿Cuál es mi Misión?</h2>
+            <p>Procura ser claro y preciso cuando te hagan preguntas, trata de elevar tu mente, tranquilizarte y decir: Que la misión que tienes es la de difundir la verdad en esta vida: ¿Qué llevamos al morir? ¿Qué llevamos cuando somos un cadáver nada más?</p>
+            <p>Llevamos sólo bondad como capital supremo y cargamos adversidad por todo lo malo que hacemos. ¿Cuál es el capital mayor que llevamos al morir? Tendrás que hacer razonar que el capital mayor, que enriquece al ser espiritual, es sin dudas: La bondad.</p>
+            <a href="#toc" class="back-to-top">↑ Volver al índice</a>
+        </article>
+
+        <article id="bienomal">
+            <h2>¿Cómo sé si hago un bien o un mal?</h2>
+            <p>Tienes siempre que pensar: ¿Con ésto hago un bien o un mal? Si haces algún bien... lo dejarás pasar con normalidad. Cuanto más normal sea que hagas un bien en la Tierra, es más seguro que seas un hombre bueno luego de ésta.</p>
+            <p>Convierte cada bien en algo que te haga bien. Hazlo con naturalidad... Si lo haces con bondad, si lo haces sin maldad, queda grabado en tu ser y eso te beneficiará.</p>
+            <p>Piensa que en esta vida, en ésta y en el Más Allá, la verdad pura y cristalina, la pura, pura verdad, es seguir durante tu vida el camino de la bondad.</p>
+            <a href="#toc" class="back-to-top">↑ Volver al índice</a>
+        </article>
+
+        <div class="diary-section" id="diario">
+            <h2>Los últimos años...</h2>
+            <p>¿Quiere qué le confíe algo?... ¿Deja qué me sincere? ¿Quiere saber qué siento a esta altura de mi vida? Lo resumo en dos palabras: ¡Soy feliz! Feliz por decirle a usted que esto no fue escrito por mí, mejor dicho; no fue redactado por mí. Feliz porque después de años de aprendizaje, de años de recibir mensajes; aprendí de los mensajes, con ellos me instruí.</p>
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #d4af37;">
+
+            <div class="diary-entry">
+                <span class="date-badge">30 de junio de 1992</span>
+                <p>La solución total de tus problemas que te saque de las angustias que en este momento te aquejan, no deberás esperarla después de corto tiempo, pero la tendrás en muy poco a porvenir, cuando se te muestre el camino a seguir.</p>
+            </div>
+
+            <div class="diary-entry">
+                <span class="date-badge">30 de noviembre de 1992</span>
+                <p>¿Qué es lo que pasará? Te dijimos que esperes, que esperes y no desesperes, no te podemos decir como sucederá, pero te queremos decir, para que ésto quede acá, que antes de lo que piensas, poco tiempo mas, cambiará tu derrotero, en todo cambiará.</p>
+            </div>
+
+            <div class="diary-entry">
+                <span class="date-badge">15 de enero de 1993</span>
+                <p>¿Qué es lo que quieres saber? ¿Qué pasará quizá? Cuándo en otro tiempo pasado, en esa otra ocasión en que todo se derrumbaba, mucho más grave que hoy. ¿A qué fuerzas acudiste? ¿Con qué tuviste valor?</p>
+                <p>A partir de este momento, de este momento en más, sucederán tantas cosas, tantas te sucederán, que aún lo más prodigioso que te decimos acá, será pálido reflejo de lo que te pasará.</p>
+            </div>
+            
+            <div class="diary-entry">
+                <span class="date-badge">24 de julio de 1993</span>
+                <p>Esa será tu Misión, esa será tu tarea: Anunciar la Buena Nueva.</p>
+            </div>
+        </div>
+
+        <div class="legacy-section" id="origen">
+            <h2>El Origen</h2>
+            <p>El día 26 de Mayo de 1979 perseguido por las ideas que escribía vertiginosamente en el papel, me planteé; Para qué hacia todo esto, porqué lo escribía, que fin perseguía. En definitiva, quién era yo y qué iba a hacer. Estas son las respuestas:</p>
+            
+            <dl class="qa-list">
+                <dt>427 ¿Quién es Roberto Ángel Satragno?</dt>
+                <dd>Un ser que vino al mundo para ser el intermediario natural de las ideas del espiritualismo.</dd>
+
+                <dt>428 ¿Qué fines persigue el Espiritualismo?</dt>
+                <dd>Benéficos, espirituales e intelectuales (relativo al intelecto).</dd>
+
+                <dt>429 ¿Por qué tiene fines benéficos?</dt>
+                <dd>Porque los bienes materiales que recauden tendrán fines totalmente benéficos.</dd>
+
+                <dt>435 ¿El espiritualismo es una religión?</dt>
+                <dd>No, solamente es el vehículo difusor de estas ideas.</dd>
+
+                <dt>443 ¿Qué papel cumplirá Roberto Ángel Satragno en este movimiento?</dt>
+                <dd>Será un simple intermediario de nuestras ideas.</dd>
+                
+                <dt>447 ¿Qué cualidades deberá aportar?</dt>
+                <dd>Honradez, trabajo y espiritualidad.</dd>
+            </dl>
+
+            <p style="margin-top: 2rem; font-style: italic;">"Si son muchos es mejor. Si no sirven le pido perdón por su tiempo y su atención. También le pido perdón porque esto que estoy escribiendo, también me lo fue dictado de la misma manera, de la misma forma que todo lo anterior."</p>
+        </div>
+
+    </main>
+
+</div>
+
+<footer>
+    <p>Orientación y Educación Personal<br>
+    Basado en los escritos y experiencias de Roberto Ángel Satragno.</p>
+</footer>
+
+</body>
+</html>
