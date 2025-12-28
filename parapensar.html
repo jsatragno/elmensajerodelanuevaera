@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Pensar - Mensajes del Más Allá</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #050510;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #f0f0f0;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-card: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* RESET & BASICS */
+        html { scroll-behavior: smooth; }
+        body { 
+            background: var(--bg-deep); 
+            color: var(--text-main); 
+            font-family: 'Cormorant Garamond', serif; 
+            margin: 0; 
+            padding-bottom: 100px;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .bg-fixed { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: var(--bg-gradient); z-index: -2; 
+        }
+
+        /* NAVBAR */
+        .navbar { 
+            padding: 1rem 2rem; background: rgba(5, 5, 16, 0.9); 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid var(--gold-primary); 
+            position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(15px); 
+        }
+        .brand { font-family: 'Cinzel Decorative'; color: var(--gold-primary); font-size: 1.1rem; text-decoration: none; font-weight: 700; letter-spacing: 1px;}
+        .back-link { 
+            color: #fff; text-decoration: none; 
+            font-family: 'Montserrat'; text-transform: uppercase; 
+            font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.3); 
+            padding: 8px 20px; border-radius: 30px; 
+            transition: 0.3s; 
+        }
+        .back-link:hover { background: var(--gold-primary); color: #000; }
+
+        /* HEADER */
+        .page-header {
+            text-align: center;
+            padding: 4rem 1rem 2rem;
+        }
+        .page-header h1 {
+            font-family: 'Cinzel Decorative';
+            font-size: 3.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        .intro-text {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        /* TABLA DE CONTENIDOS (GRID DE TARJETAS) */
+        .toc-container {
+            max-width: 1200px;
+            margin: 0 auto 5rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .toc-card {
+            background: var(--glass-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 2rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .toc-card:hover {
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold-primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .toc-icon {
+            font-size: 2rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .toc-title {
+            font-family: 'Montserrat';
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SECCIONES DE CONTENIDO */
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto 6rem auto;
+            padding: 3rem;
+            background: var(--glass-bg);
+            border-left: 2px solid var(--gold-primary);
+            border-radius: 0 15px 15px 0;
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        .content-section h2 {
+            font-family: 'Cinzel Decorative';
+            color: var(--gold-primary);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 2rem;
+            font-family: 'Montserrat';
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--gold-primary);
+        }
+        .back-to-top:hover { color: #fff; }
+
+        /* FINAL REFLECTION */
+        .final-reflection {
+            text-align: center;
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+            border: 1px solid var(--gold-primary);
+            border-radius: 10px;
+            background: rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2.5rem; }
+            .toc-container { grid-template-columns: 1fr 1fr; }
+            .content-section { padding: 1.5rem; margin: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-fixed"></div>
+    
+    <nav class="navbar" id="top">
+        <a href="index.html" class="brand">MENSAJES DEL MÁS ALLÁ</a>
+        <a href="index.html" class="back-link">Volver al Inicio</a>
+    </nav>
+
+    <header class="page-header">
+        <h1>Para Pensar...</h1>
+        <p class="intro-text">¿Alguna vez se hizo estas preguntas? Seleccione un tema para reflexionar.</p>
+    </header>
+
+    <div class="toc-container">
+        <a href="#nacemos" class="toc-card">
+            <i class="fas fa-hourglass-start toc-icon"></i>
+            <span class="toc-title">¿Por qué nacemos y morimos?</span>
+        </a>
+        <a href="#razon" class="toc-card">
+            <i class="fas fa-brain toc-icon"></i>
+            <span class="toc-title">¿Por qué tenemos razón?</span>
+        </a>
+        <a href="#sufrir" class="toc-card">
+            <i class="fas fa-heart-broken toc-icon"></i>
+            <span class="toc-title">¿Por qué sufrimos?</span>
+        </a>
+        <a href="#inmaterial" class="toc-card">
+            <i class="fas fa-gem toc-icon"></i>
+            <span class="toc-title">¿Qué vale en la vida?</span>
+        </a>
+        <a href="#sentir" class="toc-card">
+            <i class="fas fa-bed toc-icon"></i>
+            <span class="toc-title">¿Qué se siente al morir?</span>
+        </a>
+        <a href="#donde" class="toc-card">
+            <i class="fas fa-road toc-icon"></i>
+            <span class="toc-title">¿A dónde vamos?</span>
+        </a>
+        <a href="#masalla" class="toc-card">
+            <i class="fas fa-cloud-moon toc-icon"></i>
+            <span class="toc-title">¿Qué es el Más Allá?</span>
+        </a>
+        <a href="#manda" class="toc-card">
+            <i class="fas fa-crown toc-icon"></i>
+            <span class="toc-title">¿Quién manda allí?</span>
+        </a>
+        <a href="#dios" class="toc-card">
+            <i class="fas fa-praying-hands toc-icon"></i>
+            <span class="toc-title">¿Dios es bueno?</span>
+        </a>
+        <a href="#ver" class="toc-card">
+            <i class="fas fa-eye toc-icon"></i>
+            <span class="toc-title">¿Cómo ven los espíritus?</span>
+        </a>
+    </div>
+
+    <section id="nacemos" class="content-section">
+        <h2>¿Por qué nacemos, vivimos y morimos?</h2>
+        <p>Si venimos a la vida sólo a vivir no más. ¿Por qué será que venimos, por qué y para qué será? Si venimos a vivir, sólo a vivir y no hay un Más Allá. ¿Por qué será que Dios nos dio el raciocinio? Sólo para vivir no será.</p>
+        <p>Si nacemos, vivimos y aprendemos, por algo será que lo hacemos. ¿Qué ganamos con vivir, no más?. Los seres que nacen, viven y mueren sin que quede nada de ellos: ¿Para qué será que vinieron?. ¿Por qué será que aprendieron? ¿Por qué será que sufrieron?... Sólo a vivir no será... Por algo será.</p>
+        <p>Si Dios ha fijado todo con absoluta precisión, Dios no ha hecho nada en balde, todo tiene razón... ¿Cómo Dios en su sabiduría, cómo Dios pudo crear algo tan importante como el hombre y la humanidad? ¿Sólo para que cada mortal muera y desaparezca? ¿Sin más?</p>
+        <p>Si Dios ha creado todo, y no dudamos que existe. ¿Cómo puede haber dejado al ser humano varado en un punto tan minúsculo como es el mundo?</p>
+        <p>Les dio razón, pensamientos, libre determinación. A unos les dio frustraciones, desde nacer al morir. A otros les dio alegrías, buen pasar y buen vivir. A otros les dio penurias y sufrimiento sin cuento. A otros les dio pesares, a otros les dio lamentos. A otros les dio la dicha, tuvieron para apreciarla toda la vida y murieron.</p>
+        <p>¿Cómo puede ser que El, que es tan grande y sobrehumano, nos diera desigualdad incluso entre dos hermanos? Tiene que haber una explicación, tiene que haber una razón. Tiene que ser razonable, tiene que ser algo grande. Tiene que tener de seguro una razón poderosa.</p>
+        <p>Me resisto a creer, me resisto a suponer, que solamente nacemos, vivimos y morimos. Que venimos sólo a construir cosas, sólo a destruir cosas. Sólo a crear muchas cosas y avanzar en lo material. ¿Hasta dónde?... Que viajemos y visitemos otros mundos, y no hay nada allí... ¿Cómo lo sabemos?</p>
+        <p>Si sólo en el mundo hay tanto que no conocemos. ¡Cuantas cosas podrá haber que no apreciamos! Cuantas formas de vida habrá que no conocemos... ¡Si sólo en una gota de agua hay tanta vida y movimiento, cuanta vida puede haber en el inmenso Universo!</p>
+        <p>Me abrumo al pensar que desde el mortal para abajo hay tantas formas de vida que ni la computadora más poderosa puede precisar. Si esto es sólo aquí, esto es sólo en el mundo. Y nos puso a nosotros, que pensamos, razonamos, queremos y nos matamos. Sin otra razón que esa, sin otra razón más grande, sin algo más importante.</p>
+        <p>No puede ser que Dios sea tan injusto, tan humano, que nos diera todo esto sólo para que lo destruyamos. Algo tiene que haber, una razón poderosa... una razón sobrehumana. Una razón tan grandiosa, tan importante y cercana. Tan simple, tan pura y clara...</p>
+        <p>Como que Dios al crearnos, nos dio algo de Su razón, nos dio algo de Su emoción. Nos dio para que vivamos una mente para crear. Una razón para amar, pensamientos para odiar, mil formas de hacer el mal. Sólo para madurar, sólo para apreciar, sólo para evolucionar, evolucionar como seres.</p>
+        <p>¡Evolucionar hacia El! Evolucionar siempre, viviendo una y otra vez. Llegando a cada vejez y naciendo nuevamente y volviendo a nacer hasta que aprendemos. Hasta que sabemos, hasta que comprendemos:</p>
+        <p>Dios al crearnos nos dio algo de Su esencia vital, algo inmaterial, algo impalpable, algo inmensurable, algo fuerte y grande... De su bondad infinita. De su Suprema Bondad; extraemos, obtenemos: nos ganamos. Algo de esa bondad, algo de su sabiduría, algo ínfimo por vez, quizá nada en otra vida.</p>
+        <p>Pero con algo nomás esa vida está cumplida. Ese algo acumulado más lo que hemos logrado en la vida espiritual, va limpiando nuestra aureola, nos va dotando de luz... Esa luz acrisolada, de refulgente apariencia, cuando ya nuestra esencia ha dejado de penar, pasa a otras existencias.</p>
+        <p>Tiene otro derrotero mucho más placentero. Dominando el Universo, pudiendo ir de aquí para allá. Viviendo cosas tan grandes, tan sublimes, tan sobrehumanas, que el mayor de los placeres que puedas tener acá, es nada, esencia de nada, comparado con los de allá.</p>
+        <p>¿Y más allá?... No sabemos, sólo podemos vislumbrar que si es tan grande lo que haremos en la vida celestial.. ¡Cómo habrá de ser de grande, lo que existe más allá!</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="razon" class="content-section">
+        <h2>¿Por qué tenemos uso de razón?</h2>
+        <p>A la razón te la dio Dios. Tienes que utilizar tu razón para saber. A tu ser para aprender. Entonces recién sabrás para qué será que estás. ¿Para aparearte y criar?... Eso lo hace un animal. ¿Para aprender a rezar y al Señor Dios adular? ¿Para qué? Si a El le es igual.</p>
+        <p>¿Para cumplir un destino? Ahora vas por buen camino... ¿Por qué será? ¿Por qué vienes a penar? ¿A vos te da igual? No. Por algo será... ¿Para vos, todo es lo mismo? No, porque tienes raciocinio.</p>
+        <p>¿Por qué será? ¿Será para llenar al mundo con lo que el hombre construye? No, porque lo que el hombre construye, a la naturaleza hace mal. ¿Por qué será? Alguna explicación habrá. Por algo muy importante Dios nos dio uso de razón. ¿Solamente por crearnos y dejarnos al azar?...</p>
+        <p>¿Cómo va a ser que lo más grande que hay en el mundo material: el pensamiento del hombre, su razón y voluntad, esté regido por algo tan voluble como el azar? Por algo será.</p>
+        <p>¿Para que el hombre avance con su ciencia más y más? No, porque la ciencia del hombre es muy pobre en la inmensidad. ¿Por qué será?</p>
+        <p>Es por algo inmaterial, por algo intangible. Es por algo que está más allá del hombre y la humanidad. Es por algo tan sublime que está en toda la inmensidad. ¿Qué es lo que está más allá, que intuimos y no podemos precisar? ¿Es algo material? No, lo material es algo de acá. ¿Qué será? Piensa, piensa y lo sabrás.</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="sufrir" class="content-section">
+        <h2>¿Por qué venimos a sufrir?</h2>
+        <p>Si vinieras a este mundo solo a penar, nada más; si vinieras y dijeras: paso un tiempo y ya pasó; sería tan injusto todo, que nada tendría razón. Si vinieras solamente a vivir y nada más. ¿Por qué será que en el mundo hay tanta desigualdad?</p>
+        <p>¿Qué es lo que vale en la tierra: la inteligencia, el poder, los placeres de un momento, el dinero, la honradez? ¿Qué es lo que vale más? ¿Y quién lo dice? Piensa... ¿Tu mente al razonar?... Entonces razona ésto: Unos vienen a penar, otros vienen a gozar, otros vienen a pecar, otros vienen a dejar sus obras y sus acciones que a otros seres predisponen para bien o para mal.</p>
+        <p>¿Todo esto por qué? ¿Por qué será? Por algo muy importante será. ¿Qué será que será? Piensa por qué será... ¿Pensaste?...</p>
+        <p>Es seguro que es para depurar tu mente, tus ideas. para llegar a la vejez con la mente despejada, con la maldad anulada, con la conciencia callada, que nada te reprochará. ¿Pero... que pasará con los que no la tienen igual? ¿A ellos qué les pasará? ¿Morirán y sufrirán? ¿Cómo sufrirán? ¿Y los que murieron antes, que apenas tuvieron tiempo de respirar un instante, a dónde será que irán? ¡¿No sufrirán?!... ¡Que injusticia más total!</p>
+        <p>A los que nacieron y murieron luego de sufrir más y más, que no tuvieron tiempo de hacer algún bien o mal... ¿Cómo se los premiará? ¿Por qué se los castigará? ¿En dónde será que estarán? ¿Todo es injusto... verdad?</p>
+        <p>Pero no es ya más injusto, si nos ponemos a pensar, que venimos a este mundo a depurar nuestro ser con sufrimiento; el sufrimiento dispar. Al principio de nuestra esencia, de nuestra esencia vital, se nos dota de conciencia en la que no existe el mal. Luego nacemos, e iniciamos existencias en las que nuestra conciencia va orientándonos: nos modela. Va diciendo, poco a poco, si vamos en el camino correcto. Si cometemos un mal, ella se apresura a actuar.</p>
+        <p>Al principio somos seres, sólo con instinto animal. Nacemos y vivimos no sabiendo del bien o el mal. Poco a poco, los pesares, los dolores, el penar, nos enseñan, nos informan, nos ayudan a progresar. Cuando dejamos de existir, después de cada morir, comienzan las enseñanzas. Nos muestran por qué faltamos, nos enseñan cómo hacer, nos muestran cómo lo haremos: y volvemos a nacer.</p>
+        <p>Todo lo que aprendemos queda grabado en el ser. Al nacer ya sabemos cómo vamos a sufrir, en qué vamos a cumplir, qué prueba pasaremos, cómo adelantaremos. Entonces nuestro ser vital, actúa en el bien o en el mal, de acuerdo con su albedrío.</p>
+        <p>Si es un ser depurado, si es un ser adelantado, en él dominará el bien, avanzará más y más en su depuración. Si es un ser rudimentario, alimentado por pasiones, éstas lo demorarán, éstas lo atrasaran. Tendrá más penas y dolores, tendrá más sinsabores. Tendrá que trabajar, hasta aprender a escuchar lo que diga su conciencia.</p>
+        <p>Después de cada existencia a las pruebas por las que pasó, en las que el mal dominó, las tendrá que repetir. A las pruebas que pasó, a las que de bien rodeó, no las tendrá que repetir; pues no lo necesitará.</p>
+        <p>Ahora... Tú me dirás: ¿Qué pasa con esos seres que son todo bondad, que pasan mil sinsabores, disgustos y enfermedades, que sufren, viven y mueren, sin que nada los repare? ¡Sin embargo; fueron buenos!... ¿Por qué será que vinieron?</p>
+        <p>A esos seres adelantados, a esos seres ya dotados, cuando están en el Más Allá, su misma clarividencia, su misma preparación, les hace tomar conciencia de lo que les falta andar, de las manchas que aún tienen, de lo que han de depurar. Como son adelantados, vienen al mundo a penar: para avanzar más rápido en su paso terrenal.</p>
+        <p>También esos seres vienen -por su misma preparación- a cumplir otras tareas, que llamaremos Misión. A esa Misión que traen la deberán cumplir, aunque el cumplirla los lleve a otro modo de sufrir. Pero ese sufrimiento opera como alimento en su ser, su ser vital, y los dota de más luz en su vida espiritual.</p>
+        <p>Cuando el ser es más adelantado, cumple misiones más grandes. Cuando el ser es atrasado sus misiones serán: nacer, vivir, trabajar, hacer algún bien o mal, hasta empezar a captar, por medio de su sensibilidad, dónde está el bien o el mal. Donde está la verdad.</p>
+        <p>Espera... tú me dirás. ¿Cómo sé dónde estoy, cómo sé dónde llegué? ¿Cómo será que sabré la luz que allí tendré? No lo podrás saber antes de dejar de vivir, porque no sabes en qué forma habrás venido a sufrir. Puedes ser un campesino que vino a cumplir con la sencilla misión, de nacer, vivir, morir. Puedes ser un gobernante, un poeta o un pintor, puedes ser un gran profeta, un malvado o un ladrón.</p>
+        <p>La medida verdadera de tu verdadera elevación, son las reacciones que tengas cuando cumplas cada acción. Si son acciones guiadas por la bondad verdadera, si son acciones rodeadas de bondad, aunque pequeñas, son acciones que traducen tu lugar cuando te mueras.</p>
+        <p>Si tus acciones son malas, aunque seas en la tierra un ser humano que piensa, tiene mando o es esteta, esas acciones malvadas, esas acciones perversas, harán que te juzguen peor cuando dejes tu existencia. Si obtienes todas las armas: Se te dota de conciencia, tienes la inteligencia para saber la verdad y la ambición sin medida te lleva hacia la maldad, cuando dejes esta vida; peor se te juzgará.</p>
+        <p>Si viniste en apariencia a sufrir y nada más, o si solo has encontrado en tu vida tranquilidad, será por algo que viniste, que no puedes apreciar. Nadie, ni el ser más bajo, ni el más ruin, ni el criminal, viene a eso, sólo a eso. Viene siempre a adelantar.</p>
+        <p>Claro que si lo razonas, seguro que encontrarás que esos seres tan malvados al morir sólo serán unas sombras macilentas que otros seres mandarán. ¿Puede un ser adelantado que viene al mundo a sufrir ser un hombre malvado? quizá te preguntarás... No.</p>
+        <p>No puede ser que un ser que viene con una misión, aunque sin educación, y pobre en apariencia, no obedezca a su conciencia y ella le reprochará. El le obedecerá, porque su sensibilidad, su adelanto, su bondad, están grabados en su ser vital.</p>
+        <p>¿Entonces todos los malos, los perversos, los insanos, son seres muy atrasados, son seres muy inferiores? seguramente dirás... No. Separa a los insanos. Ellos vienen a penar, trabados en sus acciones por su mente que no da. Esos seres desgraciados -los que no pueden razonar- son tomados por sus actos cuando pueden contestar. Ellos tendrán esa prueba de tener su lucidez extraviada, perdida en su desnudez. Actúan como ladrones, sufren como pichones, indefensos en su taradez. Pero su ser que comprende, su ser que sigue latente, con sufrimiento, aprende. Aprende a valorar cuando venga en otra vida, a la razón que tendrá.</p>
+        <p>Otro ser que no sabemos por qué y para qué nació, es ese ser tan pequeño que luego de nacer, murió. ¿Por qué será que nació? Nació como expiación. El cumplió la función de servir para que su falta, le dé mayor valor, a un ser que en otra existencia a una vida despreció.</p>
+        <p>Cómo será también la existencia de ese ser que todo lo que en su vida quiso, todo lo que ansió, sin trabajo, se le dio. No tuvo enfermedades, no sufrió grandes pesares, y si sumamos sus males, es algo tan baladí, que pensamos que no vino para sufrir. Tú crees que ese ser no vino para aprender. Ese ser habrá venido a cumplir con un destino, ese ser habrá sufrido. Ese ser que te parece que tiene todo en la tierra, en algo debe de sufrir, quizá tú no lo comprendas.</p>
+        <p>Quizá sus sufrimientos son: Sufrimiento por amor, quizás sufre sin motivo, quizás ambiciona más, quizás no encuentra su paz, piensa que le faltan cosas. Pero te aseguro una cosa: nadie viene sólo a nada. Nadie viene a ser feliz.</p>
+        <p>Unos son más, otros menos, unos sufren de este modo, otros de este otro modo, pero todos, todos, todos, de una manera u otra, en salud, en su razón, en fealdad, en amor. En algo habrán de sufrir.</p>
+        <p>Aprenderán así lo que tienen que aprender: A encaminar a su ser por el camino real, el camino de la verdad. El camino que, fatal, le espera a todo ser humano. Hasta llegar a ser puro, hasta llegar a ser sano, sano en su pensamiento, sano en su inspiración, sano en brindar su amor.</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="inmaterial" class="content-section">
+        <h2>Lo que vale en la vida ¿Es inmaterial?</h2>
+        <p>Si te dieran a elegir entre una gran reserva de dinero y poder, o toda una existencia dedicada a hacer cosas muy grandes, muy sanas, por el bien de los demás. No vaciles en dejar el dinero y lo banal, pues la verdad en la vida esta en la vida espiritual.</p>
+        <p>Lo carnal sólo es momento, lo carnal sólo es pasaje, lo carnal es sólo un paso... Es cierto que es importante, pero al lado de la vida inmaterial, es sólo, solo un momento cada vida terrenal. Si piensas que a la vida sólo vienes a penar, analiza los momentos de real felicidad. Si piensas que ser feliz sólo es tener poder, piensa en lo que has de poder con todo el poder allí.</p>
+        <p>Si crees que eres feliz con muchos bienes en la tierra, piensa que es sólo materia: y que todo eso se deja. Si piensas que acumulando lo que nunca vas a usar, y al guardarlo muy seguro obtendrás tranquilidad, piensa: No hay nada seguro, pues no sabes cuándo te vas. Si piensas que derrochando lo que te cuesta ganar, obtienes grandes placeres, se te entregan los demás, piensa que con cada derroche, no avanzas en lo espiritual.</p>
+        <p>¿Qué me importa? Dirás. Yo soy feliz así. Piensa si algo te queda de ese placer que vivís. Si dejas que los placeres te anulen en tu razón con impulsos repentinos de codicia y ambición, analiza lo que guardas, pesa lo que ambicionas, y ve el valor que eso tiene en tu ser espiritual.</p>
+        <p>Me dirías: Qué me importa, yo no creo en nada de eso, si cuando morimos no sabemos qué encontraremos allá. Para qué estar sembrando para esa posibilidad, si al morir desaparecemos. Para qué vamos a emplear nuestra fuerza en ser más buenos; Es una imbecilidad.</p>
+        <p>Cuando emprendes una tarea que puede redundar en beneficios muy grandes en el plano material; ¿Reparas en que si te enfermas, no lo disfrutarás?... Cuando tienes todo eso en el plano material. Cuántos disgustos te ha dado... Cuánto es lo que has dudado... Cuánto es lo que te has preocupado... Y que es lo que has ganado... Pesa, mide, y dímelo:</p>
+        <p>¿Acaso no tienes disgustos? ¿Acaso no tienes dolor? El dolor: ¿Es placentero, porque te atienden mejor? Los ratos, los momentos de verdadera felicidad: ¿De qué se fueron formando? ¿De dinero, nada más? ¿Dónde se acumularon? Trata de revivirlos... ¿Dónde están?... ¿Los encontraste? ¿Dónde los tienes?... Piensa...</p>
+        <p>Cuando tuviste esa casa que tanto placer te dio, piensa como será el día en que esa casa ambicionada, quede perdida en la nada para ti, que no estarás. ¡Ah!... ¡Tienes otro motivo que te dio felicidad! Los viajes que has realizado, la fama que has disfrutado, los placeres que has vivido, los hombres que te han servido, lo mullido de tu andar. Bueno: pesa lo que guardas en tu ser vital... Son recuerdos placenteros. Pero recuerdos; no más. ¿Qué son esos recuerdos? ¿En dónde piensas que están? ¿Están en tus pensamientos? Vuelve a disfrutarlos... ¿No puedes?...</p>
+        <p>Claro, no puedes. Esos recuerdos son placeres de los sentidos: eso sólo, nada más. Cuando los vives, los vives. Cuando pasaron, se fueron. Cuando se fueron, pasaron. Y no sirven para más. Pero analiza el momento en que algo puede existir, que a cada momento, al que a ese algo acudís, ese algo que has vivido, te vuelve a hacer feliz. ¿Qué es? Dímelo. ¿No lo sabes?... Piénsalo...</p>
+        <p>¿Será el dinero? ¿El rencor? ¿El odio que suscitaste en los que se vieron dañados cuando le hiciste mal? ¿Los bienes muy bien guardados? ¿Los títulos de propiedad? Piensa cuál es el motivo que puede ser que evoques y al instante el pensamiento te trae felicidad. Son recuerdos... Quita lo material que hay en ellos. ¡Qué poco que le quitas! ¿No crees que son recuerdos en los que participó el amor? ¿No te parecen recuerdos en los que el dinero no primo? ¿Y si estuvo, fue con un fin mayor?</p>
+        <p>¿Qué te parece que vale más en la vida? ¿El poder, las propiedades, el doblegar a la gente que con sus necesidades se acercan para adularte? ¿O los recuerdos felices, los instantes que pasaste, que quedaron en tu mente y que al pensar disfrutaste? Entonces... Está todo claro? Lo que vale es inmaterial. ¿No vamos a cultivarlo para obtener de eso, más?</p>
+        <p>Continuemos con el análisis de lo que te llevarás: ¿Bienes? No. ¿Amistad? ¿Amor? ¿Pasión? De eso tendrás un poco. ¿Qué más podrías llevarte, pase lo que pase allá? Las acciones cometidas en las que no hiciste mal, no quedarán. Porque serán acciones intranscendentes, entonces desaparecerán.</p>
+        <p>¿En las que hiciste un bien? ¿Dónde crees que estarán? Estarán en tu ser vital. ¿En las que hiciste mal? Esas sí que te traerán penas y remordimientos. Allí aflorarán. ¿Cómo afloran, me dirás? Cuando te mueres estás en una especie de limbo, allí pasarás pruebas que otros seres te harán. Las acciones cometidas guiadas por la maldad, si no las pagaste en vida, en ti aflorarán. Y tendrás en otra vida que vivir, hasta expiar...</p>
+        <p>¿Cómo las expías? Tendrás en esa vida una prueba que afrontar, esa prueba estará escrita el día en que nacerás. Si aprendiste... A esa prueba, que fatalmente has de pasar, la rodearás de acciones guiadas por la bondad. Si no sabes todavía y en tu conducta sigue el mal, hasta que aprendas volverás a penar, hasta borrar.</p>
+        <p>Pero no temas, esas penas no serán de un valor equivalente: Aunque hayas cometido mil pecados parecidos, con que una vez cubras de bondad ese hito en el camino, con solo una vez, basta: ¡Habrás cumplido! Tú dirás: ¡Qué suerte, cometeré el mal muchas veces! Total, con sólo una vez que cumpla, es suficiente!</p>
+        <p>No es tal... Dijimos que no es equivalente. Por supuesto, que si tienes muchos males en tu mente, para que aprendas, sufrirás hasta que el mal no te afecte. Al mal lo irás depurando y del mal te irás depurando. Cuanto más rápido lo haces, cuanto más bien haces, cuanto más firmemente afrontes los trastornos en la vida, cuanto más fielmente cumplas, cuanto mejor accedas a cada prueba pedida, es como mejor llegarás a obtener para tu paz, más luz en la inmensidad, más fuerza en lo espiritual.</p>
+        <p>Mucha más felicidad! Cuando al morir dejas tu cuerpo, para convertirte en un ser espiritual, los seres que juzgarán los males que has realizado; no los podrán encontrar. A ti sólo accederán los recuerdos placenteros, los recuerdos verdaderos, los que en ti perdurarán. Entonces sí obtendrás como una gran recompensa, que en nada tu conciencia te reproche alguna acción. Nada podrá ensombrecer tu futura existencia. Tendrás la felicidad de no tener que penar cumpliendo otra vida más.</p>
+        <p>¿Para qué sirve? Dirás... Si no creo que vendré. Si no he de reencarnar. Si vivo sólo una vez. Bueno... esa es tu opinión. Cambiemos la ecuación: ¿Qué es lo que hay más allá? ¿Hay algo, verdad? ¿Qué se premiará: La maldad o la bondad? Claro... No resiste el análisis; si algo se premiará, si algo se castigará, ese algo será: El castigo a la maldad. El premio: Felicidad donde estuvo la bondad.</p>
+        <p>¿En cuánto lo pagarás? ¿Al castigo?: Qui lo sá. Al premio lo recibirás: ¡En toda la eternidad!... ¿Por qué no siembras? ¿Por qué no comienzas? ¿Por qué no capitalizas? Resume esta charla:</p>
+        <p>A los bienes que obtengas con trabajo y dedicación, los disfrutarás en vida sin manchas en tu razón. A los bienes que te vinieron por herencia u otra acción en los que no hubo un esfuerzo, pero nada los dañó, podrás también disfrutarlos pues tu destino los dio. Los bienes que has obtenido a los que con mal has accedido, te darán felicidad, si sólo con ellos buscas lo carnal... y nada más.</p>
+        <p>Pero tendrás que pagarlos con penas y sinsabores, con pruebas mucho mayores y que te afectarán más. En cuánto tiempo, dirás: ¡En toda la eternidad!</p>
+        <p>Si piensas que morimos y no hay nada más allá. Ah!... Vacilas... Algo habrá. ¡Sino qué injusto sería que por algo de un momento, porque tuve una ambición y me convertí en ladrón, tenga que vivir un futuro de angustia y desolación! No puede ser... sería injusto, tan injusto, tan mortal, que parecería que fuera un pecado capital.</p>
+        <p>¿Cómo cobrarán nuestros pecados allá? Piensa y entenderás lo que te decimos acá: Lo más claro, la verdad, es volver a reencarnar. Entonces sí, pagarás lo justo por cada mal. Cada bien te dará su cuota de felicidad, cada bien te ahorrará más penas por hacer mal. Entonces sí que podrás, al decantar a tu ser, con cada vida acceder a un plano o escalón más.</p>
+        <p>La felicidad en el mundo espiritual es tan grande y total, que nada que hayas vivido en tu paso terrenal, nada que hayas sentido, nada que hayas intuido, se le puede igualar. Son palabras, nada más, me dices en tu dudar. Si crees que eso es verdad, detente a pensar. Pon tu mente a trabajar, pon tu mente a razonar: Que ella misma te dirá en donde está la verdad.</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="sentir" class="content-section">
+        <h2>¿Qué se siente al morir?</h2>
+        <p>Cuando dejas de existir, luego de cada morir, sientes que te desprendes de tu envoltura carnal. Sientes como un suspiro de tu cuerpo material, se te ensanchan los sentidos porque no los tienes más. Cuando esas sensaciones a las que te has acostumbrado dan paso a otras sensaciones que en tu ser elemental se expresan como meros impulsos en tu forma de apreciar.</p>
+        <p>Es difícil decirte con palabras entendibles la sensación que se siente cuando cambias de condición. Cuando mueres... Atención: Cuando muere un ser preparado. Siente que su corazón se detiene en su pulsar; entra en una especie de túnel de sensación prodigiosa y se acercan esos seres con expresión amistosa.</p>
+        <p>Percibe claramente las facciones de esos seres. Claro que eso es lo que cree, porque esos seres no tienen imagen en lo material. Sólo adaptan sus impulsos para que se los pueda notar. Como si fuera bebé y le enseñan a caminar, así los seres le muestran cómo es el nuevo hábitat. Enseñan como moverse, cómo percibir la luz, cómo conocer a seres de su misma magnitud. Aprende rápidamente si es un ser preparado.</p>
+        <p>Luego, ya preparado con su forma de existir comienzan las enseñanzas para su nuevo vivir. Quizá, ahora te preguntas: ¿Cómo vemos a lo humano? ¿Cómo sabemos qué piensan, cómo actúan, qué es lo que hacen? Esto también es difícil para poder expresarte. Es cómo una percepción, percepción de los sentidos como vemos a tu mundo. No lo vemos claramente como lo ve tu visión. Lo vemos como una masa, como un reguero de luces.</p>
+        <p>Como una forma humana que mira a su derredor, sólo podemos hacerlo situándonos en tu interior. Sólo podemos mirar si usamos tus sentidos, integrándonos a vos, entrando en tu cuerpo. Mejor dicho; entrando en tu mente percibimos claramente como ahora lo haces vos.</p>
+        <p>De los seres percibimos en el mundo inmaterial la medida de su elevación espiritual. De los seres encarnados, lo que nos viene a la mente es la condición que tienen y lo malo que sienten. Cuando vemos que algún ser, de los que están encarnados, ensombrece su ser porque esta haciendo algo malo... apresuramos nuestro paso para entrar en ese ser y saber por qué ese ser esta haciendo esa mala acción.</p>
+        <p>Entonces, nuestra función es advertir con impulsos. Si pese a todo, ese ser persiste con su mala acción, dejamos a nuestros impulsos para mejor ocasión. También percibimos claramente cuando tienes alegrías. Para poder compartirla y gozarla con vos, necesariamente tenemos que integrarnos a tu ser y ocupar pequeño espacio en tu envoltura carnal. Entonces tu ser vital sabe que está acompañado y de inmediato comparte la alegría de ese instante.</p>
+        <p>¿Y en el dolor? Quizá te preguntarás. ¿Cómo en eso nos acompañas como ser espiritual? Cuando envías un mensaje porque sufres de algún modo, tu guía en ese instante quizá esté muy ocupado en tareas que para explicártelas, no es éste el momento adecuado. A ese impulso lo reciben los seres que vos querías y se acercan hacia vos para saber tu quehacer, ven el motivo de dolor y por qué es que lo tienes. si te pueden ayudar, entran en ti para hacerlo pero sólo con mensajes.</p>
+        <p>Los seres espirituales para poderte ayudar deben estar autorizados por alguien que manda más. ¡Que impiadosos! Me dirás... Nos ven sufrir como sea y no nos pueden ayudar. Sí que lo podemos hacer, pero no lo podemos hacer. Esa es la condición con que vienes a penar: Vencer los contratiempos con fuerza de voluntad.</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="donde" class="content-section">
+        <h2>Al morir... ¿A dónde vamos?</h2>
+        <p>¿Cómo expresar en imágenes dictadas por la palabra, el vuelo de una astronave? El sonido que hace un ave cuando quiebra con su vuelo la inmensa quietud del cielo. Esa quietud que abruma, ese silencio que aterra, que se hace más y más silencioso al alejarnos de la Tierra.</p>
+        <p>Ese silencio total que tiene la inmensidad, no es tal. No es silencio, es ruido. Es el ruido que generan miles de astros que se mueven, las fuerzas que los conmueven: Ondas, rayos, magnetismo. El tiempo que no se mide, que en el espacio infinito no es tiempo: sólo momentos medidos con otros métodos.</p>
+        <p>¿Todo ese ir y venir, todo ese estar y no ser, existir y no existir, cómo se puede medir? ¿Quién puede decir con certeza, los secretos que atesora el misterio de la naturaleza? Nadie en esta tierra... Sólo podemos intuir, sólo podemos pensar. Y no podemos pensar al ponernos a pensar... ¿Qué será lo que será que gobierna todo esto? ¿Qué será lo que será que manda en el Universo?</p>
+        <p>¿Qué será? ¿Vendrá de dónde? ¿Dónde estará ubicado? ¿Desde dónde mandará para dominarlo todo? ¿Cómo hará para saber qué piensa un solo mortal, si hay tantos millones de seres, que no se pueden contar? ¿Y en el espacio?... ¿Qué hay? ¿Hay seres? ¿Hay animales? ¿Hay plantas? ¿Hay minerales?</p>
+        <p>¡¿Cómo puede ser la astronave, que nos lleve en su vuelo, a conocer todo esto?! ¿Cómo se puede mover? ¿Qué fuerza tiene que tener para avanzar en el tiempo? ¿Qué fuerza tendrá que ser para recorrer el Universo? Existe! Ya sé que es: Es la fuerza de la mente, que al pensar, instantáneamente, nos lleva donde queremos. Pero pienso... no es tan fuerte, pues no nos hace saber lo que no conocemos.</p>
+        <p>Entonces... ¿Qué es? Es muy simple, es todo, es la vida, es el ser, los pensamientos. Son los instantes fugaces que medidos en el tiempo son solo eso: Instantes... ¡Miles de años son sólo eso! Entonces... ¿Qué vamos a hacer? ¿Cómo saber si el camino que llevamos es el camino correcto? ¿Cómo saber la verdad de todo ésto?</p>
+        <p>No sabemos. No lo podemos saber. Sólo podemos saber, sólo sabemos seguro, que nos hemos de morir... Eso tampoco es seguro: ¿Al morir a dónde vamos? ¿Qué hay después de ese punto oscuro? ¿Habrá algo? ¿Qué habrá? ¿Habrá violencia? ¿Maldad? ¿Qué sucede con nosotros cuando no estamos acá? Presiento que será eso, como el disparo de un flash: Ilumina un instante y luego la oscuridad.</p>
+        <p>Oscuridad aparente, porque después de estallar, la vida sigue su curso, y de ella quedará la imagen enmudecida, de un instante, no más. ¿Qué es lo que cambia en nosotros? ¿Dónde va el ser a parar? ¿Quedará cerca del cuerpo o se destruirá con él? ¿Quién decide a dónde vamos cuando al cuerpo abandonamos? ¿Quién decide lo que hacemos luego del instante fatal en que dejamos lo carnal? ¿Serán ángeles o demonios quienes nos acompañarán? ¿Serán seres, serán nubes, serán naves, qué será? ¿Serán millares de luces? ¿Será una estrella fugaz?</p>
+        <p>O será Dios que nos ordene... Tú estarás aquí, tú allá. O será una corte de espíritus que dirán: Este mintió, éste robó, éste mató, éste hirió. Este es bueno, este es malo, éste cumplió, éste no. O uno solo que dirija, como batuta suprema, el lugar que ocuparemos luego de la última cena. No puede ser nada de ésto.</p>
+        <p>Nadie puede juzgar sin equivocación o error, la vida de cada ser desde el día en que nació, hasta el día en que murió. Cada acción, cada momento, cada pecado cometido, cada bien que se ha brindado, el amor prodigado, solamente pueden estar acumulados en el ser. Cómo programa hoy el hombre -computando- su saber. Ese ser programado con mil datos, mil acciones y millones de emociones... ¿Qué es lo que acumuló?</p>
+        <p>A los pecados cometidos en la vida los pagó. El saldo que le ha quedado quedará computado, para pagarlo algún día cuando vuelva en otra vida. Lo que no se borra nunca, queda allí depositado: Es la bondad que en su vida éste ser ha prodigado. La Justicia Divina dirá al investigar, si ese ser hizo el bien o no pudo dominar el mal.</p>
+        <p>Entonces sí, le darán el lugar que le corresponde, la luz que llevará. Esa luz que lo distingue, esa luz que de él proviene, dará la medida exacta de ese ser y su bondad. Ocupará su lugar... sin error, sin vacilar, el lugar que habrá ganado en el mundo espiritual.</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="masalla" class="content-section">
+        <h2>¿Qué es el Más Allá?</h2>
+        <p>¿Quién es el que todo lo sabe? ¿Quién es el que todo lo ve? ¿Por qué lo sabe? ¿Por qué lo ve? ¿Quién es el que puede decir, sin equivocarse ni mentir, que cree tan firmemente, que sabe sin vacilar: cómo es Dios; Y dónde está? ¿Quién es el que puede decir, sin equivocarse ni mentir, que es lo que pasará luego de morir? ¿Quién es el que puede saber que hay en el Más Allá? ¿Quién lo puede precisar?</p>
+        <p>Si lo puede saber con entera seguridad. ¿Cómo es que lo sabe? ¿Alguien que vive?... ¡¿Cómo?! Si no murió... ¿Cómo sabe? Si no pasó por el trance de dejar la existencia... ¿Cómo sabe que hay allí? Si no pasó al mundo inmaterial... ¿Cómo sabe que hay allá? Si no lo sabe... ¿Cómo y por qué lo sabe?</p>
+        <p>Si no lo puede saber... ¿Cómo es que lo sabe? Si no sabe por qué vivimos... ¿Cómo sabe si después de vivir no existimos? ¿Cómo lo sabe si no lo puede afirmar? ¿Cómo lo sabe, si no lo puede tocar? Si no lo vivió, no lo tocó, no lo sintió... ¿Cómo sabe si al morir dejó de existir?...</p>
+        <p>Si no lo sabe... ¿Por qué duda? Si duda... ¿Por qué duda? Que es más fácil: ¿Creer o dudar? Si cree... ¿Por qué duda? Si cree... ¿Por qué cree? Si duda.. ¿Por qué duda? Si no sabe... ¿Por qué sabe? Sabe, porque se lo han enseñado. ¡¿Enseñado?!... ¿Quién? ¿Enseñado? ¿Cómo?</p>
+        <p>Alguien que vive... ¿Cómo lo sabe? Alguien que murió... ¿Cómo lo dijo? Si lo dijo... ¿Es alguien que existe? Si existe... ¿Dónde está? Si está... ¿Cómo es que está y dónde está? Si está y existe. ¿Dónde existe? Entonces... ¿Existe?</p>
+        <p>Si existe... ¿Por qué dudas? Si no dudas... ¿Por qué no crees? Si crees... ¿Por qué no piensas? Si piensas... ¿Por qué no sabes? Si sabes... ¿Por qué no lo practicas? ¿Practicas qué?... No lo sabes. ¿Cuál es la verdad? Pero... la verdad, verdad. ¿No lo sabes? Piensa cual...</p>
+        <p>¿Qué nacemos? Bien. ¿Morimos?... Sí. ¿Vivimos? También. ¿Por qué?... ¡Ah! No sabes. Si no lo sabes... ¿Por qué no piensas? Si piensas, analizas, concluirás: Que hay otra gran verdad... Si lo razonas, está en cumplir un destino.</p>
+        <p>Si venimos. ¿Por qué? Si nacemos. ¿Por qué? Si morimos. ¿Por qué? Por algo será. Si es algo material... Para qué, si lo dejamos acá. Si es algo espiritual... ¿Por qué no ponerse a pensar? ¿Qué será? ¿Será ser malo?... No. Porque si no, los ángeles serían malos. No lo dice la religión...</p>
+        <p>¿Qué religión tienes? Bien. ¿En qué creen? ¿Qué son? Pero... ¿Qué son? ¿Seres espirituales? ¿Dónde están? ¿En el Más Allá? ¿Qué hay allí? No lo sabes...</p>
+        <p>¿Por qué crees? Si crees y sabes, sin haberlo vivido, sin haberlo tocado. ¿Por qué no haces algo por ese lugar? Por qué no piensas... ¿Qué es lo que te ayudará cuando estés junto a ellos? ¿Por qué no haces algo que te ayude a acercarte a ellos? Si crees más importante tu vida actual, piensa si vas a un lugar para siempre... ¿Qué es más?... ¿Tu vida o la inmensidad?</p>
+        <p>Si nuevamente nacerás. ¿Por qué será? Y si será... ¿Por qué será? Por algo será. Si otra vez vivirás... Por qué no detenerse a pensar: ¿Qué hay más allá? Sólo te pido: Pensar y razonar. ¿Es mucho en la inmensidad?</p>
+        <p>Si solo te pido pensar... ¿Qué es lo que ganaré? ¿Qué te parece que será? ¿Me pagarás?... No. Entonces... ¿Porqué lo hago? Porqué hay un Más Allá. Soy más práctico que vos. Juntas para acá, yo hago para allá. ¿Cómo me pagarán?... Piénsalo... ¿Por qué lo hago? También. ¿Quién tiene razón? ¿Por qué? ¿Cómo lo sabes?</p>
+        <p>¿Si lo sabes, por qué no trabajas tú también? ¿Qué te cuesta? Di. ¿Te pido algo?... Sólo pensar. ¿Por qué no piensas? ¡Si te ayudará! No ganarás nada en lo material. Si nada te llevas. ¿Para qué juntas? ¿Si lo juntas para tener un mejor pasar, no es mejor que juntes para cuando mueras, pase lo que pase, lo que pase allá?</p>
+        <p>No te puede ir mal. Eso que has juntado en lo espiritual, no puede perderse, si en ti está. Si está... ¿Qué es? ¿Por qué está? ¿Dónde esta? ¿Cómo lo guardas? ¿Dónde lo guardas? En vos... Bien... Entonces piensa... después sabrás. Cuándo lo sepas: Practícalo, vívelo, guárdalo. Todo lo que hagas, todo lo que harás, estará guardado en tu ser vital.</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="manda" class="content-section">
+        <h2>¿Quién manda en el Más Allá?</h2>
+        <p>¿Qué pasa con la vida que cuando la vivimos, la vivimos penando?. ¿Qué pasa con la vida, que cuando la vivimos, tiene un sabor amargo? ¿Qué pasa con la vida que cuando es bien vivida, nos llena de esperanzas, nos cubre de alegrías?. ¿Qué pasa si mentimos, qué pasa si pecamos, qué pasa si faltamos? ¿Quién es el malo, quién el bueno?.</p>
+        <p>¿Y Dios?... ¿Cómo será que castiga el hecho de ser malos?. ¿Cómo nos castiga cuando en algo faltamos? ¿Cómo hace para que cuando hacemos un bien, éste nos beneficie? ¿Nos beneficie en qué?</p>
+        <p>¿Cómo saber si algo nos atrasa? ¿Cómo saber si algo nos perjudica? ¿Cómo saber si algo nos ayuda? ¿Cómo saber si algo nos detiene? ¿Cómo saber cómo y por qué vivimos? ¿Cómo saber por qué y para qué nacimos? ¿Qué es lo que venimos a hacer? ¿Para qué lo venimos a padecer? ¿Quién dice qué esta bien? ¿Quién dice si está mal? ¿Quién juzga el destino? ¿Quién manda lo que hacemos? ¿Quién dice si cumplimos? ¿Quién dice lo que haremos? ¿Quién es que nos gobierna? ¿Cómo nos gobierna?</p>
+        <p>¿Quién es el verdadero mensajero de Dios? ¿Quién es el verdadero Supremo Juez de todo? ¿A quién puso el Señor para gobernar todo y todos? ¿Dónde esta él? ¿Quién es, cómo lo reconocemos? ¿Quién lo representa? ¿Quién nos dirá sí, quién nos dirá no? ¿Quién dirá si hicimos bien o mal? ¿Quién dirá qué es lo que hicimos mal?</p>
+        <p>¿Quién será el que determinará el grado de bondad? ¿Quién será el que dirá cómo hacer para acercarnos más? ¿Quién será el que dirá cómo hacer para saber cuando algo esta mal, o lo estamos haciendo bien? ¿Quién es el que lo sabe todo? ¿Quién lo domina a todo? ¿Quién es el que decide? ¿Cómo lo decide? ¿Quién es de Dios el mensajero?</p>
+        <p>¿Quién es el que en su seno, tiene el valor supremo, de ser el verdadero guardián de nuestro cielo? ¿Quién es el verdadero guardián del mundo entero? Si todos los que viven, que mandan, que gobiernan, son todos pecadores, son todos imperfectos... ¿Cómo podrá mandar luego de que esté muerto?</p>
+        <p>¿Si no es un mortal, quién mandará allí? ¿Si no es un ser humano, quién puede ser? ¿Si no ha vivido, cómo podrá saber? ¿Si no ha sufrido, cómo podrá decir? ¿Cómo podrá mandar si antes no vivió? ¿Cómo podrá saber si antes no pecó? ¿Cómo podrá juzgar si antes no amó? ¿Cómo podrá decidir si antes no vivió?</p>
+        <p>Para saber cómo es, para saber qué es, para saber, seguro, será alguien que vivió, alguien que amó, alguien que sufrió... Alguien que pasó por la experiencia de nacer y morir. ¿Cuántas veces?... No sé. ¿Cuántas veces?... ¿Y cómo? ¿Cuántas veces?... ¿Y cuándo? ¿Cuántas veces nació? ¿Cuántas veces murió?... ¿Cómo fue que vivió?... ¿Dónde vivió?... ¿Cómo fue que nació?... ¿Qué pasó después?</p>
+        <p>¿Cómo fue que sufrió? ¿Cómo se depuro? ¿Qué hizo para cumplir? ¿Cómo lo cumplió? ¿Qué hizo para avanzar? ¿Cómo avanzó? ¿Cómo hizo para vivir? ¿Cómo vivió? ¿Qué hizo para que Dios lo nombre su albacea? ¿Qué hizo para que Dios le entregue su batuta? ¿Cómo hizo para ser el Ser elegido? ¿Cómo fue que pasó?... ¡¿Quién pudo elegirlo?!</p>
+        <p>Si nadie puede ser... Si nadie que vivió puede ser el Supremo Guardián del Más Allá... Si nadie que murió puede ser el Gobernador Supremo... ¿Quién nos mandará allá?... ¿Qué será que será? ¿De dónde vendrá? ¿Quiénes serán? ¿Será uno o más?... ¿Serán miles?... ¿Cuántos serán?</p>
+        <p>¿Estarán con nosotros, o dónde estarán? ¿De dónde habrán venido?... ¿Quién los habrá traído? ¿Cómo es que habrán venido?... ¿Por qué es que vinieron? ¿Quién dijo que estuvieran? ¿Luego de estar aquí, en dónde estarán? ¿Antes de estar aquí, dónde estuvieron? ¿Después de los siglos, después de milenios, qué es lo que será de ellos?</p>
+        <p>¿Cuándo vinieron?... ¿Vinieron con el primer ser?... ¿Dónde estuvieron? ¿Si había poco que hacer, cómo es que lo hicieron? ¿Ahora en dónde estamos? Al principio de todo... en la mitad... al final... ¿En qué parte estaremos de nuestro destino? ¿En qué parte estaremos como mortales?... ¿Cuándo nos tendremos que ir?</p>
+        <p>Luego... ¿A dónde iremos? Luego... ¿Qué es lo que haremos? ¿Cómo lo haremos? ¿Por qué lo haremos? ¿Para qué lo haremos? ¿Por qué avanzamos? ¿Para qué avanzamos? ¿Por qué y para qué seguimos? ¿Por qué y para qué vivimos? Así hasta el infinito... Así hasta nunca más... Si esto es así... ¿Por qué es así? Si todo es así... ¿Por qué es así?</p>
+        <p>Si todo no existe... ¿Por qué algo existe? ¿Si todo es la nada, si la nada es todo? Como podré saber, si en este instante solo, estoy haciendo un bien; estoy haciendo mal... ¿Para qué haré el bien? ¿Para qué haré mal? ¿Por qué y para qué todo? ¿Porqué y para qué nacemos, vivimos... morimos...? así hasta el infinito... El infinito... ¿Qué es?...</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="dios" class="content-section">
+        <h2>¿Dios es bueno?</h2>
+        <p>Uno, dos, tres, cuatro... ¡¿Qué pasa que no puedo contar?! Si cuento más de ese número la cuenta me sale mal. Uno, dos, tres, cuatro, diecisiete, veintinueve... Los números se mezclan, se pierden... no existen más.</p>
+        <p>¿Cómo haré para contar los días de mi existencia? ¿Cómo haré para saber cuánto gano y cuánto valgo? ¿Cómo valorar el dinero acumulado? Si ya no sé contar... ¿Cómo hago para contarlo? ¿Cómo voy a medir contando los sentimientos, si no hay un número que pueda valorar qué valen los pensamientos?</p>
+        <p>¿Y la maldad? ¿Qué la puede cuantificar? ¿Será mucha? ¿Será poca?... ¿Un número la medirá?No, porque nunca podremos fijar la unidad de la maldad. Ni del bien, ni del pensamiento, ni de la razón, ni del miedo. Ni del amor, ni del desconsuelo. Si esto no se mide, si nadie puede decir: deme cinco de rencor, deme cuatro de cariño... deme mil de frustración. ¿Cómo podemos medir la bondad que tiene Dios?</p>
+        <p>¿Cómo podemos saber si Dios en su omnipotencia nos dio, tanto, de conciencia? Si no lo podemos medir. Como podemos decir: Dios es bueno o Dios es malo. Si la unidad que lo mide no está para valorarlo.</p>
+        <p>¿Cómo podemos pasar la vida sin meta fija? Si la meta está en el punto prefijado: Luego de este momento y antes de nuestro último aliento. Si está en un día fijo, si está en un momento claro, algún número debe haber que sirva para encontrarlo. Aunque es difícil saber, es difícil entender, qué nos depara el destino, si no hay número que mida los pasos en el camino.</p>
+        <p>Cuando los damos están, al hacerlos recorremos un camino en el tiempo, pero cuando quedan atrás, quedan en nuestra mente. Al estar allí guardados, no hay nada que los pueda sacar. Sacarlos para contarlos. Unos fueron para aquí, otros fueron para allá. A unos los guió el bien, a otros los mandó el mal. Otros no valieron nada, y otros muchos se perdieron, en la nada de la nada.</p>
+        <p>Pero los pasos que valen, son los que fueron guiados por la bondad. Esos pasos que das, esos pasos en tu vida, los das para valorar a tu ser. Los das, aunque no los midas. Los pasos que das guiados por la maldad, son los que inevitablemente traerán a tu ser: adversidad.</p>
+        <p>Cuida tus pasos, no los midas. Piensa que cada día, todos los pasos que des, vayan directo hacia Dios, vayan directo hacia El. El, con su omnipotencia ayudará a tu conciencia a conocer la maldad. La conciencia te dirá: Este está bien, este paso esta mal, este paso llevará a tu ser por el camino de la bondad y el amor... que está al llegar a tu sino.</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <section id="ver" class="content-section">
+        <h2>Los seres espirituales... ¿Cómo ven?</h2>
+        <p>¿Cómo es el sol? Me dirás, si con los rayos que tiene calienta a todos por igual, pero nada lo detiene en su seguro vagar. ¿Cómo será lo que hay allá? ¿Qué será lo que será, que produce tanto fuego que todo puede quemar? ¿Y más allá?... ¿Qué habrá detrás de la inmensidad? Más allá de las estrellas, más y más allá...</p>
+        <p>¿Habrá algo? ¿Qué habrá? ¿Será el espacio infinito al que nada habitará? ¿O terminará en la nada, en la nada más total? ¿Qué será lo que será? ¿Qué cosa allí vivirá? ¿Qué cosa allí habitará? Qué será lo que será que después de recorrer miles de años con la luz, no se alcanza a conocer nada que no conoces. Porque eso es lo que ves, eso es lo que tus ojos ven. ¡Pero piensa cuantas cosas pueden tus ojos no ver!... ¿Ves el aire?... Pero está. ¿Ves el cielo?.. Sí, lo ves. Ahora mira dentro de él: ¿Ves que lo puedes hacer?</p>
+        <p>Supón por un momento... tus ojos no pueden ver. Dirías que no existe, todo eso que ves. Entonces piensa que en el cielo, ese algo inmensurable, vos puedes ver las estrellas, los astros y mensurarles. Con la vista, con anteojos, con aparatos precisos que son la prolongación de tu visión. Quita tu visión... Piensa por un momento que tus ojos ya no están, que ese sentido te falta... Existe lo que tocas, existe lo que palpas, y no existe nada más.</p>
+        <p>Cierra los ojos... piensa... ¿Cómo podrías saber, cómo harías para creer, que existe la inmensidad? ¿Cómo te explicarían, cómo lo apreciarías, qué es lo que pensarías? No sabrías como hacer, tu imaginación te diría, pensando una y otra vez, mil cosas disparatadas. ¡No lo podrías creer, porque no lo puedes ver!</p>
+        <p>Ese es uno de los sentidos, quizá el más importante, que te permite apreciar la inmensidad de ese cielo que no podrías tocar. ¡Pero, mira que maravilla Abres los ojos... y ves! Tu mente recibe impulsos, guiados por tu visión. Tu mente los codifica, da sentido a tu visión, te produce emoción, se plasma en imágenes. Se desarrolla en ti algo natural. Desarrollas el sentido de la vista y además tienes la posibilidad de guiar tu caminar, de saber a dónde vas.</p>
+        <p>Ahora piensa... Si tuvieras un sentido, un sentido inmaterial que te permita apreciar que hay en otra dimensión, que hay en el Más Allá. ¿Lo podrías apreciar? ¿Lo podrías meditar? ¿Lo podrías mensurar? ¿Creerías, verdad? Pero Dios no te lo dió. Puso esa valla entre el ser espiritual, lo que puede él apreciar y lo que aprecia el mortal.</p>
+        <p>Ahora piensa... Si no tienes los ojos, no puedes apreciar todo lo que la visión te da. Los únicos que ven son seres que no podrán transmitir con la palabra, porque no pueden hablar. ¿Cómo podrías saber todo lo que ellos ven? ¿Cómo podrías saber, sin dudar tú a tu vez, de la verdad de su visión, de todo eso que ellos ven? Sería solo un milagro, algo sobrenatural, la forma que encontrarías de saber que hay más allá.</p>
+        <p>Piensa... ¿Hay un Más Allá? Sí. ¿Dónde está?... No sé. ¿Cómo lo ves? No lo puedo ver. ¿Entonces como sé? Porque debe ser. ¿Pero, porqué debe ser? Porque es así. ¿Cómo así? Y... que a algún lugar vamos. ¿Por qué vamos? Porque sino nada sería justo. ¿Qué es ser justo? Tener sentido de la justicia. ¿Qué es la Justicia? La vara con que se mide la razón. ¿Qué es la razón? El desarrollo del intelecto.</p>
+        <p>Razona esto... Si Dios nos dió la razón para que nuestra emoción se pudiera razonar con impulsos repentinos que dicta nuestra mentalidad; y nuestra mente al crear, va creando pensamientos, los une con su razón, como se une una cadena: eslabón por eslabón. Los pensamientos unidos a los sentimientos, unidos por tu razón, van moviendo las acciones que tu mente ya creó. ¿Cómo fue que se cumplió algo tan complicado, pero tan simple a su vez? Porque es algo razonado.</p>
+        <p>En tu mente tienes algo, que es un algo material, en tu mente está la unión de la vida terrenal, con la existencia suprema de tu yo espiritual. Pero piensa: Es una parte de tu cuerpo terrenal, es tu mente. Y ella tiene como traba en su pensar las trabas que le provoca la materia en su trabar. El cuerpo está influído por todo lo que tocas, agentes inmateriales de cosas que no palpas. Pero la traba más grande que tienes que afrontar, es la unión de la materia con el mundo espiritual.</p>
+        <p>La traspones muchas veces en tu vida terrenal: Una... al nacer. Además, cada vez que dejas libre a tu mente para crear. Tu creación es el punto con el que puedes pasar las vallas de la materia con todo lo inmaterial. Pero espera... digo mal: No pasas al Más Allá, sólo tocas esa valla y palpas desde ese lugar una pequeña fracción de lo que hay más allá.</p>
+        <p>Por último, como último, el último paso que da tu materia en esta tierra, dará ese paso, que da el paso al mas allá. Ahora piensa... Si mi imaginación al crear solo me hace vislumbrar lo que podría crear con mi imaginación allá. ¿Cómo será que será?... deja a la imaginación vagar... ¿Cómo podrías pensar?... ¿Qué te parece?... Piensa. Todas las conclusiones que esta lectura te da pueden ser disparatadas o acercarse a la verdad, porque no tienes los ojos, los ojos para mirar, los ojos que aprecian todo en el mundo espiritual.</p>
+        <a href="#top" class="back-to-top"><i class="fas fa-arrow-up"></i> Volver arriba</a>
+    </section>
+
+    <div class="final-reflection">
+        <p style="font-size: 1.5rem; color: var(--gold-primary); font-family: 'Cinzel Decorative'; margin-bottom: 2rem;">Reflexión Final</p>
+        <p>Si quieres que tu razón te aconseje con razón, no aplastes a tu razón con impulsos sin razón.</p>
+        <p>Tienes que transformar tus sentimientos negativos: despecho, rencor, venganza, para dedicar tus pensamientos a lo positivo: perdón, amor y esperanza.</p>
+        <hr style="border-color: rgba(212, 175, 55, 0.3); width: 50%; margin: 2rem auto;">
+        <p>Si deseas el Universo, con la fuerza de tu mente, lo tendrás. Si deseas sentir amor, con la fuerza de tus sentimientos, lo sentirás. Si deseas sentir odio, con lo malo de tu mente, lo sentirás. Si deseas la sabiduría, estudiando y aprendiendo, la obtendrás. Si deseas ser mas bueno, con la fuerza de tus actos, lo serás.</p>
+        <p>Si venimos al mundo a penar, si venimos a vivir para penar, a veces es mejor dejar de vivir para dejar de penar. Si venimos al mundo para crear cosas en pos de un ideal, mejor cosa no te puede pasar, que dejes en el mundo de penar, para que algún día crezca más fuerte lo que tuviste un día como ideal.</p>
+    </div>
+
+</body>
+</html>

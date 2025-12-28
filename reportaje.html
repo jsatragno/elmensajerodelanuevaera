@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportaje a un Ser Espiritual - Mensajes del Más Allá</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #050510;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #f0f0f0;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        /* RESET & BODY */
+        * { box-sizing: border-box; }
+        body { 
+            background: var(--bg-deep); 
+            color: var(--text-main); 
+            font-family: 'Cormorant Garamond', serif; 
+            margin: 0; 
+            padding-bottom: 100px; 
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .bg-fixed { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: var(--bg-gradient); z-index: -2; 
+        }
+
+        /* SCROLLBAR PERSONALIZADA */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #050510; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+
+        /* NAVBAR */
+        .navbar { 
+            padding: 1rem 5%; 
+            background: rgba(5, 5, 16, 0.9); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid var(--gold-primary); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            backdrop-filter: blur(15px); 
+        }
+        .brand { font-family: 'Cinzel Decorative'; color: var(--gold-primary); font-size: 1.1rem; text-decoration: none; font-weight: 700; letter-spacing: 1px;}
+        .back-link { 
+            color: #fff; text-decoration: none; 
+            font-family: 'Montserrat'; text-transform: uppercase; 
+            font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.3); 
+            padding: 8px 20px; border-radius: 30px; 
+            transition: 0.3s; 
+            letter-spacing: 1px;
+        }
+        .back-link:hover { 
+            background: var(--gold-primary); color: #000; border-color: var(--gold-primary); 
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .article-container { 
+            max-width: 900px; 
+            margin: 4rem auto; 
+            padding: 4rem 3rem; 
+            background: var(--glass-bg); 
+            border-radius: 2px; 
+            border-left: 1px solid var(--glass-border); 
+            border-right: 1px solid var(--glass-border); 
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* HEADER DEL ARTÍCULO */
+        h1 { 
+            font-family: 'Cinzel Decorative'; 
+            color: var(--gold-primary); 
+            text-align: center; 
+            font-size: 3rem; 
+            margin-bottom: 2rem; 
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        .intro-box {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 2rem;
+            margin-bottom: 4rem;
+            font-style: italic;
+            text-align: center;
+            color: #ccc;
+            position: relative;
+        }
+        .intro-box::before { content: '❝'; font-size: 4rem; color: var(--gold-primary); opacity: 0.2; position: absolute; top: -20px; left: 10px; font-family: serif; }
+
+        .fe-alert {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--gold-light);
+            font-family: 'Cinzel Decorative';
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--gold-primary);
+        }
+
+        /* ESTILOS DE PREGUNTAS Y RESPUESTAS */
+        .qa-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .qa-block { 
+            position: relative;
+            padding-left: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .qa-block:hover { transform: translateX(5px); }
+
+        .question { 
+            color: var(--gold-light); 
+            font-family: 'Montserrat'; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem; 
+            display: flex; 
+            align-items: baseline; 
+            gap: 12px; 
+            line-height: 1.4;
+        }
+        .q-num { color: var(--gold-primary); font-family: 'Cinzel Decorative'; font-size: 1.2rem; min-width: 35px; }
+        
+        .answer { 
+            font-size: 1.25rem; 
+            line-height: 1.8; 
+            color: #dcdcdc; 
+            padding-left: 47px; /* Alineado con el texto de la pregunta */
+            position: relative;
+        }
+        .answer::before {
+            content: '';
+            position: absolute;
+            left: 26px;
+            top: 5px;
+            bottom: 5px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--gold-primary), transparent);
+            opacity: 0.3;
+        }
+
+        /* BARRA DE NAVEGACIÓN RÁPIDA (Volver arriba) */
+        .scroll-top {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--gold-primary); color: #000;
+            width: 50px; height: 50px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; opacity: 0.7; transition: 0.3s;
+            z-index: 999;
+        }
+        .scroll-top:hover { opacity: 1; transform: translateY(-5px); }
+
+        @media (max-width: 768px) {
+            .article-container { padding: 2rem 1rem; margin: 1rem; }
+            h1 { font-size: 2rem; }
+            .answer { padding-left: 0; padding-top: 10px; font-size: 1.1rem; }
+            .answer::before { display: none; }
+            .question { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-fixed"></div>
+    
+    <nav class="navbar">
+        <a href="index.html" class="brand">MENSAJES DEL MÁS ALLÁ</a>
+        <a href="index.html" class="back-link">Volver al Inicio</a>
+    </nav>
+
+    <div class="article-container">
+        <h1>Reportaje a un Ser Espiritual</h1>
+        
+        <div class="intro-box">
+            <p>"Cuando comenzamos esta página dije que era una comunicación espiritual. Es mi forma de pensar no la seguridad de todo esto lo que me lleva a presentar este capítulo. Es la seguridad adquirida con la lectura de estos escritos, que no pudieron ser redactados por mí."</p>
+            <p>Tampoco mientras los escribía tuve estos interrogantes. Escribí mecánicamente, como si fuera un dictado, luego analicé como lo hará ahora usted, razoné, como querría que usted lo haga.</p>
+            <p>Si disiente, está bien. Si le sirven, mejor. Si lo niega me dolerá, pero está en usted y en nadie más el juzgar si es la verdad.</p>
+            <div class="fe-alert">¡DEBES TENER FE!</div>
+        </div>
+
+        <div class="qa-wrapper">
+            <div class="qa-block"><div class="question"><span class="q-num">1</span>¿Qué es el espíritu?</div><div class="answer">El espíritu es una cosa intangible que concentra toda la fuerza del ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">2</span>¿Qué es el alma?</div><div class="answer">El alma es a la materia, lo que el espíritu es al ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">3</span>¿Qué es la vida?</div><div class="answer">La vida es la materialización del ser, su pasaje terrenal.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">4</span>¿Qué es la muerte?</div><div class="answer">La muerte es el pasaje de la vida material a la vida espiritual.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">5</span>¿Qué es la virtud?</div><div class="answer">La virtud es el reflejo de la elevación espiritual de nuestra alma, el desarrollo de la caridad y la manifestación de la templanza.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">6</span>¿Para qué están los pensamientos?</div><div class="answer">Para que nuestro intelecto desarrolle sus reacciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">7</span>¿Qué es la fatalidad?</div><div class="answer">Es el cumplimiento inexorable.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">8</span>¿Qué es la conciencia?</div><div class="answer">Es la respuesta a nuestros pensamientos y nos orienta hacia la virtud.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">9</span>¿Qué es el amor?</div><div class="answer">Es la respuesta a nuestros sentimientos más elevados.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">10</span>¿Qué es el odio?</div><div class="answer">Es el reflejo de lo malo del ser.</div></div>
+            
+            <div class="qa-block"><div class="question"><span class="q-num">11</span>¿Qué es la materia?</div><div class="answer">Es la envoltura carnal de nuestra alma.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">12</span>¿Qué es el firmamento?</div><div class="answer">Es la imagen del Más Allá.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">13</span>¿Qué es el destino?</div><div class="answer">Son los mojones de nuestra existencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">14</span>¿Qué es la esperanza?</div><div class="answer">Es el deseo de una vida mejor.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">15</span>¿Qué es la fraternidad?</div><div class="answer">Es el desarrollo de la hermandad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">16</span>¿Qué es la fuerza vital?</div><div class="answer">Es el impulso de nuestros pensamientos fundamentales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">17</span>¿Qué es la templanza?</div><div class="answer">Es el dominio de los apetitos carnales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">18</span>¿Cómo llegar a ella?</div><div class="answer">Con la depuración de nuestros pensamientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">19</span>¿Qué es la desesperación?</div><div class="answer">Es la demostración de nuestra inseguridad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">20</span>¿Cómo definir la inconstancia?</div><div class="answer">Es el reflejo de nuestra inseguridad.</div></div>
+            
+            <div class="qa-block"><div class="question"><span class="q-num">21</span>¿Cómo vencer la inconstancia?</div><div class="answer">Con metas precisas que el ser va cumpliendo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">22</span>¿Qué es la continencia?</div><div class="answer">Es la moderación de los apetitos carnales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">23</span>¿Qué es la simpatía?</div><div class="answer">Es el reflejo de la personalidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">24</span>¿Qué es la personalidad?</div><div class="answer">Es la manifestación del yo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">25</span>¿Qué es la caridad?</div><div class="answer">Es el fruto de nuestra benevolencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">26</span>¿Qué es la benevolencia?</div><div class="answer">Es una disposición a la bondad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">27</span>¿Qué es el temor?</div><div class="answer">Una de las reacciones del ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">28</span>¿Qué produce el temor?</div><div class="answer">La confusión de nuestros sentidos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">29</span>¿Cómo vencer el temor?</div><div class="answer">Por medio de nuestra fuerza vital.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">30</span>¿Quién vence el temor?</div><div class="answer">El que tiene fe en sí mismo.</div></div>
+
+            <div class="qa-block"><div class="question"><span class="q-num">31</span>¿Qué es la moral?</div><div class="answer">Es el sentido de la virtud.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">32</span>¿Qué es la existencia?</div><div class="answer">Es el supremo don de la vida.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">33</span>¿Qué es el Espacio Sideral?</div><div class="answer">Es la conjunción total del universo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">34</span>¿Qué es el Universo?</div><div class="answer">Los dominios de Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">35</span>¿Qué es Dios?</div><div class="answer">Es la respuesta infinita a nuestros pensamientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">36</span>¿Qué es la manifestación espiritual?</div><div class="answer">Es el medio por el que se comunican los seres.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">37</span>¿Qué es la ciencia?</div><div class="answer">Es una de las maneras de desarrollar la inteligencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">38</span>¿Qué es la reencarnación?</div><div class="answer">Es el medio que tienen los seres humanos para evolucionar.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">39</span>¿Qué es el Sino?</div><div class="answer">El destino absoluto de todos los seres.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">40</span>¿Qué es la alabanza?</div><div class="answer">Es la demostración de la admiración.</div></div>
+            
+            <div class="qa-block"><div class="question"><span class="q-num">41</span>¿Qué es la admiración?</div><div class="answer">Es la demostración de nuestra simpatía y nuestro respeto hacia una cualidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">42</span>¿Qué es el mundo?</div><div class="answer">El espacio en que viven los seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">43</span>¿Qué hay en otros mundos?</div><div class="answer">Seres infinitamente superiores y seres infinitamente rudimentarios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">44</span>¿Quiénes los gobiernan?</div><div class="answer">Los espíritus superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">45</span>¿Quiénes son?</div><div class="answer">Son seres cuya elevación espiritual los acerca a Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">46</span>¿Qué hacen?</div><div class="answer">Cumplen los designios de Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">47</span>¿Cómo se manifiestan?</div><div class="answer">Por medio de sus acciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">48</span>¿Cómo los reconocemos?</div><div class="answer">Por su luz omnipotente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">49</span>¿Están a nuestro alcance?</div><div class="answer">No.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">50</span>¿Quiénes son los guías?</div><div class="answer">Son seres superiores.</div></div>
+
+            <div class="qa-block"><div class="question"><span class="q-num">51</span>¿Qué hacen?</div><div class="answer">Cuidan nuestras acciones, guían nuestra conciencia y nos ayudan a resolver nuestras acciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">52</span>¿Qué pasa si desobedecemos?</div><div class="answer">Perjudica a nuestras acciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">53</span>¿El guía de un ser humano, puede ser guía de otro ser humano?</div><div class="answer">Cada guía tiene como misión principal un ser, pero cumple misiones menores ayudando a otros seres.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">54</span>¿Quiénes los gobiernan?</div><div class="answer">Los espíritus superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">55</span>¿Cómo los reconocemos?</div><div class="answer">Por sus mensajes naturales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">56</span>¿Qué son los mensajes naturales para los guías?</div><div class="answer">Los que emanan de Dios y los seres espirituales interpretan.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">57</span>¿Qué es el Ser Humano?</div><div class="answer">El ser que cumple una misión en la tierra.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">58</span>¿Todos los seres humanos tienen una Misión?</div><div class="answer">Si, y perfectamente establecida.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">59</span>¿Qué pasa si no la cumplen?</div><div class="answer">Se retrasan en su elevación espiritual.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">60</span>¿Cómo identificamos esa Misión?</div><div class="answer">La intuimos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">61</span>¿Qué es la omnipotencia?</div><div class="answer">Es la manifestación total del ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">62</span>¿Dios es omnipotente?</div><div class="answer">Dios es omnipotente y omnipresente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">63</span>¿Qué es ser omnipresente?</div><div class="answer">Es tener el dominio del tiempo y el espacio absolutos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">64</span>¿Qué es el tiempo?</div><div class="answer">Es la medida de la existencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">65</span>¿Qué es el espacio?</div><div class="answer">El universo todo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">66</span>¿Cómo se eleva espiritualmente?</div><div class="answer">Por medio de nuestras acciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">67</span>¿Cómo valorar las acciones?</div><div class="answer">Siguiendo los dictados de la conciencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">68</span>¿Qué es divinidad?</div><div class="answer">Es la fuerza de la voluntad de Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">69</span>¿Qué es el Poder Divino?</div><div class="answer">Es la fuerza que gobierna todo lo creado; en el tiempo y en el espacio.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">70</span>¿Cómo interpretar los designios de estos poderes?</div><div class="answer">Por la fuerza de la razón.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">71</span>¿Cómo definir la naturaleza de nuestras acciones?</div><div class="answer">Por medio de nuestro intelecto.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">72</span>¿Cómo poder razonar nuestras acciones?</div><div class="answer">Por medio de nuestra fuerza vital en función creadora.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">73</span>¿Quiénes nos ayudan a resolver nuestras acciones?</div><div class="answer">Nuestros guías espirituales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">74</span>¿Cómo se manifiestan?</div><div class="answer">Con impulsos que actúan sobre nuestra mente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">75</span>¿Qué significa cumplir las acciones?</div><div class="answer">Acercarnos al cumplimiento de nuestra misión.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">76</span>¿Cómo hacer para saber que una acción ha sido cumplida?</div><div class="answer">Por medio de nuestra sensibilidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">77</span>¿Qué es sensibilidad?</div><div class="answer">Es la cualidad que tienen los seres humanos para tener noción del bien o el mal.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">78</span>¿Qué es la Misericordia Divina?</div><div class="answer">Es una facultad de Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">79</span>¿Qué es la bondad?</div><div class="answer">Un don del ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">80</span>¿Para qué sirve la bondad?</div><div class="answer">Para ser cada día mejores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">81</span>¿Qué es el bien?</div><div class="answer">Las acciones que conforman los dictados de nuestra conciencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">82</span>¿Danos una definición de bondad?</div><div class="answer">¿Como podrías definir la luz o la oscuridad? Si cierras fuerte los ojos y no puedes ver mas, dirías que la luz viene del sol y nada mas. Eso pasa con la bondad: es algo que viene de Dios, eso solo... nada mas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">83</span>¿Cuándo llegamos a ser del todo buenos, nos morimos?</div><div class="answer">No. cuando llegamos a ser puros ya no nacemos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">84</span>¿El plazo para morir está de acuerdo a la perfección o está antes?</div><div class="answer">El plazo para morir no esta dado por el grado de bondad, esta dado por la fatalidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">85</span>¿Los seres que alcanzan la perfección, siguen vivos?</div><div class="answer">Los seres alcanzan la perfección en sucesivas vidas, pero en determinado momento no reencarnan, cumplen elevadas tareas como seres espirituales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">86</span>¿Qué es el mal?</div><div class="answer">Las acciones que demuestran el bajo nivel espiritual del ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">87</span>¿Cómo diferenciar el bien del mal?</div><div class="answer">Dando cabida a los dictados de nuestra conciencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">88</span>¿Cómo definir la intelectualidad?</div><div class="answer">Como un medio de llegar a la sabiduría.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">89</span>¿Cómo definir a la sabiduría?</div><div class="answer">Como una demostración de fe.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">90</span>¿Es necesaria la existencia del mal?</div><div class="answer">El mal existe para valorar el bien.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">91</span>¿Llegaremos algún día al bien total?</div><div class="answer">No, a el bien total solamente lo posee Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">92</span>¿Por qué el ser humano nace con maldad?</div><div class="answer">Si te pones a pensar que el ser humano tendrá que domar a la maldad en toda la eternidad, en esa respuesta esta la contestación que buscas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">93</span>¿El ser malo conoce el bien?</div><div class="answer">El ser malo conoce el bien pero lo rechaza.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">94</span>¿El bueno conoce el mal?</div><div class="answer">Lo conoce, lo combate y hace un culto del bien.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">95</span>¿La capacidad de maldad puede volcarse a la bondad?</div><div class="answer">Puede inclinarse a la bondad desarrollando su espiritualidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">96</span>¿Hay que aislar a una persona mala?</div><div class="answer">Hay que ayudar a una persona mala, orientándola y comprendiéndola.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">97</span>¿El ayudar a una persona mala nos puede perjudicar?</div><div class="answer">Nunca te puede perjudicar algo en lo que no hagas mal. cuando ayudas a un ser malo, de una u otra manera se capitaliza en ti la acción que has desarrollado.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">98</span>¿Qué es el pensamiento?</div><div class="answer">La respuesta del intelecto.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">99</span>¿Qué es el intelecto?</div><div class="answer">El desarrollo de la fuerza vital, lo que define nuestro saber.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">100</span>¿De qué forma valoramos a nuestro intelecto?</div><div class="answer">Por medio de la sabiduría.</div></div>
+
+            <div class="qa-block"><div class="question"><span class="q-num">101</span>¿Cómo mejorar el intelecto?</div><div class="answer">No se mejora, se cultiva.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">102</span>¿Quiénes dominan su intelecto?</div><div class="answer">Los espíritus superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">103</span>¿Cómo apreciar la sabiduría?</div><div class="answer">Reconociendo su magnitud, el ser que no la conoce no puede apreciarla.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">104</span>¿Cómo enriquecer nuestros conocimientos?</div><div class="answer">Por medio de la curiosidad y el estudio planificado y metódico.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">105</span>¿Qué es la curiosidad?</div><div class="answer">Es la base del conocimiento.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">106</span>¿Cómo definir la necesidad de saber?</div><div class="answer">Como la sed del ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">107</span>¿Cómo apaciguar esa sed?</div><div class="answer">Por medio del conocimiento.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">108</span>¿Cómo discernir si los conocimientos están bien orientados?</div><div class="answer">Por nuestra percepción.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">109</span>¿Quién maneja esa percepción?</div><div class="answer">Los seres espirituales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">110</span>¿Cómo se manifiesta esa percepción?</div><div class="answer">Con impulsos que influyen sobre nuestra mente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">111</span>¿Quiénes dominan los conocimientos?</div><div class="answer">Los científicos y estudiosos de todas las ramas del saber humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">112</span>¿Cómo saber que esos conocimientos enriquecen nuestro ser?</div><div class="answer">Por medio de nuestra intuición.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">113</span>¿Qué nos indicará nuestra intuición?</div><div class="answer">La forma correcta de adquirir conocimientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">114</span>¿Qué es la Fuerza Espiritual?</div><div class="answer">Es la fuerza del espíritu humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">115</span>¿Cómo definir la Esperanza?</div><div class="answer">Como la cualidad que tiene el ser humano para comunicarse con los seres superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">116</span>¿Cómo saber cuando tenemos esa cualidad?</div><div class="answer">Cuando la fe domina nuestros actos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">117</span>¿Qué es la cordialidad?</div><div class="answer">Es la imagen de nuestra simpatía.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">118</span>¿Qué es el virtuosismo?</div><div class="answer">Es la definición y manifestación de nuestra espiritualidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">119</span>¿Qué es la vitalidad?</div><div class="answer">Es la fuerza terrenal de los seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">120</span>¿Qué es la inmortalidad?</div><div class="answer">Es el supremo don de la existencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">121</span>¿Qué es la Fe?</div><div class="answer">Es la cualidad por la que el ser humano se comunica con los seres superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">122</span>¿Qué es la razón?</div><div class="answer">Es el desarrollo de la fuerza vital del ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">123</span>¿Qué es el amor a Dios?</div><div class="answer">Es el sentimiento más sublime que puede sentir un ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">124</span>¿La felicidad en el amor es dar?</div><div class="answer">La felicidad en el amor es prodigar amor, sin pedir que ese amor nos inunde con su amor.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">125</span>¿Qué es el amor entre un hombre y una mujer?</div><div class="answer">Es el sentimiento por el cual la relación carnal se sublima y se eleva.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">126</span>¿Qué es el amor carnal?</div><div class="answer">Es el sentimiento carnal de atracción entre dos seres.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">127</span>¿Qué es el amor espiritual?</div><div class="answer">Es la atracción natural de dos seres afines.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">128</span>¿Qué es el amor fraternal?</div><div class="answer">Es el amor que se da en seres de la misma sangre.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">129</span>¿Qué es el amor total?</div><div class="answer">Es el amor que se da en cuerpo y alma, con el espíritu y con la materia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">130</span>¿Cómo identificar al amor total?</div><div class="answer">Cuando el otro ser llena toda tu vida y está en todos tus pensamientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">131</span>¿Cómo se hace para amar a Dios?</div><div class="answer">Siendo cada día mejor, en tus sentimientos y acciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">132</span>¿Qué es la espiritualidad?</div><div class="answer">Es la manifestación de nuestra fe.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">133</span>Cómo saber si nuestros pensamientos nos llevan hacia la virtud y la templanza?</div><div class="answer">Los interpretamos luego de conocer ambas cualidades.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">134</span>¿Cuál es el origen del raciocinio?</div><div class="answer">Es el principio del ordenamiento de nuestras ideas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">135</span>¿Cómo hacer que nuestro raciocinio nos lleve por el camino adecuado?</div><div class="answer">Siguiendo los dictados de la conciencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">136</span>¿Qué es la fuerza creadora?</div><div class="answer">Es la fuerza que desarrolla a nuestro intelecto.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">137</span>¿Qué es la misericordia?</div><div class="answer">La medida de nuestra caridad</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">138</span>¿Quiénes perciben el aura de los seres humanos?</div><div class="answer">Hay seres humanos que tienen una especie de percepción que les permite captar la intensidad de luz que proviene de la esencia de otro ser humano, nunca es con total precisión y se puede prestar a error.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">139</span>¿Qué es la voluntad Divina?</div><div class="answer">Es la respuesta a nuestros deseos mas elevados.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">140</span>¿Qué es el Espíritu Santo?</div><div class="answer">El que todo lo puede, el que todo lo da.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">141</span>¿Cuáles son los Santísimos Sacramentos?</div><div class="answer">Los que emanan del mismo Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">142</span>¿Cómo reconocerlos?</div><div class="answer">Por medio de la fe.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">143</span>¿Cuáles son los designios de DIOS?</div><div class="answer">Todo lo que se cumple inexorablemente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">144</span>¿Cómo conocerlos?</div><div class="answer">Por medio de nuestra percepción.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">145</span>¿Qué es la percepción?</div><div class="answer">Es una cualidad de los seres humanos, ella nos ayuda a distinguir si estamos cumpliendo correctamente nuestra misión.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">146</span>¿Cómo sabemos si un ser es espiritualmente elevado?</div><div class="answer">Por medio de sus acciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">147</span>¿Cómo reconocerlas?</div><div class="answer">Utilizando tu raciocinio.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">148</span>¿Qué es un sentimiento sublime?</div><div class="answer">Es algo que nos acerca a Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">149</span>Si Dios es todopoderoso, le pido que haga una piedra tan pesada que nadie la pueda levantar. Luego le pido que la levante. ¿Qué hace?</div><div class="answer">Si pudieras pedirle algo a Dios le dirías: levanta esta piedra. El, con su omnipotencia, la dejaría allí, pues la piedra fue creada por El, al crearla dijo que ni El ni nadie la pudiera mover. no es por no ser omnipotente, sino por ser obediente a sus designios, si no no sería Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">150</span>¿Qué es la inseguridad?</div><div class="answer">Es una cualidad del ser humano que lo lleva a equivocarse.</div></div>
+
+            <div class="qa-block"><div class="question"><span class="q-num">151</span>¿Qué es el miedo?</div><div class="answer">Es una manifestación de inseguridad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">152</span>¿Quién ejerce el gobierno de los seres humanos?</div><div class="answer">Los seres humanos con esa misión.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">153</span>¿Todos los seres humanos con destino de gobernantes (aún los malintencionados) tienen esa misión?</div><div class="answer">Si, todos los seres humanos que tienen una misión determinada van al mundo para cumplirla.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">154</span>¿Cómo saber si un ser humano tiene la misión de gobernar?</div><div class="answer">Por sus acciones, sus actuaciones, sus resoluciones y sus decisiones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">155</span>¿Todos los seres humanos tienen cualidades de gobernante?</div><div class="answer">No, solamente los especialmente enviados para cumplir esa misión.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">156</span>¿Quiénes son los gobernantes?</div><div class="answer">Los seres cuyas decisiones pueden hacer variar la forma de vida de muchos seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">157</span>¿Cómo llegan a cumplir esa Misión?</div><div class="answer">Por medio de su destino.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">158</span>¿Qué sucede si no cumplen esa Misión?</div><div class="answer">Debido a su importancia, reciben un castigo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">159</span>¿Qué forma tiene ese castigo?</div><div class="answer">Pierden prerrogativas especiales en el mundo celestial.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">160</span>¿Desde qué momento el espíritu se integra a la materia?</div><div class="answer">El espíritu toma conciencia de que se va a encarnar en el momento de la concepción, y se integra definitivamente con el nacimiento.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">161</span>¿Es tan importante el momento del nacimiento en el destino futuro?</div><div class="answer">El destino está fijado, el momento del nacimiento altera nuestro carácter dándole características del signo al que se pertenece guiado por la fuerza magnética de los astros.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">162</span>¿Se puede guiar uno por la Astrología Científica?</div><div class="answer">La astrología da a grandes rasgos las características básicas del ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">163</span>¿Las personas de un mismo signo astrológico son parecidas?</div><div class="answer">No, estas características están influenciadas por la posición de los astros y otras perturbaciones, como las explosiones solares en el día y hora del nacimiento.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">164</span>¿De dónde viene el estudio de la astrología?</div><div class="answer">Era enseñada en la mas remota antigüedad por seres que viajaron en el espacio.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">165</span>¿Qué es la parapsicología?</div><div class="answer">Es la ciencia por la que se estudian los fenómenos paranormales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">166</span>¿Qué son los fenómenos extrasensoriales?</div><div class="answer">Son los que escapan a las dimensiones normales del ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">167</span>¿Cuáles son las dimensiones normales y paranormales?</div><div class="answer">La primera el tacto, la segunda el intelecto, la tercera la percepción, la cuarta la traslación, la quinta la intuición verdadera, la sexta la modificación de la materia, la séptima el dominio de la materia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">168</span>¿Qué es la telequinesis?</div><div class="answer">Es la facultad que tienen algunos seres humanos de influir con su mente, moviendo objetos a distancia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">169</span>¿Qué es la Divina Providencia?</div><div class="answer">Es la caridad de Dios, respuesta a nuestros pensamientos más elevados.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">170</span>¿Cómo reconocerla?</div><div class="answer">Por su bondad infinita.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">171</span>¿Qué es el rezar?</div><div class="answer">Es una forma de elevar el pensamiento.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">172</span>¿Ayudan las oraciones?</div><div class="answer">Si, porque concentran nuestros pensamientos en fines elevados.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">173</span>¿Qué es un dogma religioso?</div><div class="answer">Es la confirmación de nuestra fe religiosa.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">174</span>¿Qué es la Justicia Divina?</div><div class="answer">Es el destino inexorable de todos los seres.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">175</span>¿Cómo es la Justicia Divina?</div><div class="answer">Infinitamente justa.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">176</span>¿Por qué es justa?</div><div class="answer">Porque valora el bien y castiga el mal hasta transformarlo en bien.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">177</span>¿Cómo lo castiga?</div><div class="answer">Por medio de pruebas que el ser va cumpliendo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">178</span>¿Para qué las cumple?</div><div class="answer">Para evolucionar hacia el bien.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">179</span>¿Cuál es el motivo?</div><div class="answer">Los seres humanos deben cumplir etapas en su existencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">180</span>¿Cuál es esta etapa?</div><div class="answer">La de nacer, vivir, morir en la tierra, hasta merecer un destino superior.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">181</span>¿Cuál es ese destino?</div><div class="answer">Evolucionar como seres por medio de la bondad y el amor.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">182</span>¿Hasta cuándo?</div><div class="answer">Hasta que el ser solo anide estos sentimientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">183</span>¿En cuántas vidas?</div><div class="answer">En todas las que sean necesarias.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">184</span>¿Cómo podemos hacer para que sean menos?</div><div class="answer">Haciendo un culto del bien.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">185</span>¿Qué ganaremos?</div><div class="answer">Aliviaremos sufrimientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">186</span>¿Por qué?</div><div class="answer">Porque no los necesitaremos para depurarnos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">187</span>¿Qué es el sufrimiento?</div><div class="answer">Es el castigo por nuestras malas acciones y el medio de forzar nuestro ser hacia el bien.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">188</span>¿Y si el sufrimiento nos lleva hacia el mal?</div><div class="answer">Nos atrasamos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">189</span>¿Y qué sucede?</div><div class="answer">Tendremos que sufrir hasta que aprendamos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">190</span>¿Aprendamos qué?</div><div class="answer">A hacer un culto de la bondad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">191</span>¿Y si no alcanza la vida para aprenderlo?</div><div class="answer">Vendremos en otras vidas hasta entenderlo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">192</span>¿Qué es el Catolicismo?</div><div class="answer">Es una religión.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">193</span>¿Qué afirma el catolicismo?</div><div class="answer">La existencia de la Santísima Trinidad y otros dogmas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">194</span>¿Qué cree el catolicismo?</div><div class="answer">En seres humanos superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">195</span>¿Quiénes son los seres humanos superiores?</div><div class="answer">Seres que nacieron para redimir al ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">196</span>¿Cómo se manifestaron?</div><div class="answer">Como Jesús de Nazaret y los Santos Apóstoles.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">197</span>¿Qué los guió?</div><div class="answer">El Espíritu Santo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">198</span>¿Qué es el Espíritu Santo?</div><div class="answer">Es la manifestación del Ser Supremo, para la Religión Católica es uno de los Seres Supremos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">199</span>¿Qué tareas cumple el catolicismo?</div><div class="answer">Evangélicas, apostólicas y benéficas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">200</span>¿Cuál es el defecto del catolicismo?</div><div class="answer">Imponer seres humanos como intermediarios de Dios.</div></div>
+
+            <div class="qa-block"><div class="question"><span class="q-num">201</span>¿Cuál es la virtud del catolicismo?</div><div class="answer">La fuerza espiritual de su fe.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">202</span>¿Qué es el ateísmo?</div><div class="answer">Es el no creer en Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">203</span>¿Quiénes no creen en Dios?</div><div class="answer">Seres que basan su existencia en el materialismo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">204</span>¿Qué es lo malo del ateísmo?</div><div class="answer">Que retrasa la elevación espiritual.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">205</span>¿Qué es un dogma religioso?</div><div class="answer">Es una búsqueda de la verdad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">206</span>¿Qué verdad?</div><div class="answer">La de la existencia del ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">207</span>¿Qué es el umbandísmo?</div><div class="answer">Es una creencia religiosa basada en la reencarnación de los seres.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">208</span>¿Qué es lo bueno del umbandísmo?</div><div class="answer">El grado de concentración mental que logran los que lo dirigen.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">209</span>¿Qué es lo negativo?</div><div class="answer">La superchería de sus practicas religiosas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">210</span>¿Cómo definir al umbandísmo?</div><div class="answer">Como una religión que se basa en el culto a Dios por medios paganos y que tiene una base buena en su misticismo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">211</span>¿Qué es la línea blanca del umbandísmo?</div><div class="answer">La que tiene buenas intenciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">212</span>¿Qué es la línea roja?</div><div class="answer">La que se rodea de seres de bajo nivel espiritual y se dedica a perturbar mentes y cuerpos de seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">213</span>¿Qué es la línea negra del umbandísmo?</div><div class="answer">La que basa su credo en la maldad y el daño físico y moral.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">214</span>¿Qué es el oscurantismo?</div><div class="answer">Es una creencia negativa, porque se basa en factores negativos del ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">215</span>¿Cómo combatir el oscurantismo?</div><div class="answer">Con la fuerza de nuestras ideas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">216</span>¿Qué es el libre albedrío?</div><div class="answer">El don de poder elegir a nuestro saber y entender.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">217</span>¿El mahometismo es una religión?</div><div class="answer">Es un dogma religioso basado en la adoración a Mahoma.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">218</span>¿Quién fue Mahoma?</div><div class="answer">Un ser de gran elevación espiritual que vino al mundo a cumplir una misión extraordinaria.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">219</span>¿Cómo se manifestó?</div><div class="answer">Por medio de la enseñanza y la divulgación de sus ideas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">220</span>¿Cuál fue su mayor virtud?</div><div class="answer">Su desprendimiento, su entrega y la fuerza de su personalidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">221</span>¿Los que profesan el Judaísmo, son paganos?</div><div class="answer">No, son paganos los que no creen en un Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">222</span>¿En qué creen los Judíos?</div><div class="answer">En una religión y una raza superior.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">223</span>¿Su religión es superior?</div><div class="answer">No, su religión es el camino que eligieron para profesar su fe.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">224</span>¿Su raza es superior?</div><div class="answer">No, son seres humanos como todos los que habitan la tierra.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">225</span>¿Cuál es el fin que persiguen?</div><div class="answer">La redención del ser humano por medio de su fe.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">226</span>¿Lo lograrán?</div><div class="answer">El camino es la purificación y la elevación espiritual de nuestro ser, independientemente de la religión que se profese.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">227</span>¿Quiénes gobiernan el judaísmo?</div><div class="answer">Los seres humanos que ellos eligen para gobernarlos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">228</span>¿Ellos tienen guías espirituales?</div><div class="answer">Todos los seres humanos tienen guías espirituales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">229</span>¿Por qué no les indican el camino correcto?</div><div class="answer">¿Quién dice que no es el camino correcto? Todo ser tiene que ser libre en la elección del camino de su elevación espiritual.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">230</span>¿Son muchos esos caminos?</div><div class="answer">Son tantos como seres humanos hay en la tierra.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">231</span>¿Cómo reconocerlos?</div><div class="answer">Cuando dentro del cumplimiento de la misión que nos ha sido encomendada, evolucionamos por la calidad y pureza de nuestras acciones, estamos en el camino correcto.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">232</span>Danos una definición del judaísmo</div><div class="answer">Es una religión que justificándose en haber sido perseguida- se aísla dentro de sí misma.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">233</span>¿Qué es la salud?</div><div class="answer">Es el bienestar del cuerpo humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">234</span>¿Cómo se daña la salud?</div><div class="answer">Por medio de microorganismos que alteran la constitución de las células que componen el cuerpo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">235</span>¿Cómo actúan estos microorganismos?</div><div class="answer">Invadiendo zonas del cuerpo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">236</span>¿Qué hay que hacer para combatirlos?</div><div class="answer">Atacarlos con medicamentos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">237</span>¿La mente humana puede sanar nuestro cuerpo?</div><div class="answer">Si, siempre que haya sido educada para ello.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">238</span>¿Cómo es esa educación?</div><div class="answer">Abstracta y manejada por seres espirituales que actúan como guías de los seres humanos que tienen esa facultad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">239</span>¿Esa facultad se desarrolla?</div><div class="answer">Sí, con la práctica.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">240</span>¿Cómo evitar la superchería?</div><div class="answer">Analizando los resultados.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">241</span>¿Qué es curar?</div><div class="answer">Aliviar los sufrimientos del ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">242</span>¿La mente humana se enferma?</div><div class="answer">La mente humana se perturba por agentes físicos o percepciones espirituales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">243</span>¿Cuáles son los agentes físicos que la atacan?</div><div class="answer">Distintas enfermedades que actúan sobre el cerebro.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">244</span>¿Y los agentes espirituales?</div><div class="answer">Son seres inferiores que buscan cabida en la mente humana predispuesta y la perturban con sus emanaciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">245</span>¿Cómo curar una mente humana alterada por agentes físicos?</div><div class="answer">Con medicamentos y tratamiento psíquico.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">246</span>¿Cómo curar una mente alterada por agentes espirituales?</div><div class="answer">Por medio de seres humanos que poseen la facultad de aliviar el sufrimiento de seres confundidos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">247</span>¿Cómo saber si una mente está alterada?</div><div class="answer">Analizando sus actuaciones, reacciones y decisiones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">248</span>¿Siempre que se altera una mente actúa de esta manera?</div><div class="answer">Si.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">249</span>¿Cómo establecer con seguridad que un ser humano tiene la mente alterada?</div><div class="answer">Analizando sus respuestas a distintos estímulos físicos y espirituales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">250</span>¿Por qué nacen seres mogólicos?</div><div class="answer">Por que para su elevación necesitan pasar por esa prueba.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">251</span>¿Por qué nacen seres con terribles enfermedades?</div><div class="answer">Porque dentro de su destino deben modelarse por medio del sufrimiento.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">252</span>¿Hay forma de aliviar ese sufrimiento?</div><div class="answer">Si, por medio de la elevación espiritual.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">253</span>¿Qué son los OVNI?</div><div class="answer">Son seres humanos de una civilización muy adelantada que se trasladan en el tiempo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">254</span>¿Porqué nos visitan?</div><div class="answer">Porque investigan su pasado.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">255</span>¿Por qué no se comunican?</div><div class="answer">Porque alterarían la historia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">256</span>¿Se van a manifestar?</div><div class="answer">Si, en el momento en que estén preparados para recibirlos sin alterar el destino de los seres.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">257</span>¿Será pronto?</div><div class="answer">Si.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">258</span>¿Quién hizo las pirámides?</div><div class="answer">Seres que viajaron de otro tiempo y se detuvieron en ese momento de la historia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">259</span>¿Por qué las construyeron?</div><div class="answer">Para perpetuarse en el tiempo hasta llegar a su era.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">260</span>¿Lo conseguirán?</div><div class="answer">No, las pirámides ya han sido saqueadas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">261</span>¿Y los seres?</div><div class="answer">El cuerpo humano se transforma con el paso del tiempo, lo único inmortal es el ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">262</span>¿Quiénes eran los Incas?</div><div class="answer">Eran seres humanos que se trasladaron en el tiempo y quedaron atrapados allí, hicieron de los nativos sus esclavos y por medio de la adoración, se dedicaron a sus cultos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">263</span>¿Qué otra manifestación de seres de otro tiempo hay?</div><div class="answer">En la Isla de Pascua se detuvieron seres de otro tiempo, perdieron toda su tecnología y al unirse con los nativos crearon una raza que se destruyó a sí misma. También hay manifestaciones de ellos en la Atlántida y en el Triángulo de las Bermudas. Sepultados en el hielo de la Antártida, en lugares desolados del Himalaya y en muchos otros lugares.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">264</span>¿Cómo se trasladan en el tiempo?</div><div class="answer">Por medio de ondas magnéticas que descomponen sus vehículos especialmente preparados, los recomponen en un momento de su pasado.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">265</span>¿Esos vehículos se trasladan?</div><div class="answer">Si, con total voluntad de los seres que los guían.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">266</span>¿Pueden hacerse invisibles?</div><div class="answer">Son invisibles, pero a veces por alguna circunstancia el mecanismo de invisibilidad falla o por voluntad de los seres que lo conducen, se muestran.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">267</span>¿Qué forma tienen los seres que los habitan?</div><div class="answer">Humanoides, aunque las sucesivas generaciones transformaron sus cabezas por el uso de su intelecto y atrofiaron sus miembros por el poco uso que hacen de ellos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">268</span>¿Qué altura tienen?</div><div class="answer">Según el período del futuro del que provienen.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">269</span>¿Nosotros podríamos conversar con ellos?</div><div class="answer">Si, perfectamente, pero no lo pueden hacer hasta tanto los hombres estén preparados y su comunicación no altere el curso de la historia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">270</span>A mí me gustaría comunicarme.</div><div class="answer">Alterarías la historia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">271</span>¿Por qué dejan huellas en el suelo?</div><div class="answer">Porque el campo magnético que los cubre, altera la composición molecular de los vegetales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">272</span>¿Por qué nacen hongos a su alrededor?</div><div class="answer">Esa fuerza produce la proliferación de gérmenes de vida rudimentarios, como son los hongos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">273</span>¿Conocen la Fuente de la Juventud?</div><div class="answer">La Fuente de la Juventud son los cuidados físicos, químicos y naturales que ellos han llegado a desarrollar. el período de vida se alarga por esos mismos cuidados.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">274</span>¿Tienen un dialecto universal en su Era?</div><div class="answer">Se comunican por medio de la mente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">275</span>¿Pueden leer los pensamientos?</div><div class="answer">Pueden leer o cubrir sus pensamientos para que nadie los interprete.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">276</span>¿Existen conflictos internacionales o políticos?</div><div class="answer">Existen cambios de ideas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">277</span>¿No existen gobiernos?</div><div class="answer">Si. Existen, pero en lugar de gobernar el más fuerte, manda el más preparado.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">278</span>¿Qué tipo de vida desarrollan?</div><div class="answer">Varía fundamentalmente con las eras.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">279</span>¿Tomarán contacto con los seres humanos actuales?</div><div class="answer">No, los que tomarán contacto serán seres que viajaron de otra galaxia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">280</span>¿Está en la historia?</div><div class="answer">Estará en la historia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">281</span>¿Se trasladan en el tiempo?</div><div class="answer">Si, también en el tiempo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">282</span>¿Son humanoides?</div><div class="answer">No, los humanoides son seres humanos que se trasladan en el tiempo. estos serán seres que viajan en el tiempo y en el espacio para el encuentro con los seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">283</span>¿Qué apariencia tienen?</div><div class="answer">Se harán ver a los ojos de los humanos con apariencia humana.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">284</span>¿Pueden cambiar su forma?</div><div class="answer">Ellos tienen su esencia vital como seres. la apariencia es solo el dominio de la materia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">285</span>¿Pueden dominar la materia?</div><div class="answer">Si, hasta cierto grado.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">286</span>¿Pero se harán corpóreos o será una ilusión óptica?</div><div class="answer">Tomaran forma humana para no causar pavor.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">287</span>¿Corpóreos con todas las necesidades fisiológicas?</div><div class="answer">No, solamente como imagen, pero con las tres dimensiones aparentes. su organismo no funcionará como tal.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">288</span>¿Serán atacados por los seres humanos?</div><div class="answer">Ellos cuidarán que la reacción natural de miedo de los seres humanos no los lleve a atacarlos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">289</span>¿Por qué medio?</div><div class="answer">Por la fuerza de su intelecto que puede llegar a paralizar la mente de uno o miles de seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">290</span>¿Cómo la paraliza?</div><div class="answer">Con ondas emanadas de su esencia, estas ondas no hacen daño, solamente anulan las reacciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">291</span>¿El ser humano queda consciente?</div><div class="answer">Queda receptivo a lo que ellos ordenen.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">292</span>¿Esto no alterará la tarea de ustedes?</div><div class="answer">El ser humano recurrirá a los seres espirituales, como una forma de defenderse de lo que ellos creerán es una agresión.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">293</span>¿No será una agresión?</div><div class="answer">No, solamente será una comunicación y lo harán con un grupo de seres escogidos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">294</span>¿Yo seré uno de ellos?</div><div class="answer">No.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">295</span>¿Quiénes serán?</div><div class="answer">Habitantes de una zona del globo que, ellos creen, son mas adelantados.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">296</span>¿Qué zona?</div><div class="answer">La de la cadena de montañas del Himalaya, los seres que la habitan han llegado por medio de la práctica al dominio de su mente y serán receptivos a la comunicación.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">297</span>¿Serán los lamas?</div><div class="answer">Si.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">298</span>¿Cómo divulgarán ésto?</div><div class="answer">Tendrán que dar a conocer esta comunicación al resto del mundo, ellos buscarán la forma más adecuada.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">299</span>¿Falta mucho en el tiempo?</div><div class="answer">Estamos en el inicio de esa comunicación.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">300</span>¿Esos seres extraterrestres entraron en contacto con los seres humanos en el pasado?</div><div class="answer">Ellos pueden trasladarse a voluntad, en el tiempo y en el espacio.</div></div>
+
+            <div class="qa-block"><div class="question"><span class="q-num">301</span>¿Hicieron algo para que quedaran vestigios de esas visitas?</div><div class="answer">Son seres de una elevación espiritual distinta a la humana, no les preocupa si alteran la historia o no.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">302</span>¿Al trasladarse en el tiempo no alteran la historia?</div><div class="answer">Está en la historia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">303</span>¿Si yo me trasladara al año 1810, mi visita estaría registrada?</div><div class="answer">Si pudieras trasladarte y manifestarte, sí.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">304</span>¿En qué año o en qué era el ser humano dominará el tiempo?</div><div class="answer">Comenzará a dominarlo con aparatos rudimentarios en base a energía molecular y magnética después del año 2.000.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">305</span>¿Cuándo se podrán trasladar en el tiempo?</div><div class="answer">Cuando puedan descomponerse molecularmente sin alterarse fisiológicamente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">306</span>¿Esos seres pueden infiltrarse en la mente humana?</div><div class="answer">Si, y lo hacen para conocerlos mejor.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">307</span>¿Esa comunicación se puede confundir con seres espirituales?</div><div class="answer">No. porque ellos pueden leer pensamientos, nosotros podemos influir sobre los pensamientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">308</span>¿En esas eras hacen viajes interplanetarios corrientemente?</div><div class="answer">Si. pueden visitar todos los planetas y algunas estrellas cercanas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">309</span>¿Qué fuente de energía utilizan?</div><div class="answer">Desarrollada en base al magnetismo del universo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">310</span>¿Qué es el magnetismo?</div><div class="answer">Es la fuerza por la cual se atraen o rechazan dos polos ferromagneticos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">311</span>¿De dónde proviene esa fuerza?</div><div class="answer">Es una fuerza que predomina en el universo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">312</span>¿En qué estado está en cada uno de los planetas?</div><div class="answer">Está latente en la Tierra, formando parte de un todo en el que predomina el mineral de hierro. en Marte está como gases disueltos en la capa que lo rodea, en el sol forma parte de los fenómenos físicos que generan energía. en Plutón es una materia etérea similar a un gas. esta energía cambia y se transforma con un denominador común, el dominio de ese estado logrará, en el futuro, que se movilicen naves a tal velocidad que dominarán el tiempo y el espacio.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">313</span>¿Actualmente nos visitan seres extraterrestres?</div><div class="answer">Si.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">314</span>¿Qué hacen?</div><div class="answer">Están investigando el medio de vida de los seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">315</span>¿Cómo lo hacen?</div><div class="answer">Por medio de aparatos sofisticados, con tecnología muy distinta a la que poseen los seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">316</span>¿Qué hacen esos aparatos?</div><div class="answer">Toman una población que a ellos por alguna razón les interesa y simultáneamente registran todos los actos, pensamientos, acciones, de todos sus habitantes durante un período de tiempo. luego extraen de ese registro lo que desean para su estudio.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">317</span>¿Tomaron a la Argentina?</div><div class="answer">Ellos prescinden de fronteras, toman núcleos determinados de población con sistemas de vida parecidos y los estudian.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">318</span>¿Con eso qué hacen?</div><div class="answer">Incrementan sus conocimientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">319</span>¿Para qué?</div><div class="answer">Para desarrollarse intelectualmente por medio de la investigación. Luego estudian los datos y si desean una ampliación vuelven luego de un tiempo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">320</span>¿Por qué se hacen ver?</div><div class="answer">Estudian la reacción de los seres humanos que los ven.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">321</span>¿Algún ser humano tuvo encuentros con ellos?</div><div class="answer">No, ellos cuidan que solo se vea (por momentos) su nave para desarrollar una reacción.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">322</span>¿De dónde vienen?</div><div class="answer">De un lugar en el espacio que tiene similares características a las del planeta Tierra.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">323</span>¿Cómo son los seres?</div><div class="answer">Tienen tres dimensiones aparentes, como los seres humanos, pero sus estructuras físicas difieren totalmente de los seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">324</span>¿Podríamos hacer un dibujo?</div><div class="answer">No, porque no se puede plasmar en un papel.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">325</span>¿Por qué?</div><div class="answer">Porque se componen de estructuras que el ojo humano no puede percibir, por lo tanto, no se pueden dibujar.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">326</span>¿Qué es?</div><div class="answer">Es una especie de velo, similar a una medusa, pero te repito, no es percibido por el ojo humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">327</span>¿Y por la mente?</div><div class="answer">Si, si ellos lo quieren, pero como el cerebro humano está programado de una manera determinada, para recibir impulsos materiales, no se da cuenta de los impulsos que ellos le envían.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">328</span>¿Con alguien que tuviera algún sentido muy desarrollado, podrían?</div><div class="answer">No, porque si ellos se manifestaran podrían causar conmoción en el ser humano en cuestión.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">329</span>¿Ellos qué intenciones tienen?</div><div class="answer">Ninguna, como parte de sus estudios investigan a los seres humanos. cuando se sienten satisfechos se van, es como si vos estuvieras estudiando una colonia de hormigas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">330</span>¿Sus naves son visibles al ojo humano?</div><div class="answer">No son visibles, ellos las hacen visibles para estudiar las reacciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">331</span>¿Por qué tienen forma de plato invertido?</div><div class="answer">Como se trasladan en el tiempo, saben que las máquinas del tiempo que el ser humano desarrollará en el futuro tendrán esa forma, entonces la adoptan para manifestarse. Sus naves no tienen forma determinada tomadas desde el punto de vista del ojo humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">332</span>¿Ellos no tienen ojos?</div><div class="answer">No, ellos son de una manera distinta. es similar a como vos percibes un olor o sabor, pero al estar en otra dimensión, pueden captar profundidad, forma y reacción en el plano cósmico de la forma de vida estudiada.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">333</span>¿Ellos estudian al hombre, o también a los animales?</div><div class="answer">Ellos estudian todo, hasta el más simple de los minerales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">334</span>¿Qué opinan de los hombres?</div><div class="answer">Ellos no opinan, se limitan a observarlos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">335</span>¿En dónde centran su atención?</div><div class="answer">En la mente del hombre.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">336</span>¿Por qué?</div><div class="answer">Porque tiene mayor interés para sus estudios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">337</span>¿Son malos o buenos?</div><div class="answer">Para ellos la maldad o la bondad existen de otra manera, como seres mucho mas evolucionados se rigen por otros parámetros.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">338</span>¿Cómo se procrean?</div><div class="answer">No se procrean, existen como seres y evolucionan por medio de impulsos vitales en lo que el cociente intelectual se incrementa con estudios como los que desarrollan con los seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">339</span>¿Ven a los seres espirituales?</div><div class="answer">Si.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">340</span>¿Qué hacen?</div><div class="answer">Nada, forma parte de sus estudios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">341</span>Los seres espirituales. ¿Los ven?</div><div class="answer">Claro, ellos son visibles a los seres espirituales con un cierto nivel.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">342</span>¿Se comunican?</div><div class="answer">Todo el universo se comunica entre si, solamente es necesario poseer la elevación suficiente en cada una de las etapas de la evolución para que se amplíen las posibilidades de comprensión y comunicación con distintas formas de vida en el espacio.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">343</span>¿Ustedes, al leer nuestros pensamientos, no se confunden y los mezclan con los de distintas personas?</div><div class="answer">Nosotros leemos el pensamiento del ser que nos interesa, pero normalmente no lo hacemos. Cada ser humano tiene una especie de llamado al que su guía es sensible, en los momentos de prueba el subconsciente lo envía y el guía está instantáneamente junto a él.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">344</span>¿Qué hacen los guías cuando uno duerme?</div><div class="answer">Cumplen otras tareas en el mundo espiritual.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">345</span>¿Qué tareas?</div><div class="answer">Cumplimos tareas que ayudan a la elevación de nuestro ser, todas esas tareas están reglamentadas y las hace el ser que tiene la elevación espiritual suficiente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">346</span>¿Cómo se reconocen los seres espirituales?</div><div class="answer">Por la luz que emana de nuestra esencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">347</span>¿Es como una aureola?</div><div class="answer">Es como un faro de automóvil, las distintas tonalidades de esa luz nos da la medida de la elevación espiritual.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">348</span>¿Y cuándo hay muchos?</div><div class="answer">Imagina paraguas de distintos colores e intensidades de luz; ¿Distinguirías a los mas blancos y brillantes? Nosotros podemos aparentar con rasgos para que el ser que ha desencarnado nos pueda identificar con más facilidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">349</span>Por eso en la descripción que hacen quienes han estado a punto de morir dicen que los recibieron con sonrisas.</div><div class="answer">Si, te imaginas que si tuviéramos una fisonomía tendríamos que adoptarla de alguna reencarnación. ¿Y cual? Por eso nos identificamos con nuestra luz, dándole caracteres humanos. Los seres de bajo nivel espiritual son solo sombras en el espacio.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">350</span>También dicen que escuchan una música celestial.</div><div class="answer">La música es una satisfacción de un sentido humano, de gran belleza para quien tiene el oído educado. Aquí son otras sensaciones, la receptividad del ser puede interpretarla como música.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">351</span>¿Qué sucede realmente cuando morimos?</div><div class="answer">El ser no preparado queda conflictuado, el ser preparado es avisado. como ser preparado al instante es consiente, sin dudar un momento sabe que su corazón dejó de latir y él dejo de sufrir.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">352</span>¿Los seres espirituales se juntan unos con otros?</div><div class="answer">Si, pero los seres elevados están en otro plano al que los rudimentarios no pueden acceder.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">353</span>¿Cómo se comunican?</div><div class="answer">Por medio de impulsos que genera el ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">354</span>¿No hay idiomas?</div><div class="answer">No, cada ser en distintos estados espirituales, tiene impulsos distintos. el ser inferior no puede recibir los impulsos de los superiores, salvo los que ellos quieran. El Ser Superior recibe todos los impulsos que se proponga debajo de el.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">355</span>¿El ser espiritual sufre?</div><div class="answer">Sufre de otra manera, no como sufrió en la tierra.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">356</span>¿Quiénes sufren más de esa manera?</div><div class="answer">Quienes en la tierra sufrieron y sufriendo aprendieron, no tendrán que sufrir mas. Los que al sufrir no supieron interpretar la verdad, tienen que seguir sufriendo hasta que aprendan.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">357</span>¿Los seres superiores pueden evitar que los seres inferiores se apoderen de la mente de un ser humano?</div><div class="answer">Como seres superiores pueden hacerlo pero alterarían la condición fundamental: que pese a todas las trabas que tenga que afrontar el ser humano tendrá que llegar a la verdad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">358</span>Define el morir.</div><div class="answer">Imagínate estas cosas: el mar, un río, una planta, y la saliva que pasa al pasar por la garganta. El mar esta, el río va, la planta esta, la saliva pasa. El pasar es como eso: como el mar el cuerpo queda, como el río se va, como el árbol bien plantado el cuerpo allí quedara, y ese momento será como pasa la saliva en el momento de tragar.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">359</span>¿Quién expresa mejor su razón, el que grita su razón o el que expone su razón?</div><div class="answer">El que grita, con sus gritos solo da confusión a quien le escucha, que no se convencerá.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">360</span>¿Los seres inferiores pueden leer los pensamientos de los seres humanos?</div><div class="answer">No, no los pueden leer, pero pueden entrar en ellos para perturbarlos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">361</span>¿Cómo entran?</div><div class="answer">Como vos lo harías para introducirte en una masa gelatinosa, ellos entran, y allí, de acuerdo a las acciones envían sus impulsos, generalmente malos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">362</span>¿En ese momento saben lo que pensamos?</div><div class="answer">Si, porque entran en tu mente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">363</span>¿Y los Seres Superiores?</div><div class="answer">Entran a voluntad en la mente de cualquier ser humano.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">364</span>¿Y los guías?</div><div class="answer">Son Seres Superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">365</span>¿Tú eres un Ser Superior?</div><div class="answer">Si.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">366</span>¿Qué intensidad de luz tienes?</div><div class="answer">Ocupo un lugar importante entre los seres superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">367</span>¿Los seres se acompañan en distintas reencarnaciones?</div><div class="answer">Si, cada ser de una elevación espiritual determinada y que viene a vivir con una misión importante, se acompaña con otros seres que le ayudaran. Los seres de bajo nivel espiritual pueden ser acompañados por otros seres para ayudarlos en los momentos de máximas pruebas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">368</span>¿Si han vuelto a encarnar?</div><div class="answer">Los seres espirituales que se acercan hacia ti son los que no han reencarnado, porque si se alejaron cumplen otra función, solo cuando tu destino te acerque a ellos otra vez, se ayudaran mutuamente después de otro nacer.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">369</span>¿Después de morir, podemos ver a nuestros seres queridos?</div><div class="answer">En los momentos mas cercanos a tu muerte solo ves a quienes te brindan ayuda, cuando te acostumbras a esa forma de existir podrás visitar a todos los que quisiste en vida. Los seres fallecidos que te quieren, se acercan a ti para ayudar a tu ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">370</span>¿Un ser que ya murió puede reencarnarse en otro ser humano de la misma familia?</div><div class="answer">Si. Todo ser humano viene a penar una y otra vez. Puede ser que en otra vida seas hijo de alguien que te hizo un daño en otra vida. O ser una persona que deberá de juzgar a un hijo de otra vida terrenal, o naciendo como su hijo, o como hijo de otro hijo que puede influir en la vejez de ese ser que vos te preguntas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">371</span>¿Reconocemos a esos seres?</div><div class="answer">Si, vos no advertiste que en alguna circunstancia algo misterioso te atrae hacia alguien?</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">372</span>¿Por qué algunos seres nos producen rechazo?</div><div class="answer">Hay una especie de campo espiritual que emana de cada ser humano. Cuando seres de distinta característica espiritual se encuentran, se produce un rechazo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">373</span>¿Se puede tener distinto sexo en sucesivas reencarnaciones?</div><div class="answer">Si, cada vida es independiente de la anterior, aunque se conservan vivencias en la esencia que influyen.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">374</span>¿Antes de nacer sabemos cómo y cuando moriremos?</div><div class="answer">Sabemos que pruebas pasaremos, pero el dejar de vivir es algo que está más allá de lo que puede saber el ser.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">375</span>¿Se puede ir contra el destino?</div><div class="answer">No. Si no no sería destino.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">376</span>¿Conociendo el futuro, se puede modificar?</div><div class="answer">No. Si no no sería conocido. El futuro está escrito y nada ni nadie puede modificarlo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">377</span>¿Puede un ser humano predecir el futuro?</div><div class="answer">Puede un ser humano intuir el futuro, pero de todo lo que intuye le sería muy difícil saber con exactitud.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">378</span>¿Es cierto que hay seres humanos que predicen con exactitud?</div><div class="answer">Hay seres humanos con dotes de clarividencia muy profundos, pero ninguno puede predecir con total exactitud.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">379</span>¿Qué son los milagros?</div><div class="answer">Son manifestaciones de Seres Superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">380</span>¿Qué pasa con nosotros en el momento de ser creados?</div><div class="answer">Somos seres rudimentarios en el escalón más bajo de la existencia.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">381</span>¿Cómo evolucionamos si todavía no existe la bondad?</div><div class="answer">Por medio de la reencarnación en sucesivas vidas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">382</span>¿En la tierra el ser humano es el único que tiene alma?</div><div class="answer">Si.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">383</span>¿Qué es la Naturaleza?</div><div class="answer">Es el ámbito natural en el que viven los seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">384</span>¿Qué son los animales?</div><div class="answer">Seres inferiores que evolucionan por medio de mutaciones.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">385</span>¿Antes de ser seres humanos, de donde venimos?</div><div class="answer">De otra galaxia en la que existimos en otra forma.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">386</span>¿Los animales cuando llegan al escalón más alto de su evolución, a dónde van?</div><div class="answer">Pasan a otro estado en el que se los dota de alma.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">387</span>¿Dónde?</div><div class="answer">En otro lugar del universo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">388</span>¿Se transforman en seres humanos?</div><div class="answer">Se trasladan a otra condición, luego de otras etapas, pasan a otros sistemas de vida hasta llegar a seres humanos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">389</span>¿En la tierra o en otros planetas?</div><div class="answer">Seres humanos, solo en la tierra, pero hay otros caminos en el universo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">390</span>¿Cuáles son los animales más evolucionados?</div><div class="answer">Los domésticos. la cercanía con los hombres les hace aprender de ellos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">391</span>¿Y los delfines?</div><div class="answer">Tienen un rudimento de inteligencia, pero lo que más domina en ellos es el instinto.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">392</span>¿Tienen sentimientos?</div><div class="answer">Todos los animales y plantas tienen sentimientos, aunque valorados de distintas maneras.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">393</span>¿Quién guía nuestros sentimientos?</div><div class="answer">Tus sentimientos están albergados en ti.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">394</span>¿Tiene la poesía relación con Dios?</div><div class="answer">Todo desciende de Dios. La poesía puede expresar mejor que otras manifestaciones los designios de Dios.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">395</span>¿El arte, ayuda a los demás?</div><div class="answer">El arte embellece o conmociona la vida de los demás, independientemente de la ayuda que pueda dispensar.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">396</span>¿Quién es JESUCRISTO?</div><div class="answer">Un ser que vino al mundo para sufrir por nuestros pecados.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">397</span>¿Por qué por nuestros pecados?</div><div class="answer">Por su inmensa bondad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">398</span>¿Quién fué ALLAN KARDEK?</div><div class="answer">Allan Kardek tuvo una revelación que lo conmocionó. se convirtió en un hijo de lo que descubrió y dedico su vida a recibir los mensajes. Con todo ese material que le dictó el mundo espiritual, fundó el espiritismo.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">399</span>¿Qué es el espiritismo?</div><div class="answer">Un dogma religioso.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">400</span>¿Qué dice el espiritismo?</div><div class="answer">Que los espíritus se comunican con los seres humanos.</div></div>
+
+            <div class="qa-block"><div class="question"><span class="q-num">401</span>¿Cómo se comunican?</div><div class="answer">Por medio de los médiums.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">402</span>¿Por qué se comunican?</div><div class="answer">Para ayudar a seres espirituales confundidos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">403</span>¿Por qué están confundidos?</div><div class="answer">Porque no aprecian su condición extraterrena.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">404</span>¿Puede un ser desencarnado modificar la materia o hacer que esa materia cambie de posición?</div><div class="answer">No, no lo puede hacer sin la ayuda de otra fuerza que con fuerza pueda extraer la fuerza suficiente como para poder vencer la inercia que tienen las cosas, que lo espiritual no puede sólo con su fuerza mover.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">405</span>¿Cómo se desarrollan los médiums?</div><div class="answer">Practicando con su mediumnidad.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">406</span>¿Qué tipos de mediumnidades existen?</div><div class="answer">Parlante, escribiente, intuitiva y vidente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">407</span>¿Qué es la mediumnidad parlante?</div><div class="answer">Los seres espirituales toman el cuerpo del médium y se comunican por medio de la voz.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">408</span>¿Cómo es la mediumnidad escribiente?</div><div class="answer">Los seres espirituales se comunican por medio de la escritura.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">409</span>¿Qué es la mediumnidad intuitiva?</div><div class="answer">Los seres espirituales se comunican por medio de impulsos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">410</span>¿Qué es la mediumnidad vidente?</div><div class="answer">Los seres espirituales envían mensajes por medio de imágenes al subconsciente del médium.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">411</span>¿Cómo reconocen estas manifestaciones?</div><div class="answer">Dejan la mente en blanco y elevando el pensamiento notan como una liberación de la mente, allí comienza la manifestación.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">412</span>¿Qué hay que hacer para desarrollar una mediumnidad?</div><div class="answer">La mediumnidad latente en todos los seres humanos se desarrolla muy fácilmente para los que están dotados. Primero, presta atención... es muy importante alejar a los problemas que en ese momento tienes, dejando la mente en blanco libre y sin emoción, después empieza la acción de los seres espirituales, van dominando tu mente van entrando dentro de ella como si fuera un jabón atrapado por tu mano y lo aprietas. El sale despedido de tu mano, se aloja dentro de vos. Para poder expresarse, si encuentra resistencia, queda atrapado y no puede manifestarse.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">413</span>¿Cómo saber si es realmente una manifestación espiritual?</div><div class="answer">Con el ejercicio de la práctica.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">414</span>¿Quiénes gobiernan estas manifestaciones?</div><div class="answer">Los seres espirituales superiores.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">415</span>¿Cómo reconocer la superchería?</div><div class="answer">Por medio de nuestros conocimientos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">416</span>¿Y si no los tenemos?</div><div class="answer">Nos confundiremos.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">417</span>¿Qué se debe hacer en una reunión espiritista?</div><div class="answer">Elevar el pensamiento y dejar que los seres espirituales se manifiesten.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">418</span>¿Qué no se debe hacer en una reunión espiritista?</div><div class="answer">Dejar que nuestros pensamientos se fijen en cosas terrenales.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">419</span>¿Cómo iniciar una reunión espiritista?</div><div class="answer">Por medio de la elevación del pensamiento de todos los presentes.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">420</span>¿Cómo se desarrolla una reunión espiritista?</div><div class="answer">Con la guía de seres espirituales, un ser humano dirige la reunión.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">421</span>¿Cómo finalizar una reunión espírita?</div><div class="answer">Los seres espirituales la finalizarán cuando lo crean conveniente.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">422</span>¿Qué explica el espiritismo?</div><div class="answer">El espiritismo da la explicación de la verdad en la Tierra: los seres en el tiempo nacen, viven, mueren, con el supremo designio de depurarse mas.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">423</span>¿Hasta dónde llegarán?</div><div class="answer">No llegaran: están. No serán: son. No solo están para ser, sino para recorrer en la forma más ligera el camino que tienen todos los seres en la tierra.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">424</span>¿Cuál es ese camino?</div><div class="answer">Ese camino comienza cuando vienen de otras eras, cuando vienen a penar con su paso por la tierra. nacen una y otra vez, hasta que con el dolor, con el sufrimiento, con los contratiempos, con todo lo que les pasa, van aprendiendo, van modelando, van avanzando en la esencia vital. en lo que de Dios proviene, en la suprema bondad. la bondad será al final la que -como probeta divina- va decantando a la maldad, va purificando el alma, va convirtiendo su sino, hasta que solo quedan en él -en ese ser luminoso- solo sentimientos buenos, solo sentimientos puros. no importa en que tiempo, no importa cuando ni como: lo que importa es que a lo largo de su existir el ser habrá de sufrir de una u otra manera, viviendo una y otra vez en la tierra. Hasta que ese ser aprenda la verdad; el camino mas seguro para evitar todo mal es depurar a su vida extirpando la maldad. Cuando eso sucede: cuando el ser es todo bondad, verás que ese ser no viene más al mundo a penar.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">425</span>¿Dónde va?</div><div class="answer">Ese ser ya depurado, ese ser que anuló conociéndola a la maldad, cumple un fin más elevado donde no necesitara sufrir para saber más cosas, pues ya todo lo sabrá.</div></div>
+            <div class="qa-block"><div class="question"><span class="q-num">426</span>¿Después que pasará?</div><div class="answer">Pasará a otra existencia en el espacio infinito. Cumplirá otro destino mucho más cristalino, será un ser al cual ya no le afectará el mal. Después tendrá otras metas muy distintas, más sublimes, seguirá por el camino que Dios le ha señalado: Acercarse más y más hasta poder alcanzarlo.</div></div>
+        </div>
+
+        <a href="#" class="scroll-top"><i class="fas fa-arrow-up"></i></a>
+    </div>
+</body>
+</html>

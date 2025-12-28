@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes Espirituales - Mensajes del Más Allá</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #050510;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #f0f0f0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-card: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* RESET */
+        * { box-sizing: border-box; }
+        body { 
+            background: var(--bg-deep); 
+            color: var(--text-main); 
+            font-family: 'Cormorant Garamond', serif; 
+            margin: 0; 
+            padding-bottom: 100px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .bg-fixed { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: var(--bg-gradient); z-index: -2; 
+        }
+
+        /* NAVBAR */
+        .navbar { 
+            padding: 1rem 2rem; background: rgba(5, 5, 16, 0.9); 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid var(--gold-primary); 
+            position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(15px); 
+        }
+        .brand { font-family: 'Cinzel Decorative'; color: var(--gold-primary); font-size: 1.1rem; text-decoration: none; font-weight: 700; letter-spacing: 1px;}
+        .back-link { 
+            color: #fff; text-decoration: none; 
+            font-family: 'Montserrat'; text-transform: uppercase; 
+            font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.3); 
+            padding: 8px 20px; border-radius: 30px; 
+            transition: 0.3s; 
+        }
+        .back-link:hover { background: var(--gold-primary); color: #000; }
+
+        /* INTRODUCCIÓN */
+        .intro-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 3rem;
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+        }
+        .intro-section h1 {
+            font-family: 'Cinzel Decorative';
+            font-size: 3rem;
+            color: var(--gold-primary);
+            margin-bottom: 2rem;
+        }
+        .intro-text {
+            font-style: italic;
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+
+        /* ACORDEÓN DE MENSAJES */
+        .accordion-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .message-item {
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .message-title {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-family: 'Cinzel Decorative';
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .message-title:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .message-title i {
+            color: var(--gold-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .message-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .message-inner {
+            padding: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: #f0f0f0;
+        }
+
+        /* CLASE ACTIVA (JavaScript la pondrá) */
+        .message-item.active {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        .message-item.active .message-title i {
+            transform: rotate(180deg);
+        }
+        .message-item.active .message-content {
+            max-height: 1000px; /* Altura suficiente para el contenido */
+        }
+
+        .verse-highlight {
+            border-left: 3px solid var(--gold-primary);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="bg-fixed"></div>
+    
+    <nav class="navbar">
+        <a href="index.html" class="brand">MENSAJES DEL MÁS ALLÁ</a>
+        <a href="index.html" class="back-link">Volver al Inicio</a>
+    </nav>
+
+    <div class="intro-section">
+        <h1>Mensajes Espirituales</h1>
+        <p class="intro-text">"Como ahora viene lo que más me conmovió, deseo que antes de proseguir la lectura, antes de poderla razonar, se detenga a pensar..."</p>
+        <p>¿Soy un místico? No lo soy. Soy una persona normal que escribió todo esto que le dio felicidad.</p>
+        <p>Quiero recordarle que todo lo que escribí fue dictado como ahora me dictan lo que escribir... Si lo abruma lo místico, deje por hoy la lectura. Si ahora continúa, por favor, deténgase luego de cada lectura como me detuve yo.</p>
+    </div>
+
+    <div class="accordion-container">
+
+        <div class="message-item">
+            <button class="message-title">¿Hay Dios? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>Si alguna vez en tu vida tienes dudas sobre Dios, esas dudas se disipan solamente con mirar: el cielo, las estrellas, y toda la inmensidad.</p>
+                    <p>Si piensas que acaso la naturaleza creó todo lo que te circunda, todo lo que ves. Piensa... Algo debe guiar tu mente, tus pensamientos, tu destino, tu saber.</p>
+                    <p>Piensa en el mañana... Piensa qué sucederá. ¿Algo debe regir las cosas... porque si no cómo es que intuimos con la mente lo que habrá de suceder?</p>
+                    <p>Si nada rigiera ésto, si fuera el albedrío de la naturaleza que con su fuerza indomable decidiera lo que habrá de pasar, la naturaleza misma con sus ciclos tan seguros, te daría los designios del futuro.</p>
+                    <p>Pero no... la naturaleza no es. Tampoco los hombres, ni los planetas, ni el sol, ni las estrellas, quienes deciden lo que pasa, lo que pasó o pasará.</p>
+                    <p>Solamente puede ser el ser que rige a todo, algo que escapa al saber, algo que está más allá del hombre y la humanidad. Porque si lo supiéramos con seguridad, si lo pudiéramos razonar, estaría cerca nuestro, y al estarlo no será algo tan grande, tan inmenso, que rige a la inmensidad.</p>
+                    <p>Ese algo que abruma de sólo ponerse a pensar, tiene que estar, que existir. Algo tiene que regir a los seres y a las cosas. Algún designio supremo. Algo tan misterioso, que para poderlo intuir, para acercarnos a El, lo llamamos Dios.</p>
+                    <p>Y El, ese ser sobrehumano, ese ser intangible, se materializa en tu mente, cobra cuerpo. ¡Es real! Está, aunque no tenga forma. Está, aunque no lo podamos ver.</p>
+                    <p>Y buscamos refugio en El, siempre que nuestras desventuras nos pidan con su amargura algo que esté más allá, alguien en quien podamos creer... algo que pueda vencer, con su Omnipotencia Divina, las desventuras del ser.</p>
+                    <div class="verse-highlight">El destino que tenemos cuando al mundo venimos, desde el día en que nacemos, hasta el día en que morimos.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Dónde está Dios? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>En una nube muy blanca estaba sentado Dios. <br>-Qué blasfemia!- Vos decías. <br>¿Cómo Dios puede estar sentado de esa manera, como lo haría un mortal?</p>
+                    <p>Dios estaba sentado en actitud de orar. <br>Más disparates me dices. Dios no puede orar. <br>A quién va a dar las preces, si es a Dios al que se le dá?</p>
+                    <p>Dios rezaba, y en su rezo, pedía por todos nosotros. <br>Más disparates tenemos, más disparates me dices. <br>Cómo Dios va a solicitar... ¿A quién?</p>
+                    <p>Dios decía: Estas criaturas humanas que yo mismo he creado, tienen -para su desdicha- que vencer todo lo malo. Vienen a vivir mil vidas, vienen a sufrir mil veces, hasta aprender de seguro, que todo mal se padece. Hasta saber de seguro que todo bien que prodigas, te ayudará en tu existencia, en ésta y en otras vidas.</p>
+                    <p>Si Dios nos dijo ésto en diálogo imaginario, qué perdemos con pensar y al pensar ir razonando: Dios es inasible, es algo sobrehumano, es algo que escapa a todo. No podemos mensurarlo.</p>
+                    <p>¿Por qué a El acudimos cuando pedimos por algo? ¿Por qué a El acudimos cuando nos conmueve algo?</p>
+                    <p>Porque Dios en su sabiduría, sabiduría infinita, nos dio de El su razón, nos dio de El sentimientos, nos dio con el pensamiento, cuando hacia El lo elevamos, respuesta a toda pregunta, que por El nos preguntamos.</p>
+                    <p>Entonces en esa nube donde Dios se aposentó, debemos representarnos la imagen de nuestro Dios. Cuando nuestro pensamiento elevemos hacia El, será más fácil verlo y pedir su merced.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Cómo amo a Dios? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>Como el mar, así es de inmenso mi cariño por la paz. Como el cielo, así es de grande mi amor por la humanidad. Amo a todo lo que existe, amo a Dios y su bondad.</p>
+                    <p>Como ángeles del cielo que visitan, redentores, a todos los seres humanos que buscan la bondad. Como sílfide gigante que entre inmensos vapores, navega por esos cielos, para llevar la verdad.</p>
+                    <p>Como los Santos Apóstoles, que vinieron a este mundo, para traer su mensaje a toda la cristiandad. Como la Tierra que gira, como el inmutable cielo, así es de grande mi amor, por todo lo que camina, por todo lo que existe y nos dio el Creador.</p>
+                    <p>Amo al sol y las estrellas, amo al amor sublime, que permite que haya seres que con su acción te redimen. Amo todo lo que se ama, amo con el más grande amor, pero lo que más amo en el mundo es a Dios Nuestro Señor.</p>
+                    <p>Honro al señor con toda mi alma y a los Santos Espíritus Superiores. Honro la fuerza del pensamiento y la voluntad del Señor. Creo en la vida perdurable, creo en que hay un Más Allá. Creo en almas superiores que guían nuestro camino. Creo en la fuerza de la mente y en la inexorabilidad del destino.</p>
+                    <p>Creo en Dios Nuestro Señor que con justicia divina, nuestro destino fijó. Amo a todos los seres. Quiero ser cada día mejor. Mejorar mis acciones. !Quiero sentir más amor!</p>
+                    <p>Deseo con toda mi alma que Dios Nuestro Señor, me indique el camino para brindarle mi amor. Quiero ver en mi camino a los ángeles del cielo, Quiero saber su presencia. Quiero sentir mi destino. Quiero que se corporicen en un mensaje divino.</p>
+                    <p>Quiero ser como la arcilla para que modelen conmigo el destino que han fijado y me guíen en el mismo. Quiero que su decisión de mostrarme mi camino, ilumine todo él. Quiero brindar al señor lo mejor de mi cariño.</p>
+                    <div class="verse-highlight">Siento que mi alma entera se llena de regocijo, para servir al Señor como el más fiel de sus hijos.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Qué enseñó Jesús? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>En el comienzo del ayer, en el comienzo de todo, tuve la dicha de ver que alguien había de nacer. Quien me habría de dar en esta vida que vivo, algo de lo que he de dar, para que ese algo que dé, ese algo que me dio, sirva para que alguien más sienta lo que siento yo.</p>
+                    <p>Sienta en sus sentimientos el amor como alimento, sienta en su corazón el pulso de su razón, sienta en todo momento como supremo sustento, el alimento de dar, de brindarse por igual: Al que tiene y al que no. Al que quiere y a quien no. Al que respeta y al que no.</p>
+                    <p>JESÚS que todo lo dió, para que todos tuvieran algo de su última cena. El pan para su alimento, el vino como sustento. Pero más valió su ejemplo, más valió su renunciamiento, más valió su sacrificio, más valió lo que dijo, la religión que formó, la creencia que dictó. Base e inspiración para que esa religión, cunda al fin de los años, para adeptos y extraños; ¡Para todos por igual!</p>
+                    <p>El no dijo: Esto es para quien me venera. El dijo: Esto lo digo para todos en la tierra. El dijo: Ama a tu prójimo, respétalo, dale tu ayuda. No dijo: Amo a quien me ama. No dijo: Cambio mi amor. Sólo dijo: Doy mi amor.</p>
+                    <p>Ese amor que les doy, lo doy sin pedir nada. Lo doy como quien da su pan, lo doy como quien se entrega, lo doy sin pedir que vuelva. Sin pedir nada por mí, sin decir qué es lo que quiero, aunque sé que es lo que quiero: Quiero que este renunciamiento, quiero que mi dolor sirva para que con el dolor de quien ha de predicar, transmita esto a alguien más con el mismo calor, con la misma fuerza, con el mismo amor con que lo he dado yo.</p>
+                    <p>Eso es lo que nos dijo. Eso es lo que JESÚS enseñó. Vino al mundo a sufrir. Tenía todo para poder, sólo con su pensamiento, convertir a sus captores en cobardes macilentos... Si el podía transformar a la enfermedad más cruenta. Si el podía convertir en débiles corderillos a los más crueles ladrones. Si el podía alimentar a miles de peregrinos multiplicando su pan. ¡Sólo con pedirlo!</p>
+                    <p>Cómo no habría de poder con una recua de esclavos, si Dios le dio Su Poder para poder enfrentarlos. ¿Por qué no lo hizo? ¿Por qué no los mató? ¿Por qué no anuló los gritos de esa turba? Porque fue un Hijo de Dios, Porque fue; Su Mensajero. Porque para el fue lo primero, El brindarse con amor.</p>
+                    <div class="verse-highlight">El Amor y la Bondad que de la Naturaleza emana, es la fuerza más poderosa, el más fuerte de los rayos: Es la razón que te da la fuerza de tu Verdad.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Cuál es el mensaje de Dios? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>¿Quién es el mortal que sabe con certeza, dominar los pensamientos que bullen en su cabeza? ¿Quién es el mortal que podría afirmar con certeza, que puede con su fuerza, la fuerza de su mente, dominar sus sentimientos y todo lo que ellos sienten? ¿Quién es el mortal que puede predicar con claridad, porque en él no están el mal y la maldad?</p>
+                    <p>¿Quién es el mortal?... Ese mortal no es tal. Ese mortal no existe. Porque, de haber nacido, sería hijo de Dios. Dios no envía mensajes rato a rato, Dios no envía mensajes vanos en vano. Dios ya sabe que los mortales tienen mensajes que provienen de otros enviados; no importa si provienen quizá del mismo Dios: Importa si contienen la palabra de Dios.</p>
+                    <p>No importa que el mensaje provenga de donde provenga, importa que el mensaje ayude a quien lo lea. El mensaje -cualquiera sea el color, cualquiera la razón, cualquiera la religión, cualquiera quien lo diga, cualquiera quien lo divulgue, cualquiera que lo practique, cualquiera crea en él- es claro, es cristalino, es puro y es normal:</p>
+                    <p>La verdadera Verdad es la Bondad, es el Amor y Amar, es el brindarse igual a todos por igual.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Qué es mejor, dar o recibir amor? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>¿Cómo es el amor que cuando está, sentimos que nuestro ser está pleno? ¿Qué es el amor?... No sé, no lo puedo precisar... Es algo que no se toca, es algo que está y no está. Es algo que llena todo y lo llena de tal modo, que sentimos cuando falta un vacío tan total, que pensamos, y al pensar, como un nudo en la garganta no nos deja ya pensar.</p>
+                    <p>¿Qué prefieres en la vida: dar o recibir amor? Recibe amor quien recibe una sonrisa sincera. Recibe amor ese ser que no tiene para comer y le dan con sentimiento, algo para su alimento. Recibe amor un mendigo al que le brindan abrigo. Recibe amor la mujer que el hombre dice querer, aunque su interés esté solamente en poseer a su cuerpo de mujer.</p>
+                    <p>Recibe amor ese hombre que la mujer alaba con el interés letal de convertirse en su esclava. Cambia por un momento de placer malo y fugaz, su dignidad, su valer, su valor como mujer. Recibe, recibe, recibe amor.</p>
+                    <p>Mil ejemplos te daría de alguien que recibe amor, pero muchos más te doy, si me pongo a pensar las mil formas que uno tiene de brindarse con amor. Pero el AMOR con mayúsculas. Ese que inunda tu ser: ese que hace que seas el más triste de los seres o el más feliz en la tierra, sólo con que ella o él, sea tuyo o no lo sea.</p>
+                    <p>Ese amor con sentimiento que hasta domina el aliento. Ese amor que llena todo. Que cuando se dedica a un ser que nos brinda su calor, que nos devuelve su amor, el ser es capaz de todo. Ese amor se da con todo, se da sin pedir que vuelva, se da con desprendimiento, se da con los pensamientos.</p>
+                    <p>Uno es inmensamente feliz si al dar su amor, al brindarse como ser, recibe a cambio de él la mayor de las venturas: Que encuentre el otro en nuestro ser su amor: AMOR con mayúsculas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Cómo es la paz del Más Allá? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>Si en un parque encuentras paz y frescura, y en un árbol reflejas tranquilidad y paz, qué será que será que encontrarás allá si no hay árboles, ni fronda, ni bosque, ni humedad. ¿Cómo harás para representar la tranquilidad en el Más Allá?...</p>
+                    <p>Si puedes vivir sin visitar un bosque, si puedes sentir sin caminar por él, también puedes imaginar la paz del Más Allá: Imagina un árbol, imagina un mar, imagina un arroyo, imagina un pan. Luego saca todo eso, y pon en su lugar: El cielo, las estrellas y toda inmensidad.</p>
+                    <p>¿Qué es lo que cubre todo? ¿Qué es lo que importa más? ¿El cielo, las estrellas, o algo de este lugar? Entonces, para imaginar la paz y tranquilidad que hay en el Más Allá, deberás compararlo con algo espiritual...</p>
+                    <p>Imagina a un hombre dotado de bondad. A ese hombre dale lo que él más apreciará. ¿Qué te parece que es? ¿Qué es lo que aprecia tánto un hombre de bondad?... Aprecia los placeres, aprecia el amor, no tiene más dolores. ¿Qué siente en su interior?...</p>
+                    <p>Siente en sus reacciones la paz de su accionar. Siente que cuando se brinda a todos por igual su espíritu se dulcifica en tranquilidad y paz. ¿Encuentras la imagen más real de la tranquilidad suprema, la paz del Más Allá? Es algo tan sencillo, ¡es algo tan normal!...</p>
+                    <p>Tu conciencia tranquila, con eso bastará.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Qué es la felicidad? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>¿Cómo te puedo dar algo con qué domar, domar a la adversidad? ¿Qué adversidad? Me dirás... ¿Qué tengo de adversidad? Tengo lo que necesito en necesidad real. Ah! ¿No tienes adversidad?</p>
+                    <p>¿Tienes todo lo que quieres? No. ¿Tienes todo lo que ansías? No. ¿Qué tienes?. Piensa... ¿Qué te falta para ser feliz? Pero qué en verdad. ¿Qué es lo que te falta para eso? ¿Qué tienes que hacer para tener eso? ¿Cómo has de hacer para llegar a eso?</p>
+                    <p>¡Ah! No sabes que es "eso". "Eso" es ser feliz. ¿Verdad? ¿Cómo se es feliz? Dirás... ¿Sabes que es la felicidad? ¿Lo sabes en verdad?</p>
+                    <p>La felicidad es amar. ¿A quién? Dirás... A todo por igual. Amar al sol, las estrellas, amar tu vida, amar a quien te quiere mal, amar sólo por amar. Cuando todo sea amor, cuando tu pensamiento sea solo amor. A la vida y al dolor. A que sufras. Cuándo no. A quién quieras, a quién no.</p>
+                    <p>Ve a la vida sin temor, ve a tu vida sin temor, cuando tu vida sea amor hasta por quién no lo merece. Cada día que amanece agradecerás a Dios cada minuto vivido.</p>
+                    <div class="verse-highlight">Esa es la felicidad. Cada minuto en tu vida lleno de pequeñas cosas, muchas hoy, más mañana, cuándo la felicidad se asome hasta tu ventana.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Venimos para penar? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>Si quieres recibir la prueba más general de que todos en la tierra vienen a ésta a penar, te diremos algo más: Te diremos que tu paz, la paz de tu despertar, se logra con cumplir cada vez más, con los preceptos que dicen: que el ser humano tendrá que modelarse en la vida, venciendo a la adversidad.</p>
+                    <p>Si conscientes que en tu vida los actos que la prodigan se resienten con acciones en que la maldad está, tu vida será vacía. Tu alterado despertar será sólo un sufrimiento hasta saber la verdad. La verdad en esta vida, la verdadera verdad, es cumplir con los preceptos que te dicen que tu paz se logra con las acciones en donde esta la bondad.</p>
+                    <p>Si dejas que el pensamiento -el que rige tu obrar- te resienta emocionalmente alterando tus acciones, con impulsos en que prima la mala fe y la maldad, las acciones que generan todo lo que vos piensas son acciones que te atrasan en tu paso terrenal.</p>
+                    <p>Pero si dejas que el tiempo -la medida de tu estar- te marque a cada momento lo que te puede hacer mal; anulando el pensamiento en donde pueda albergar -en algo de su pensar- lo malo de la maldad, la maldad será vencida, poco a poco y sin penar.</p>
+                    <p>Verás recompensado en la vida que llevas, la paz de tu conciencia, la paz de tu obrar, tus límpidos pensamientos, lo suave de tu andar, que en todo se traduce, si piensas con bondad. Las pruebas que vas pasando en tu paso terrenal, se diluyen en tu mente, luego de verlas pasar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Cómo se depura el ser? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>Esto que he escrito, esto que me han dictado, luego de escribir lo he meditado... Luego de eso pensé: Si a mí me sirvió. Sirvió para que encontrara la verdad, y me iluminara. ¿Por qué no lo he de emplear para que la verdad que me ayudó tanto, sirva para que alguien más que siga mis mismos pasos, encuentre en la bondad la verdadera verdad?</p>
+                    <p>Todo ser mortal que viene a transitar en su paso terrenal, solamente avanzará en su vida espiritual, si hace culto en su vida de la verdadera verdad: El ser humano vendrá una y otra y otra vez, para depurar a su ser: para depurarse él.</p>
+                    <p>¿Cómo se depura el ser? En cada prueba que tiene el ser toma de esa acción lo bueno que le brindó, que en su ser se acumuló. Cuando a esa acción ese ser la rodeó de Fe, Bondad y de Amor, esa prueba le sirvió; Ese ser no necesitará pasar por otra prueba similar, porque ese ser ya sabrá lo que esa prueba enseñó: La verdad en la vida que venimos a pasar, es hacer en cada vida un culto a la bondad.</p>
+                    <p>La verdad entroncada en su ser y su razón: Todo ser que tiene en su seno el amor que se brinda sin medida, que obra en cada ocasión con la bondad aprendida en cada paso que dió. No volverá a pasar nada de lo que ya pasó, Porque ese ser aprendió la razón de su existencia:</p>
+                    <div class="verse-highlight">Es vivir cada existencia para ir hacia el amor que el mismo Dios le brindó cuando de algo lo creó.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-item">
+            <button class="message-title">¿Por qué nos reencarnamos? <i class="fas fa-chevron-down"></i></button>
+            <div class="message-content">
+                <div class="message-inner">
+                    <p>Como una novia de blanco de pureza virginal. Como una muñeca grande. Como la luz que ilumina. Esa es la imagen que tengo, esa es la imagen que guardo, de lo que nos debe guiar. Esa novia con rubores que nunca mancillaron, que nunca osaron poseer su virtud.</p>
+                    <p>La muñeca: símbolo de lo puro de la vida que está en la infancia escondida. Y la luz que ilumina: la luz pura, que proviene de un cielo límpido, sin nubes. Ni siquiera un pájaro que perturbe con su vuelo la limpidez de ese cielo. Esa es la imagen que tengo de Dios y su sabiduría.</p>
+                    <p>Dios: que jamás permitiría, con su bondad infinita, la desigualdad de la vida, esa dispar fortuna con la que venimos al mundo. Unos seres, poseen todo para ser buenos, probos y leales, con los bienes materiales que heredaron o les dieron.</p>
+                    <p>U otro ser, que ya desde la cuna comienza a penar. En su pancita no tiene ni un poquito de leche, que sus padres con problemas no le pudieron comprar. O ese ser que al crecer, como educación no tiene, andará a la deriva, no tendrá norte en la vida, y se dedicará a robar. O ese, que en su desventura, nace, vive, se desarrolla con una enfermedad letal, lleno de sufrimiento desde el nacer al morir.</p>
+                    <p>¡¿Cómo va ser bueno ese ser que nació para sufrir?! O, el que es hijo de otro ser dominado por pasiones, al que desde la cuna le graban a sangre y fuego el mal como consejero, y hacen un culto del mal. Y otro, y otro, y otro más... todos distintos, desiguales. Todos con distintas armas para enfrentar a la vida.</p>
+                    <p>No puede la misma vara medir sin desigualdad, las acciones de esos seres: su maldad o su bondad. Pero todo se hace claro, diáfano, puro... verdad. Si pensamos que venimos al mundo a purificar nuestro ser con sufrimiento: el sufrimiento dispar.</p>
+                    <p>Todos los seres nacemos, vivimos y morimos con una meta segura, con una misión que tenemos, esta escrita, y es fatal. Está en nosotros qué sea lo que a nuestro espíritu eleve, o agregue penas a nuestro ser, que tendrá que venir en otra vida a vencer a la maldad.</p>
+                    <p>Esa es la explicación de las diferencias que hay. Esa es la demostración de por qué nos reencarnamos. Nacemos, vivimos, sufrimos, y a nuestro ser depuramos. La depuración sólo se da, acumulando bondad. Un ser se eleva a la gloria solo con acciones buenas.</p>
+                    <p>Y se retrasa seguro en su vida espiritual, si alberga en su ser al mal, si deja que lo domine, si deja que sus acciones sean malas y perversas. La misión podrá cumplir, pero no avanzará en su depuración, y tendrá que volver, una y otra, y otra vez. Hasta que el sufrimiento, como la fragua mas fuerte, lo forme, grabe en él ese camino hacia el bien.</p>
+                    <p>Ese camino que lleva, de una u otra manera, a acercarnos a Dios depurando nuestra esencia.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.message-item');
+
+        items.forEach(item => {
+            const button = item.querySelector('.message-title');
+            button.addEventListener('click', () => {
+                // Si este item ya está activo, lo cerramos
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                } else {
+                    // Si no, cerramos los demás y abrimos este
+                    items.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

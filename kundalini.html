@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energía Vital Kundalini - Instituto de Terapias Vibracionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #050510;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #f0f0f0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-card: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* RESET & BASICS */
+        html { scroll-behavior: smooth; }
+        body { 
+            background: var(--bg-deep); 
+            color: var(--text-main); 
+            font-family: 'Cormorant Garamond', serif; 
+            margin: 0; 
+            padding-bottom: 50px;
+            font-size: 19px;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .bg-fixed { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: var(--bg-gradient); z-index: -2; 
+        }
+
+        /* NAVBAR */
+        .navbar { 
+            padding: 1rem 2rem; background: rgba(5, 5, 16, 0.9); 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid var(--gold-primary); 
+            position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(15px); 
+        }
+        .brand { font-family: 'Cinzel Decorative'; color: var(--gold-primary); font-size: 1.1rem; text-decoration: none; font-weight: 700; letter-spacing: 1px;}
+        .back-link { 
+            color: #fff; text-decoration: none; 
+            font-family: 'Montserrat'; text-transform: uppercase; 
+            font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.3); 
+            padding: 8px 20px; border-radius: 30px; 
+            transition: 0.3s; 
+        }
+        .back-link:hover { background: var(--gold-primary); color: #000; }
+
+        /* HERO KUNDALINI */
+        .hero-kundalini {
+            text-align: center;
+            padding: 5rem 1rem;
+            position: relative;
+        }
+        .hero-kundalini::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(50px);
+        }
+
+        .hero-title {
+            font-family: 'Cinzel Decorative';
+            font-size: 4rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+        .hero-subtitle {
+            font-family: 'Montserrat';
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold-light);
+            font-size: 1rem;
+        }
+
+        /* CONTENIDO PRINCIPAL */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .concept-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 15px;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .concept-box p { margin-bottom: 1.5rem; text-align: justify; }
+        .highlight { color: var(--gold-primary); font-weight: bold; }
+
+        /* SECCIÓN ACTUALIZACIÓN CIENTÍFICA (NUEVO) */
+        .science-update {
+            background: rgba(0, 20, 40, 0.4);
+            border-left: 4px solid #00bcd4; /* Azul ciencia */
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+        .science-title {
+            font-family: 'Montserrat';
+            color: #00bcd4;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* GRID DE TEMAS (LINKS ORIGINALES) */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+        
+        .topic-card {
+            background: var(--glass-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            transition: 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .topic-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(10px);
+            border-color: var(--gold-primary);
+        }
+        .topic-icon { color: var(--gold-primary); font-size: 1.2rem; }
+        .topic-text { font-family: 'Montserrat'; font-size: 0.9rem; font-weight: 500; }
+
+        /* CHAKRAS VISUALIZACIÓN */
+        .chakra-section { margin-top: 5rem; }
+        .chakra-header { text-align: center; margin-bottom: 3rem; }
+        .chakra-header h2 { font-family: 'Cinzel Decorative'; font-size: 2.5rem; color: var(--gold-primary); }
+
+        .chakra-card {
+            display: flex;
+            align-items: center;
+            background: rgba(0,0,0,0.3);
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+        .chakra-card:hover { transform: scale(1.02); background: rgba(255,255,255,0.05); }
+        
+        .chakra-symbol {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            box-shadow: 0 0 15px currentColor;
+            flex-shrink: 0;
+        }
+        
+        .chakra-info h3 { margin: 0 0 0.5rem 0; font-family: 'Cinzel Decorative'; color: #fff; }
+        .chakra-info p { margin: 0; font-size: 0.95rem; color: #ccc; }
+
+        /* Colores Chakras */
+        .c-corona { color: #A569BD; border: 2px solid #A569BD; background: rgba(165, 105, 189, 0.1); }
+        .c-tercer { color: #2E86C1; border: 2px solid #2E86C1; background: rgba(46, 134, 193, 0.1); }
+        .c-garganta { color: #5DADE2; border: 2px solid #5DADE2; background: rgba(93, 173, 226, 0.1); }
+        .c-corazon { color: #27AE60; border: 2px solid #27AE60; background: rgba(39, 174, 96, 0.1); }
+        .c-plexo { color: #F4D03F; border: 2px solid #F4D03F; background: rgba(244, 208, 63, 0.1); }
+        .c-sacro { color: #E67E22; border: 2px solid #E67E22; background: rgba(230, 126, 34, 0.1); }
+        .c-raiz { color: #C0392B; border: 2px solid #C0392B; background: rgba(192, 57, 43, 0.1); }
+
+        /* FOOTER */
+        .footer-info {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 3rem;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(0,0,0,0.5);
+        }
+        .footer-info h4 { font-family: 'Cinzel Decorative'; color: var(--gold-primary); font-size: 1.5rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="bg-fixed"></div>
+    
+    <nav class="navbar">
+        <a href="index.html" class="brand">MENSAJES DEL MÁS ALLÁ</a>
+        <a href="index.html" class="back-link">Volver al Inicio</a>
+    </nav>
+
+    <header class="hero-kundalini">
+        <h1 class="hero-title">Energía Vital Kundalini</h1>
+        <p class="hero-subtitle">Circulación en el cuerpo humano y el despertar de la consciencia</p>
+    </header>
+
+    <div class="main-container">
+
+        <div class="concept-box">
+            <p>Desde hace siglos las religiones asiáticas han hablado de una fuerza mística llamada <span class="highlight">Kundalini</span>. La kundalini es una energía poderosa que, según las tradiciones orientales, se encuentra enrollada en la base de la espina dorsal del ser humano.</p>
+            <p>La circulación de la energía vital en el universo físico se rige y es controlada por Kundalini. Esta energía está directamente relacionada con el almacenamiento personal de la energía sexual.</p>
+            <p>Kundalini toma a la energía sexual en forma cruda y la transforma en <span class="highlight">energía espiritual de una frecuencia sumamente alta</span>, que permite la activación de actividades paranormales como la telepatía y la comunicación con entidades que habitan las zonas extensas de nuestro universo multidimensional.</p>
+            
+            <div class="science-update">
+                <div class="science-title"><i class="fas fa-atom"></i> Perspectiva Contemporánea y Actualizada</div>
+                <p style="font-size: 0.95rem; margin-bottom: 0;">
+                    En la actualidad, el concepto de "energía vibracional" ha comenzado a ser estudiado bajo nuevos paradigmas. Investigaciones recientes (como las del CSIC y la medicina bioelectromagnética) demuestran que las células humanas emiten vibraciones y resonancias específicas. Lo que los antiguos llamaban <strong>Kundalini</strong> hoy se reinterpreta en terapias modernas como el <em>Shakti Awakening</em> o la medicina cuántica, entendiendo que el desbloqueo de flujos bioeléctricos en la columna vertebral puede inducir estados de coherencia cardíaca y cerebral superior.
+                </p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--gold-light); font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2rem;">Temas de Estudio Profundo</h3>
+        <div class="topics-grid">
+            <div class="topic-card"><i class="fas fa-yin-yang topic-icon"></i> <div class="topic-text">Armonización de Centros Energéticos</div></div>
+            <div class="topic-card"><i class="fas fa-question-circle topic-icon"></i> <div class="topic-text">Por qué creo en Kundalini</div></div>
+            <div class="topic-card"><i class="fas fa-project-diagram topic-icon"></i> <div class="topic-text">Hologramas y administración de Energía</div></div>
+            <div class="topic-card"><i class="fas fa-hand-holding-medical topic-icon"></i> <div class="topic-text">Efectos de terapias alternativas</div></div>
+            <div class="topic-card"><i class="fas fa-wave-square topic-icon"></i> <div class="topic-text">Dominios de frecuencia y planos sutiles</div></div>
+            <div class="topic-card"><i class="fas fa-hands topic-icon"></i> <div class="topic-text">Fenómeno de imposición de manos</div></div>
+            <div class="topic-card"><i class="fas fa-notes-medical topic-icon"></i> <div class="topic-text">Curación Holística y paradigmas</div></div>
+            <div class="topic-card"><i class="fas fa-globe-americas topic-icon"></i> <div class="topic-text">Evolución personal y planetaria</div></div>
+        </div>
+
+        <section class="chakra-section">
+            <div class="chakra-header">
+                <h2>Los Centros Energéticos</h2>
+                <p>Mapa de la anatomía sutil y la evolución espiritual</p>
+            </div>
+
+            <div class="chakra-card">
+                <div class="chakra-symbol c-corona"><i class="fas fa-crown"></i></div>
+                <div class="chakra-info">
+                    <h3>Sahastrara (Corona)</h3>
+                    <p>Conexión divina y espiritualidad pura. Es el centro de la iluminación y la trascendencia del ego. Ubicado en el tope de la cabeza.</p>
+                </div>
+            </div>
+
+            <div class="chakra-card">
+                <div class="chakra-symbol c-tercer"><i class="fas fa-eye"></i></div>
+                <div class="chakra-info">
+                    <h3>Agnya (Tercer Ojo)</h3>
+                    <p>Centro de la intuición, la clarividencia y la percepción más allá de la materia. Gobierna la glándula pineal y la mente superior.</p>
+                </div>
+            </div>
+
+            <div class="chakra-card">
+                <div class="chakra-symbol c-garganta"><i class="fas fa-microphone-alt"></i></div>
+                <div class="chakra-info">
+                    <h3>Vishuddhi (Garganta)</h3>
+                    <p>La comunicación, la expresión de la verdad y la creatividad verbal. Puente entre el sentir y el pensar.</p>
+                </div>
+            </div>
+
+            <div class="chakra-card">
+                <div class="chakra-symbol c-corazon"><i class="fas fa-heart"></i></div>
+                <div class="chakra-info">
+                    <h3>Anahata (Corazón)</h3>
+                    <p>El equilibrio, el amor incondicional y la compasión. Es el punto de integración entre los chakras inferiores y superiores.</p>
+                </div>
+            </div>
+
+            <div class="chakra-card">
+                <div class="chakra-symbol c-plexo"><i class="fas fa-sun"></i></div>
+                <div class="chakra-info">
+                    <h3>Nabhi (Plexo Solar)</h3>
+                    <p>Poder personal, voluntad y transformación. Aquí se procesa la energía emocional y la digestión de experiencias.</p>
+                </div>
+            </div>
+
+            <div class="chakra-card">
+                <div class="chakra-symbol c-sacro"><i class="fas fa-water"></i></div>
+                <div class="chakra-info">
+                    <h3>Swadisthana (Sacro/Ara)</h3>
+                    <p>Centro de la creatividad, la energía sexual y las emociones fluidas. Relacionado con el elemento agua y el placer de vivir.</p>
+                </div>
+            </div>
+
+            <div class="chakra-card">
+                <div class="chakra-symbol c-raiz"><i class="fas fa-tree"></i></div>
+                <div class="chakra-info">
+                    <h3>Muladhara (Raíz)</h3>
+                    <p>Supervivencia, seguridad y conexión con la tierra. Donde duerme la Kundalini esperando despertar.</p>
+                </div>
+            </div>
+
+            <div class="concept-box" style="margin-top: 4rem; border-color: var(--gold-light);">
+                <h3 class="highlight" style="font-family: 'Cinzel Decorative'; font-size: 1.5rem;">Opinión de Gopi Krishna</h3>
+                <p>Gopi Krishna, reconocido mundialmente por su experiencia directa con el despertar de la Kundalini, advierte que este proceso no es meramente simbólico, sino una transformación biológica real. Él sostiene que el cerebro humano está evolucionando hacia un estado superior de conciencia y que la Kundalini es el mecanismo evolutivo detrás de los genios y los profetas. Sin embargo, advierte sobre la necesidad de una vida equilibrada y una guía adecuada, pues el despertar prematuro sin preparación puede desestabilizar el sistema nervioso.</p>
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer class="footer-info">
+        <h4>INSTITUTO DE TERAPIAS VIBRACIONALES</h4>
+        <p>Av. Callao 1031 - 1º piso (1023) Buenos Aires, República Argentina</p>
+        <p style="margin-top: 1rem; color: var(--gold-primary); font-weight: bold;">
+            <i class="fas fa-phone-alt"></i> Consultas: (0541) 4813-7042
+        </p>
+        <p style="font-size: 0.8rem; margin-top: 2rem; color: #666;">
+            Nota: La información aquí presentada busca la evolución personal. Las terapias vibracionales son complementarias y no reemplazan la medicina tradicional.
+        </p>
+    </footer>
+
+</body>
+</html>

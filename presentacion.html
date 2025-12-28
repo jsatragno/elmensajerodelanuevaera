@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación - Mensajes del Más Allá</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #050510;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --gold-primary: #d4af37;
+            --text-main: #f0f0f0;
+        }
+        body {
+            background: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+        }
+        .bg-fixed {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-gradient); z-index: -2;
+        }
+
+        .navbar {
+            padding: 1rem 2rem; background: rgba(0,0,0,0.8);
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--gold-primary);
+            position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);
+        }
+        .brand { font-family: 'Cinzel Decorative'; color: var(--gold-primary); text-decoration: none; font-weight: bold;}
+        .back-btn {
+            color: #fff; text-decoration: none; border: 1px solid #fff;
+            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-family: sans-serif;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: var(--gold-primary); color: #000; border-color: var(--gold-primary); }
+
+        .content-box {
+            max-width: 800px; margin: 4rem auto; padding: 3rem;
+            background: rgba(255,255,255,0.05); border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+        h1 { font-family: 'Cinzel Decorative'; color: var(--gold-primary); font-size: 3rem; text-align: center; margin-bottom: 2rem;}
+        p { font-size: 1.3rem; line-height: 1.8; margin-bottom: 1.5rem; }
+
+        /* ESTILO DE IMAGEN MEJORADO */
+        .author-image-container {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .author-image {
+            max-width: 250px;
+            border-radius: 50%; /* Hace la imagen redonda */
+            border: 4px solid var(--gold-primary); /* Marco dorado */
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); /* Resplandor dorado */
+            filter: sepia(0.6) contrast(1.2); /* Efecto de foto antigua mística */
+            transition: transform 0.5s ease;
+        }
+        
+        .author-image:hover {
+            transform: scale(1.05);
+            filter: sepia(0) contrast(1); /* Vuelve al color original al pasar el mouse */
+        }
+
+        .author-caption {
+            font-family: 'Cinzel Decorative';
+            color: var(--gold-primary);
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-fixed"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="brand">MENSAJES DEL MÁS ALLÁ</a>
+        <a href="index.html" class="back-btn">VOLVER AL INICIO</a>
+    </nav>
+
+    <div class="content-box">
+        <h1 id="page-title">Presentación</h1>
+
+        <div class="author-image-container">
+            <img src="roberto-mistico.jpg" alt="Ilustración Mística de Roberto" class="author-image">
+            <div class="author-caption">Roberto Ángel Satragno</div>
+        </div>
+
+        <p style="font-style: italic; text-align: center; color: #aaa; margin-bottom: 2rem;">Cómo se inicio todo:</p>
+        <p>El día 23 de Mayo de 1979, confundido por la angustia y la desolación en que me sumió mi separación matrimonial, como había hecho otras veces en mi vida, tomé lápiz y papel y escribí...</p>
+        <p>En los primeros momentos creí que desvariaba. Luego vi que mi mano se movía a increíble velocidad haciendo garabatos ininteligibles.</p>
+        <p>Cuando me tranquilicé, vi que lo que estaba poniendo en el papel eran pensamientos completamente alejados de mi nivel cultural.</p>
+        <p>Luego de los días, lo que seguí escribiendo a todas horas me parecía dictado desde el Más Allá.</p>
+        <p>Como un demente y febrilmente, seguía escribiendo preguntas y respuestas a un ritmo vertiginoso.</p>
+        <p>No podía ser que mi irracionalidad llegara al extremo de escribir, con total fundamento, lo que estaba vertiendo en el papel...</p>
+        <p>Y creí... asimilé las enseñanzas, quería divulgar todo. Que otros comprendieran lo que me sucedía. Que otros supieran hacia dónde era el camino.</p>
+        <p>Creía que era el único. Quería montarme en el mundo, que todos lo supieran, que todos lo comprendieran, que a todos le sirviera.</p>
+        <p>Luego comprendí; yo soy imperfecto, yo no era quién, no lo merecía.</p>
+        <p>Entonces me dediqué a educarme con lo que escribí.</p>
+        <p>Ser el primer convencido, para poder convencer.</p>
+        <p>Dar ejemplo por mí mismo, dar ejemplo por mí.</p>
+        <p>Fue muy difícil quitar, como a una mala hierba, los malos pensamientos, las cosas con maldad.</p>
+        <p>Creo que llegó el momento de dar a conocer todo esto que cambió mi vida.</p>
+        <p>Todo lo que escribí, lo que estoy escribiendo, primero se hizo carne, después me convenció y después seguí las enseñanzas que alguien me dictó.</p>
+        <p>El mérito que tengo, si es algo que cuenta, es el de haber puesto a esto por encima de todo. Traté de mejorar, traté de formar una imagen, traté de cumplir con estos mensajes.</p>
+        <p>Decirle quién me lo dictó, no importa... ¿Cómo me lo dictó? A quién le importa. Sólo importa lo que me dijeron... si tienen razón.</p>
+        <p>Le pido sólo pensar, si lo medita sabrá. Si lo mío es verdad, no importa. Si es verdad lo que escribo, es lo que importa.</p>
+        <p>Hoy quiero que piense usted. Mañana alguien más. Después cien, o mil... todos a pensar.</p>
+        <p>No le pido que me ayude, no le pido que me adule. Sólo le pido que medite y que razone. Sólo con eso, que piense... habré cumplido.</p>
+        <p style="text-align: center; font-weight: bold; color: var(--gold-primary);">¿Le parece poco?...</p>
+
+        <br><br>
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn" style="padding: 10px 30px; font-size: 1rem;">Regresar al Inicio</a>
+        </div>
+    </div>
+</body>
+</html>
