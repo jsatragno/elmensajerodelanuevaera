@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientación Personal | Mensajes del Más Allá</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- ESTILOS BASE (Heredados del Index) --- */
+        :root {
+            --bg-deep: #050510;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0b0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --font-title: 'Cinzel Decorative', cursive;
+            --font-body: 'Cormorant Garamond', serif;
+            --font-ui: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            background: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 19px;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-title); color: var(--gold-primary); }
+        a { text-decoration: none; color: inherit; transition: all 0.4s ease; }
+
+        /* --- FONDO ANIMADO --- */
+        .bg-fixed {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-gradient); z-index: -2;
+        }
+        .stars {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.4;
+            animation: twinkle 100s linear infinite;
+            z-index: -1;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 4rem; position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(5, 5, 16, 0.8); backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .brand { font-size: 1.5rem; font-weight: 700; letter-spacing: 2px; }
+        .brand span { color: var(--gold-primary); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            font-family: var(--font-ui); font-size: 0.85rem; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--text-muted); position: relative;
+        }
+        .nav-links a:hover { color: var(--gold-light); }
+
+        /* --- HERO HEADER --- */
+        .page-header {
+            padding: 8rem 2rem 4rem; text-align: center;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15), transparent 70%);
+        }
+        .page-header h1 {
+            font-size: 3.5rem; margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+        .subtitle {
+            font-family: var(--font-ui); font-size: 1.1rem; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem;
+        }
+
+        /* --- CONTENEDOR DE LECTURA (Estilo Glass) --- */
+        .reading-container {
+            max-width: 900px;
+            margin: 0 auto 6rem;
+            padding: 0 2rem;
+        }
+
+        .intro-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .btn-amanecer {
+            display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem;
+            border: 1px solid var(--gold-primary); color: var(--gold-primary);
+            font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 2px;
+            border-radius: 50px; transition: 0.3s;
+            background: linear-gradient(45deg, rgba(212,175,55,0.1), transparent);
+        }
+        .btn-amanecer:hover {
+            background: var(--gold-primary); color: #000;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+
+        /* --- ARTÍCULOS / PREGUNTAS --- */
+        .qa-article {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 3px solid var(--gold-primary);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border-radius: 0 10px 10px 0;
+            transition: transform 0.3s;
+        }
+        .qa-article:hover {
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateX(5px);
+        }
+        
+        .qa-article h2 {
+            font-size: 2rem; margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;
+        }
+        
+        .qa-article p { margin-bottom: 1.5rem; color: #ddd; text-align: justify; }
+
+        /* --- DIARIO (Timeline) --- */
+        .timeline-section {
+            position: relative; margin-top: 5rem;
+            border-top: 1px solid var(--glass-border); padding-top: 4rem;
+        }
+        .timeline-entry {
+            background: var(--glass-bg); border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 2rem; border-radius: 10px; margin-bottom: 2rem;
+        }
+        .date-badge {
+            display: inline-block; background: var(--gold-primary); color: #000;
+            padding: 5px 15px; border-radius: 20px; font-family: var(--font-ui);
+            font-weight: bold; font-size: 0.8rem; margin-bottom: 1rem;
+        }
+
+        /* --- EL ORIGEN (1979) --- */
+        .origin-section {
+            background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+            padding: 3rem; border-radius: 15px; margin-top: 5rem;
+            border: 1px solid var(--gold-primary);
+        }
+        .origin-list dt {
+            color: var(--gold-primary); font-family: var(--font-ui);
+            margin-top: 1.5rem; font-weight: bold;
+        }
+        .origin-list dd {
+            margin-left: 1rem; border-left: 2px solid #555;
+            padding-left: 1rem; margin-top: 0.5rem; color: #ccc;
+        }
+
+        /* --- ÍNDICE RÁPIDO --- */
+        .toc-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem; margin-bottom: 4rem;
+        }
+        .toc-link {
+            background: rgba(255,255,255,0.03); padding: 10px; text-align: center;
+            border-radius: 5px; font-family: var(--font-ui); font-size: 0.8rem;
+            border: 1px solid transparent;
+        }
+        .toc-link:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #000; padding: 3rem; text-align: center;
+            font-size: 0.9rem; color: #555; border-top: 1px solid #111;
+        }
+        .back-top {
+            display: inline-block; margin-top: 1rem; color: var(--gold-primary);
+            font-family: var(--font-ui); font-size: 0.8rem;
+        }
+
+        /* ANIMACIONES */
+        @keyframes twinkle { from { background-position: 0 0; } to { background-position: -1000px 1000px; } }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem; flex-direction: column; gap: 1rem; }
+            .page-header h1 { font-size: 2.5rem; }
+            .reading-container { padding: 0 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-fixed"></div>
+    <div class="stars"></div>
+
+    <nav class="navbar">
+        <div class="brand">MENSAJES DEL <span>MÁS ALLÁ</span></div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="kundalini.html">Kundalini</a>
+            <a href="mensajes.html">Mensajes</a>
+            <a href="orientacion.html" style="color: var(--gold-primary);">Orientación</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Orientación y Educación Personal</h1>
+        <p class="subtitle">Compendio de comunicación con algo más allá</p>
+    </header>
+
+    <main class="reading-container">
+
+        <div class="intro-box">
+            <p>Durante la elaboración de esta página hubo alguien que me ayudó cuando lo pasé mal, alguien que se alegró cuando me fue bien, alguien que se apenó cuando hacía algún mal, alguien que me dictó lo que ahora juzgará.</p>
+            <p>Hubo alguien que me educó como ahora lo verá. Lo verá y juzgará si ese alguien tiene razón. Si es así se educará como me eduqué yo.</p>
+            <a href="#toc" class="btn-amanecer">Si desea una respuesta, oprima el amanecer</a>
+        </div>
+
+        <div id="toc" class="toc-grid">
+            <a href="#bienes" class="toc-link">Bienes Materiales</a>
+            <a href="#exito" class="toc-link">El Éxito</a>
+            <a href="#tentacion" class="toc-link">La Tentación</a>
+            <a href="#elegido" class="toc-link">¿Por qué elegido?</a>
+            <a href="#dudas" class="toc-link">Las Dudas</a>
+            <a href="#imagen" class="toc-link">La Imagen</a>
+            <a href="#mision" class="toc-link">Mi Misión</a>
+            <a href="#bienomal" class="toc-link">Bien o Mal</a>
+            <a href="#esperar" class="toc-link">¿Por qué esperar?</a>
+            <a href="#diario" class="toc-link">Diario (1992-93)</a>
+            <a href="#origen" class="toc-link">El Origen (1979)</a>
+        </div>
+
+        <article id="bienes" class="qa-article">
+            <h2>¿Puedo tener bienes materiales?</h2>
+            <p>¿Qué quieres para tu vida? ¿Quieres bienes materiales, o quieres que todos tus males se reduzcan hasta estar en su verdadero lugar?</p>
+            <p>¿Cuál es ese lugar? Para los bienes que cuentan: El pan para tu alimento, para tu diario sustento, lo deberás ganar cada día, paso a paso, poniéndote a trabajar. Ese es el pan que ganado con el debido sudor, se santifica en tu mesa, porque tiene su valor.</p>
+            <p>Para los bienes que traen a tu vida comodidad. ¿Qué importa si tienes menos, qué importa si tienes más? Al final de tu camino, cuando mires hacia atrás, esos bienes materiales que tanto costó ganar, son sólo cosas sin vida, cosas solas nada más.</p>
+            <p>Pero si a esos bienes los usas para dominar, los usas para que te sirvan, para a otros doblegar, si lo haces con maldad, irremediablemente traerán a tu ser adversidad.</p>
+            <p>La verdad en la vida es el bien prodigar. Cuanto mas bien prodigas, más bien recibirás.</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <article id="exito" class="qa-article">
+            <h2>¿Qué es el éxito?</h2>
+            <p>¿Qué se puede comprar, con éxito nada más? Claro, si tienes un éxito y lo puedes valorar en dinero u otra forma, ese éxito valdrá. ¿Cómo has de darle valor, si no se puede pesar?</p>
+            <p>Tienes que tratar de hacer progresos una y otra vez: no importa que tu destino tenga mojones, momentos prefijados. Lo que hagas en los momentos que aún no están señalados, son parte de tu albedrío y así podrás ayudarlo: Trabajando y estudiando.</p>
+            <p>A los éxitos pequeñitos que hacen a tu vida plena, a esos puedes cultivarlos, puedes alcanzarlos, con trabajo y dedicación: Son parte de tu albedrío, son parte de tu función.</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <article id="tentacion" class="qa-article">
+            <h2>¿Qué pasa si caigo en una tentación?</h2>
+            <p>Si dejas que la tentación te arrastre por el camino de la maldad, la traición, el rencor, el desvarío. Esa tentación será quien deje en tu destino, un ser bajo, ruin, que merecerá el abismo en el que su alma caerá como castigo divino.</p>
+            <p>Todo lo bueno que hiciste, todo el bien que puedes hacer, hazlo sin pedir nada a cambio: que el premio será recibido al morir, pues habrás cumplido con la ley fundamental: El que obra con bondad, es un ser que ha llegado a dominar su razón.</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <article id="elegido" class="qa-article">
+            <h2>¿Cómo puede ser que me hayan elegido?</h2>
+            <p>¿Cómo puede ser que yo, que no tengo nada, pueda ser quien ha de dar el mensaje de cuál es la verdad? La verdadera verdad... ¿Cómo puede ser que yo, que tengo poca instrucción, tenga la tarea de darle difusión a mensajes tan profundos?</p>
+            <p>Quienes dominan sus acciones, son dueños de sus reacciones. Quienes son dueños de sus reacciones, dan cabida a sus emociones; y no dejan que sus emociones los desvíen de sus acciones.</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <article id="dudas" class="qa-article">
+            <h2>¿Por qué tengo tantas dudas?</h2>
+            <p>Si yo que ya comprendo, que sé con seguridad que el camino verdadero es brindarse a los demás, tengo dudas y temores y vacilo en mi obrar. ¡Cómo puedo pretender que el mal sea dominado, si en mí el mal no está, cerrado y amordazado!</p>
+            <p style="font-style: italic; text-align: center; color: var(--gold-primary);">"Si tu deseo de herir hace daño a otra persona, no olvides que ese dolor volverá a ti, en otra forma."</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <article id="imagen" class="qa-article">
+            <h2>¿Qué imagen tendré que dar?</h2>
+            <p>Todo lo que necesitas es un poco de paciencia, que te diga tu experiencia qué es lo mejor: Difundir con la base de mentir, sin una imagen formada; o esperar que esa imagen que se forma en tu conciencia, sea la base futura para que crean en tus cosas.</p>
+            <p>¿Cómo puedes convencer de la verdad de la vida, si la verdad de la vida no forma parte de tu vida? Cuando esa imagen sea parte de ti mismo, no la necesitarás: Porque esa imagen darás.</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <article id="mision" class="qa-article">
+            <h2>¿Cuál es mi Misión?</h2>
+            <p>Procura ser claro y preciso cuando te hagan preguntas, trata de elevar tu mente, tranquilizarte y decir: Que la misión que tienes es la de difundir la verdad en esta vida.</p>
+            <p>¿Qué llevamos al morir? Llevamos sólo bondad como capital supremo. Tendrás que hacer razonar que el capital mayor, que enriquece al ser espiritual, es sin dudas: La bondad.</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <article id="bienomal" class="qa-article">
+            <h2>¿Cómo sé si hago un bien o un mal?</h2>
+            <p>Tienes siempre que pensar: ¿Con ésto hago un bien o un mal? Si haces algún bien... lo dejarás pasar con normalidad. Cuanto más normal sea que hagas un bien en la Tierra, es más seguro que seas un hombre bueno luego de ésta.</p>
+            <p>Convierte cada bien en algo que te haga bien. Hazlo con naturalidad. Si el cajón de tu vida en donde está la bondad, está repleto de acciones en que primó la bondad, ese cajón atestado cuando lo vas a evocar te colmará de emociones de auténtica felicidad.</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <article id="esperar" class="qa-article">
+            <h2>¿Por qué tengo que esperar?</h2>
+            <p>¿Quién te dijo qué las cosas se obtienen sin trabajar? Te decimos que deberás cultivar a la paciencia en tu vida. A la paciencia... no más.</p>
+            <p>No dijimos que dejes, que todo te llegará. Te dijimos que esperes, pero que luches igual. Serás todo lo que ansías en el plano espiritual si dominas a tu cuerpo en el plano material.</p>
+            <a href="#toc" class="back-top">↑ Volver al Índice</a>
+        </article>
+
+        <section id="diario" class="timeline-section">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Los últimos años...</h2>
+            
+            <div class="timeline-entry">
+                <span class="date-badge">30 de junio de 1992</span>
+                <p>La solución total de tus problemas que te saque de las angustias que en este momento te aquejan, no deberás esperarla después de corto tiempo, pero la tendrás en muy poco a porvenir, cuando se te muestre el camino a seguir.</p>
+            </div>
+
+            <div class="timeline-entry">
+                <span class="date-badge">30 de noviembre de 1992</span>
+                <p>¿Qué es lo que pasará? Te dijimos que esperes, que esperes y no desesperes. Antes de lo que piensas, poco tiempo mas, cambiará tu derrotero, en todo cambiará.</p>
+            </div>
+
+            <div class="timeline-entry">
+                <span class="date-badge">15 de enero de 1993</span>
+                <p>A partir de este momento, de este momento en más, sucederán tantas cosas, tantas te sucederán, que aún lo más prodigioso que te decimos acá, será pálido reflejo de lo que te pasará.</p>
+            </div>
+
+            <div class="timeline-entry">
+                <span class="date-badge">24 de julio de 1993</span>
+                <p>Esa será tu Misión, esa será tu tarea: Anunciar la Buena Nueva.</p>
+            </div>
+        </section>
+
+        <section id="origen" class="origin-section">
+            <h2 style="text-align: center; margin-bottom: 2rem;">El Origen</h2>
+            <p>El día 26 de Mayo de 1979 perseguido por las ideas que escribía vertiginosamente en el papel, me plantee; Para qué hacia todo esto. Estas son las respuestas:</p>
+            
+            <dl class="origin-list">
+                <dt>427 ¿Quién es Roberto Ángel Satragno?</dt>
+                <dd>Un ser que vino al mundo para ser el intermediario natural de las ideas del espiritualismo.</dd>
+
+                <dt>428 ¿Qué fines persigue el Espiritualismo?</dt>
+                <dd>Benéficos, espirituales e intelectuales.</dd>
+
+                <dt>443 ¿Qué papel cumplirá Roberto Ángel Satragno?</dt>
+                <dd>Será un simple intermediario de nuestras ideas.</dd>
+
+                <dt>447 ¿Qué cualidades deberá aportar?</dt>
+                <dd>Honradez, trabajo y espiritualidad.</dd>
+
+                <dt>453 ¿Tendrá bienes materiales?</dt>
+                <dd>Nosotros le enseñaremos a subestimarlos.</dd>
+            </dl>
+
+            <p style="margin-top: 3rem; font-style: italic; text-align: center; color: #aaa;">
+                "Si son muchos es mejor. Si no sirven le pido perdón por su tiempo y su atención. También le pido perdón porque esto que estoy escribiendo, también me lo fue dictado..."
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mensajes del Más Allá - Orientación y Educación Personal</p>
+        <p style="margin-top: 10px;">Basado en los escritos y experiencias de Roberto Ángel Satragno</p>
+    </footer>
+
+</body>
+</html>
